@@ -4,32 +4,32 @@ import styles from './HomepageFeatures.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Safe & secure',
     Svg: require('../../static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Easily identify and transform sensitive user data.
+        Only authenticated team members can restore snapshots.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Custom anonymized data',
     Svg: require('../../static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Exclude trivial tables and define exactly how to
+        de-identify personally identifiable information.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Fast, tiny downloads',
     Svg: require('../../static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Restore only essential tables as and when needed
+        to create snapshots in just a few minutes.
       </>
     ),
   },
