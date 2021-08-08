@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# PostgreSQL Database with Docker
+# Docker
 
 ## 1. Postgres Quick Setup
 

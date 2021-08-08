@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# PostgreSQL Database Hosted on Supabase
+# Supabase
 
 ## Create Postgres Database with Supabase
 

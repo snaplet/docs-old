@@ -1,54 +1,10 @@
-# Snaplet Quick Start with PostgreSQL on Railway
+---
+sidebar_position: 3
+---
 
-[Snaplet](https://snaplet.dev) is a tool for developers that need a copy of their production database with fake data for development or testing. If you're just getting started with Snaplet, check out [How Snaplet works](https://www.snaplet.dev/post/how-snaplet-works) by Almarie Stander.
+# Railway
 
-## 1. Snaplet Setup
-
-### Install Snaplet CLI
-
-If you are on a Mac you can install the CLI with Homebrew:
-
-```bash
-brew install snaplet/brew/cli
-```
-
-Run `snaplet --help` at any time to see all available commands. Here are some of the common commands you will be using.
-
-* `snaplet login [access-token]` - Authenticate with your personal access token
-* `snaplet init [database-id]` - Initialize snaplet by specifying where to restore your snapshots
-* `snaplet ls` - List all available snapshots
-* `snaplet restore [snapshot-name]` - Restore a snapshot
-* `snaplet db <command>` - Database tools
-
-### Check version number with `snaplet --version`
-
-Run the following command to check your version after installing the CLI.
-
-```bash
-snaplet --version
-```
-
-```
-0.0.1-beta.11
-```
-
-### Login with access token and `snaplet login`
-
-![01-snaplet-dashboard-team-members](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4oiyi9ssnx0r31d5rupp.png)
-
-Click the "Access tokens" tab on the left side of the page, and then click "New access token". Use this token to login from the CLI.
-
-```bash
-snaplet login [access-token]
-```
-
-```
-Testing access token...
-✔ Logged in as: anthony@stepzen.com
-✔ Updated system config: /Users/ajcwebdev/.snaplet/config.json
-```
-
-## 2. Provision a PostgreSQL database with Railway
+## 1. Provision a PostgreSQL database with Railway
 
 First you need to [create a Railway account](http://railway.app/) and install the [Railway CLI](https://docs.railway.app/cli/installation).
 
@@ -144,7 +100,7 @@ Type "help" for help.
 railway=# 
 ```
 
-## 3. Seed database
+## 2. Seed database
 
 ```sql
 CREATE TABLE test_table (Test text);
@@ -179,17 +135,17 @@ railway-#
  test   | text |           |          | 
 ```
 
-## 4. Revoke Write access
+### Revoke Write access
 
 By default you will have privileges to perform DELETE, INSERT, TRUNCATE, or UPDATE. While Snaplet does work with WRITE-access, the team does not recommend it.
 
-### Create a "readaccess" role
+Create a "readaccess" role
 
 ```sql
 CREATE ROLE readaccess;
 ```
 
-### Grant "SELECT" access to the "public" schema.
+Grant "SELECT" access to the "public" schema.
 
 ```sql
 GRANT USAGE ON SCHEMA public TO readaccess;
@@ -226,7 +182,7 @@ GRANT readaccess TO snaplet_readonly;
 echo `railway variables get DATABASE_URL` | pbcopy
 ```
 
-## 5. Connect Snaplet to Railway database with `snaplet init`
+## 3. Connect Snaplet to Railway database with `snaplet init`
 
 The `snaplet init` command must be run for each project and is usually run at the repository root directory level, where a configuration file is generated.
 
