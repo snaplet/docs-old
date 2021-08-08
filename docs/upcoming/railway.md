@@ -105,6 +105,7 @@ railway=#
 ```sql
 CREATE TABLE test_table (Test text);
 INSERT INTO test_table VALUES ('Hello'), ('Goodbye');
+SELECT * FROM test_table;
 ```
 
 ### List tables in database
