@@ -5,27 +5,28 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 module.exports = {
   title: 'Snaplet',
   tagline: 'Work with your database as easily as your code',
-  url: 'https://snaplet.netlify.com',
+  url: 'https://docs.snaplet.dev',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'snaplet', // Usually your GitHub org/user name.
-  projectName: 'snaplet', // Usually your repo name.
+  projectName: 'docs', // Usually your repo name.
   themeConfig: {
+    hideableSidebar: false,
     navbar: {
-      title: 'Documentation',
-      logo: {
-        alt: 'Snaplet Logo',
-        src: 'https://uploads-ssl.webflow.com/605b054afe05f848015d3a1a/605b0c673432779b9908e447_Snaplet%20logo.svg',
-      },
+      title: 'Snaplet Documentation',
+      // logo: {
+      //   alt: 'Snaplet Logo',
+      //   src: 'https://uploads-ssl.webflow.com/605b054afe05f848015d3a1a/605b0c673432779b9908e447_Snaplet%20logo.svg',
+      // },
       items: [
-        {
-          type: 'doc',
-          docId: 'intro',
-          position: 'left',
-          label: 'Docs',
-        },
+        // {
+        //   type: 'doc',
+        //   docId: 'intro',
+        //   position: 'left',
+        //   label: 'Docs',
+        // },
         {
           href: 'https://github.com/snaplet/docs',
           label: 'GitHub',
@@ -34,24 +35,23 @@ module.exports = {
       ],
     },
     footer: {
-      style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Learn',
           items: [
             {
-              label: 'Docs',
-              to: '/docs/intro',
+              label: 'Introduction',
+              to: '/',
+            },
+            {
+              label: 'Installation',
+              to: '/getting-started/install-snaplet-cli',
             },
           ],
         },
         {
           title: 'Community',
           items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/snaplet',
-            },
             {
               label: 'Discord',
               href: 'https://discord.com/invite/aNSMaWtjKx',
@@ -71,7 +71,7 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/snaplet/snaplet',
+              href: 'https://github.com/snaplet',
             },
           ],
         },
@@ -81,6 +81,7 @@ module.exports = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
+      additionalLanguages: ['bash'],
     },
   },
   presets: [
@@ -88,6 +89,7 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
             'https://github.com/snaplet/docs',

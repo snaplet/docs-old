@@ -1,6 +1,6 @@
 # Snaplet Documentation
 
-The Snaplet docs website is built using [Docusaurus 2](https://docusaurus.io/).
+The Snaplet documentation website is built using [Docusaurus 2](https://docusaurus.io/).
 
 ## Install and start development server
 

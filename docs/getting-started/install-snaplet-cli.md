@@ -2,56 +2,56 @@
 sidebar_position: 2
 ---
 
-# Install Snaplet CLI
+# Install CLI
 
-## 1. Snaplet Setup
+Snaplet CLI restores snapshots to your PostgresQL database on your development environments.
 
-### Install Snaplet CLI
-
-If you are on a Mac, you can install the CLI with Homebrew:
-
-```bash
+macOS:
+```terminal
 brew install snaplet/brew/cli
 ```
 
-If you are on linux, you can install the CLI with curl
-
+If you don't want to use a package manager, you can install it directly for Windows/ Linux/ macOS:
 ```bash
 curl -sL https://app.snaplet.dev/get-cli/ | bash
 ```
 
-Run `snaplet --help` at any time to see all available commands. Here are some of the common commands you will be using.
+## Log in
 
-- `snaplet login [access-token]` - Authenticate with your personal access token
-- `snaplet init [database-id]` - Initialize snaplet by specifying where to restore your snapshots
-- `snaplet ls` - List all available snapshots
-- `snaplet restore [snapshot-name]` - Restore a snapshot
-- `snaplet db <command>` - Database tools
-
-### Check version number with `snaplet --version`
-
-Run the following command to check your version after installing the CLI.
+In order for Snaplet CLI to access snapshots it needs an access token. For local development use `snaplet login` which will ask you to enter a personal access token to authenticate. This only needs to happen once. For CI/CD set the `SNAPLET_AUTH_TOKEN` environmental variable.
 
 ```bash
-snaplet --version
+$ snaplet login
+Get your personal access token from this page: https://app.snaplet.dev/access-token/cli
+✔ Paste your access token … xxxx-xxxx-xxxx-xxxx
+Verifying credentials...
+✔ Updated config /Users/peterp/.snaplet/config.json
+✔ Logged in as peter@snaplet.dev
 ```
 
-```
-0.0.1-beta.11
-```
 
-### Login with access token and `snaplet login`
+<div style={{textAlign: 'center'}}>
 
-![01-snaplet-dashboard-team-members](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4oiyi9ssnx0r31d5rupp.png)
+![Snappy says "Sup!"](/img/snappy-lying-down-whistling.svg)
 
-Click the "Access tokens" tab on the left side of the page, and then click "New access token". Use this token to login from the CLI.
+</div>
+
+## Setup
+
+Now that the CLI is installed, let's configure it for use with a datasource in your local development environment. Access to snapshots are scoped to a specific directory on your filesystem as this allows you to restore snapshots for multiple projects on a single machine.
+
+The `snaplet init` command can be run for each project, this is usually run at the repository root directory level, where a configuration file is generated.
 
 ```bash
-snaplet login [access-token]
+# Change to your project's directory
+cd ./your/code
+
+snaplet init
 ```
 
-```
-Testing access token...
-✔ Logged in as: anthony@stepzen.com
-✔ Updated system config: /Users/ajcwebdev/.snaplet/config.json
-```
+## Usage
+
+Restore the latest snapshot using the `snaplet restore` command. This will download the snapshot, restore the schema and data, and delete your old database.
+
+To create an on demand snapshot use `snaplet restore --new`
+
