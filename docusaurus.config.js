@@ -14,21 +14,20 @@ module.exports = {
   projectName: 'snaplet', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'My Site',
+      title: 'Documentation',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'Snaplet Logo',
+        src: 'https://uploads-ssl.webflow.com/605b054afe05f848015d3a1a/605b0c673432779b9908e447_Snaplet%20logo.svg',
       },
       items: [
         {
           type: 'doc',
           docId: 'intro',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/snaplet/docs',
           label: 'GitHub',
           position: 'right',
         },
@@ -41,7 +40,7 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Docs',
               to: '/docs/intro',
             },
           ],
@@ -51,15 +50,15 @@ module.exports = {
           items: [
             {
               label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              href: 'https://stackoverflow.com/questions/tagged/snaplet',
             },
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              href: 'https://discord.com/invite/aNSMaWtjKx',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              href: 'https://twitter.com/_snaplet',
             },
           ],
         },
@@ -68,16 +67,16 @@ module.exports = {
           items: [
             {
               label: 'Blog',
-              to: '/blog',
+              to: 'https://www.snaplet.dev/blog',
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/snaplet/snaplet',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Snaplet, Inc. All rights reserved.`,
     },
     prism: {
       theme: lightCodeTheme,
@@ -90,15 +89,8 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/',
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/edit/master/website/blog/',
+            'https://github.com/snaplet/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
