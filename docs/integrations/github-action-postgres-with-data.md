@@ -41,7 +41,7 @@ The action needs the following:
 1. Installing Snaplet CLI in the Github action so `snaplet restore` can be called.
 1. Using this action with required parametes. Mainly docker registry username for Github containers.
 
-Let's build this piece-by-piece, if you are eager and want to see a full example, see a [full example below](here-is-a-full-example-of-the-usage)
+Let's build this piece-by-piece, if you are eager and want to see a full example, see a [full example below](#here-is-a-full-example-of-the-usage)
 
 ### 1. A workflow trigger, that can be a push to the repo or a workflow dispatch or even be run on a schedule.
 
