@@ -37,7 +37,7 @@ The action needs the following:
 
 1. A workflow trigger, that can be a push to the repo or a workflow dispatch or even be run on a schedule.
 1. A Github action service container running Postgres that matches the version of your production postgres.
-1. Docker login in the Github action so it can publish the Posgres images with "baked-in" data.
+1. Docker login in the Github action so it can publish the Postgres images with "baked-in" data.
 1. Installing Snaplet CLI in the Github action so `snaplet restore` can be called.
 1. Using this action with required parametes. Mainly docker registry username for Github containers.
 
