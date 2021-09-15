@@ -4,8 +4,6 @@ sidebar_position: 2
 
 # GitHub Action - Postgres Docker Image with "Baked-In" Data
 
-TK Codespaces + docker login
-
 ## Introduction
 
 Snaplet copies a production database, transforming personal information so that developers can safely code against actual data.
