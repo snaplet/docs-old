@@ -28,7 +28,7 @@ Your dev-env matches production. Why not do the same with the data?
 
 ## Prerequisites
 
-1. If you are new to Snaplet, please [check us out here](https://www.snaplet.dev/). To follow this guide, you must have taken a snapshot with snaplet alreay.
+1. If you are new to Snaplet, please [check us out here](https://www.snaplet.dev/). To follow this guide, you must have taken a snapshot with Snaplet already.
 2. This guide assumes some familiarity with setting up Github codespaces. Please take some time to read through the [Github codespaces documentation here](https://docs.github.com/en/codespaces/getting-started/quickstart).
 
 ## How to use it to publish a docker image?
