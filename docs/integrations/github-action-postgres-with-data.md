@@ -77,7 +77,7 @@ Note that for the best results, the Postgres version here should match the datab
 
 Learn more about [Github actions service containers here](https://docs.github.com/en/actions/guides/about-service-containers).
 
-### 3. Docker login in the Github action so it can publish the Posgres images with "baked-in" data.
+### 3. Docker login in the Github action so it can publish the Postgres images with "baked-in" data.
 
 ```yml
 uses: docker/login-action@v1
