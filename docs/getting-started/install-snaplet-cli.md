@@ -6,12 +6,8 @@ sidebar_position: 2
 
 Snaplet CLI restores snapshots to your PostgresQL database on your development environments.
 
-macOS:
-```terminal
-brew install snaplet/brew/cli
-```
 
-If you don't want to use a package manager, you can install it directly for Windows/ Linux/ macOS:
+Install directly for Windows/ Linux/ macOS:
 ```bash
 curl -sL https://app.snaplet.dev/get-cli/ | bash
 ```
