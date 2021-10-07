@@ -1,6 +1,6 @@
 # Securing PostgresQL
 
-Snaplet connects to your PostgresQL database in order to create snapshots. We recommend that you give us read-only access to your database, and that you restrict connection to a specific set of ip-addresses.
+Snaplet connects to your PostgresQL database in order to create snapshots. We recommend that you give us read-only access to your database, and that you restrict connection to a specific set of IP addresses.
 
 <div style={{textAlign: 'center'}}>
 
@@ -32,7 +32,7 @@ CREATE USER snaplet_readonly WITH PASSWORD 'a very good password';
 GRANT readaccess TO snaplet_readonly;
 ```
 
-## Grant ip-address access
+## Grant IP address access
 
 Snaplet uses `54.93.75.84` and `18.158.21.101` to connect to your database. It's a good idea to restrict all traffic to PostgresQL, and only grant access where it's absolutely required.
 
