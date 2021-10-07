@@ -15,7 +15,3 @@ Your development environment matches production, so why not do the same with the
 
 </div>
 
-Snaplet takes care of the entire snapshot workflow and gives you tools for copying, transforming, uploading and restoring your data.
-
-It detects personally identifiable information and suggests realistic replacements.
-
