@@ -40,6 +40,6 @@ Restrict access to your database with the [pg_hba.conf file](https://www.postgre
 
 ```
 # TYPE  DATABASE        USER            ADDRESS                 METHOD
-host    <dbname>        all             54.93.75.84             md5
-host    <dbname>        all             18.158.21.101           md5
+host    <dbname>        all             54.93.75.84/32          md5
+host    <dbname>        all             18.158.21.101/32        md5
 ```
