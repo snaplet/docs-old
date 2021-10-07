@@ -2,6 +2,12 @@
 
 Snaplet connects to your PostgresQL database in order to create snapshots. We recommend that you give us read-only access to your database, and that you restrict connection to a specific set of ip-addresses.
 
+<div style={{textAlign: 'center'}}>
+
+![Never cry over split milk!](/img/snappy-spilt-milk.svg)
+
+</div>
+
 ## Create a read-only account
 
 Connect to your database and run the following SQL statements. These creates a `snaplet_readonly` user with the password `a very good password` and gives them `readaccess` to the `public` schema.

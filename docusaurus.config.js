@@ -9,7 +9,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
   organizationName: 'snaplet', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
   themeConfig: {
@@ -36,19 +36,19 @@ module.exports = {
     },
     footer: {
       links: [
-        {
-          title: 'Learn',
-          items: [
-            {
-              label: 'Introduction',
-              to: '/',
-            },
-            {
-              label: 'Installation',
-              to: '/getting-started/install-snaplet-cli',
-            },
-          ],
-        },
+        // {
+        //   title: 'Learn',
+        //   items: [
+        //     {
+        //       label: 'Introduction',
+        //       to: '/',
+        //     },
+        //     {
+        //       label: 'Installation',
+        //       to: '/getting-started/install-cli',
+        //     },
+        //   ],
+        // },
         {
           title: 'Community',
           items: [
