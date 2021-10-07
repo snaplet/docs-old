@@ -6,8 +6,7 @@ sidebar_position: 2
 
 Snaplet CLI restores snapshots to your PostgresQL database on your development environments.
 
-
-Install directly for Windows/ Linux/ macOS:
+Install the CLI for **macOS**, **Linux** or **Windows**:
 ```bash
 curl -sL https://app.snaplet.dev/get-cli/ | bash
 ```
@@ -21,7 +20,6 @@ $ snaplet login
 Get your personal access token from this page: https://app.snaplet.dev/access-token/cli
 ✔ Paste your access token … xxxx-xxxx-xxxx-xxxx
 Verifying credentials...
-✔ Updated config /Users/peterp/.snaplet/config.json
 ✔ Logged in as peter@snaplet.dev
 ```
 
@@ -47,7 +45,7 @@ snaplet init
 
 ## Usage
 
-Restore the latest snapshot using the `snaplet restore` command. This will download the snapshot, restore the schema and data, and delete your old database.
+Restore the latest snapshot using the `snaplet restore` command. This will download the snapshot, restore the schema and data, and remove your old database.
 
 To create an on demand snapshot use `snaplet restore --new`
 

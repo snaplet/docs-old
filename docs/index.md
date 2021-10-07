@@ -7,9 +7,7 @@ slug: /
 
 [Snaplet](https://snaplet.dev) copies a production database, transforming personal information so that developers can safely code against actual data. Coding against unrelastic data could lead to false assumptions that result in bugs and inaccurate features.
 
-Your dev-env matches production. Why not do the same with the data? 
-
-That's where Snaplet comes in!
+Your development environment matches production, so why not do the same with the data? That's where Snaplet comes in!
 
 <div style={{textAlign: 'center'}}>
 
