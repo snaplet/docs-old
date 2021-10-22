@@ -1,4 +1,4 @@
-# Install Snaplet CLI
+# Install the CLI
 
 Snaplet CLI restores snapshots to your PostgresQL database on your development environments.
 
@@ -18,3 +18,7 @@ curl -sL https://app.snaplet.dev/get-cli/ | bash
 Visit [https://app.snaplet.dev/get-cli/](https://app.snaplet.dev/get-cli/) to see the implementation of the shell script.
 
 :::
+
+## Setup the CLI...
+
+You'll need to login, select a datasource and setup your local development environment database credentials to restore a snapshot...

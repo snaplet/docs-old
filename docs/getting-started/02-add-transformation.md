@@ -1,13 +1,12 @@
-# Add transformations
+# Transform your data
 
-Snaplet transforms your data based on a set of rules that you, and your team, specify. This means that you always have control about how you want your data to look in your development environment.
+Now we can copy you're data, but before creating your snapshot, we still need to know how to transform it. In the next step you create a set of transformations operations that are applied to your data during the snapshot process.
 
 ## Operations
 
 ### Exclude data
 
-Databases often contain information, such as `logs`, that aren't really helpful during development, but tend to take a ton of space. These kind of tables can be excluded. Snaplet will copy the structure, but none of the data.
-
+Databases often have tables that contain loads of data that isn't really helpful during development. A lot of the time this is log information, and these tables can excluded. We'll still create the structure, but copy none of the data.
 
 <div style={{textAlign: 'center'}}>
 
@@ -18,7 +17,11 @@ Databases often contain information, such as `logs`, that aren't really helpful 
 
 ### Replace column data
 
-We identify and suggest synthetic data replacements. You can combine, and remove syntheitc replacements, and strip out columns that aren't helpful during development.
+We identify personal information and suggest synthetic data replacements that match those types, for example if your column contains first names we'll suggest you replace it with a set of first name values.
+
+Replacements can be combined with other replacements or static values, such as `${name.firstName()} ${name.lastName()}`
+
+The replacements are consistent across snapshots, that means that a "user with id 107" will always be "Scott." Consistent values are great when writing tests!
 
 <div style={{textAlign: 'center'}}>
 
@@ -36,7 +39,7 @@ We identify and suggest synthetic data replacements. You can combine, and remove
 
 You've just created and don't have enough data? Don't want to write a seed script? You can use a column transformation rule to generate any amount of rows. Generation can be run locally on a per table & column basis.
 
-:::note
+:::info
 
 **Coming soon!** Are you excited about this feature and want to see it in the world? Join us!
 
@@ -47,9 +50,12 @@ You've just created and don't have enough data? Don't want to write a seed scrip
 
 Ever wanted 10% of your `users` table? Or wanted all the data just for a specific user? Subsetting copies a set of data based on a constraint allows you to quickly gather "just enough" information to squash that bug in production!
 
-:::note
+:::info
 
 **Coming soon!** Are you excited about this feature and want to see it in the world? Join us!
 
 :::
 
+## Your first snapshot...
+
+We have all the right ingredients to bake your snapshot!
