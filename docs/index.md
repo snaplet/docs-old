@@ -9,15 +9,7 @@ Snaplet copies a Postgres database, transforming personal information, so that d
 
 ## The problem
 
-As a developer it's difficult to get an accurate representation of production-like data. The two most common approaches for solving this are to write seed scripts or copy a production database.
-
-<div>
-  <blockquote class="twitter-tweet">
-    <p lang="en" dir="ltr">&quot;So who maintains &lt;internal tool&gt;?&quot;<br />&quot;Oh, Chris wrote that. He left.&quot;</p>&mdash; Load-bearing Undefined Behavior (@lunasorcery) <a href="https://twitter.com/lunasorcery/status/1436407806630973441?ref_src=twsrc%5Etfw">September 10, 2021</a>
-  </blockquote>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-</div>
-
+As a developer it's difficult to get an accurate representation of production-like data. The most common approaches for solving this are to write seed scripts, to copy the production database.
 
 <div style={{textAlign: 'center'}}>
 
