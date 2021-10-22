@@ -1,4 +1,4 @@
-# Authenticate Snaplet CLI
+# Authenticate the CLI
 
 In order to restore your snapshots you need to be authenticated. 
 

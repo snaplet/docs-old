@@ -1,4 +1,4 @@
-# Setup Snaplet CLI
+# Setup the CLI
 
 Now that the CLI is installed and you're logged in, there's one last step before you can restore a snapshot.
 
@@ -21,3 +21,10 @@ password
 database   snaplet_development
 Wrote project config
 ```
+
+### Env-vars
+
+You can overwrite the project configuration with the following envars:
+
+- `SNAPLET_DATABASE_ID=xxx-xxx-xxx`: Skips the configuration and uses the datasource id.
+- `SNAPLET_DATABASE_CONNECTION_STRING=pg://user:pasword@localhost:5432/database`: Skip the supplied database credentials.
