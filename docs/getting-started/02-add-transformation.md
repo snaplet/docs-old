@@ -1,14 +1,10 @@
----
-sidebar_position: 2
----
-
-# Add Transformations
+# Add transformations
 
 Snaplet transforms your data based on a set of rules that you, and your team, specify. This means that you always have control about how you want your data to look in your development environment.
 
 ## Operations
 
-### Exclude Data
+### Exclude data
 
 Databases often contain information, such as `logs`, that aren't really helpful during development, but tend to take a ton of space. These kind of tables can be excluded. Snaplet will copy the structure, but none of the data.
 
@@ -20,7 +16,7 @@ Databases often contain information, such as `logs`, that aren't really helpful 
 </div>
 
 
-### Replace Column Data
+### Replace column data
 
 We identify and suggest synthetic data replacements. You can combine, and remove syntheitc replacements, and strip out columns that aren't helpful during development.
 

@@ -1,8 +1,4 @@
----
-sidebar_position: 1
----
-
-# Create a New Datasource
+# Create a new datasource
 
 Once you've [created a Snaplet account](https://app.snaplet.dev/login), allow Snaplet to connect to your database, by creating a new datasource. If you're still testing Snaplet then try our test connection string!
 
