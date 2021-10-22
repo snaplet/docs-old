@@ -10,12 +10,11 @@ We never write to your database and recommend that you [create a readonly role](
 
 :::note
 
-**Self-hosted snapshot workers are coming in Q4 2021.** This means that developers will no longer have to give us access to your database, or store your snapshots in Snaplet's cloud.
+**Self-hosted snapshot workers are coming in Q4 2021.** This means that developers will no longer have to give us access to your database, or stored snapshots.
 
 :::
 
-Snaplet uses `54.93.75.84` and `18.158.21.101` to connect to your database. It's a good idea to restrict all traffic to Postgres, and only grant access where it's absolutely required!
-
+Snaplet uses the `54.93.75.84` and `18.158.21.101` IP addresses to connect to your database. It's a good idea to restrict all traffic to Postgres and grant  access where it's absolutely required!
 
 <div style={{textAlign: 'center'}}>
 
@@ -23,14 +22,10 @@ Snaplet uses `54.93.75.84` and `18.158.21.101` to connect to your database. It's
 
 </div>
 
-Once you've entered you're connection credentials Snaplet will validate that we have the correct restrictions and privileges to work properly.
+Once you've entered you're connection credentials Snaplet will validate that we have the correct privileges to operate smoothly.
 
 <div style={{textAlign: 'center'}}>
 
-![Creds please!](/screenshots/onboarding_datasource_test.png)
+![Validating credentials](/screenshots/onboarding_datasource_test.png)
 
 </div>
-
-
-
-
