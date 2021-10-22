@@ -1,6 +1,4 @@
----
-sidebar_position: 2
----
+
 
 # GitHub Action - Postgres Docker Image with "Baked-In" Data
 
