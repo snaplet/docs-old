@@ -16,39 +16,21 @@ module.exports = {
     hideableSidebar: false,
     navbar: {
       title: 'Snaplet Documentation',
-      // logo: {
-      //   alt: 'Snaplet Logo',
-      //   src: 'https://uploads-ssl.webflow.com/605b054afe05f848015d3a1a/605b0c673432779b9908e447_Snaplet%20logo.svg',
-      // },
       items: [
-        // {
-        //   type: 'doc',
-        //   docId: 'intro',
-        //   position: 'left',
-        //   label: 'Docs',
-        // },
         {
           href: 'https://github.com/snaplet/docs',
           label: 'GitHub',
+          position: 'right',
+        },
+        {
+          href: 'https://app.snaplet.dev',
+          label: 'Login',
           position: 'right',
         },
       ],
     },
     footer: {
       links: [
-        // {
-        //   title: 'Learn',
-        //   items: [
-        //     {
-        //       label: 'Introduction',
-        //       to: '/',
-        //     },
-        //     {
-        //       label: 'Installation',
-        //       to: '/getting-started/install-cli',
-        //     },
-        //   ],
-        // },
         {
           title: 'Community',
           items: [
