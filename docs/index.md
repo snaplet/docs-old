@@ -9,7 +9,9 @@ Snaplet copies a Postgres database, transforming personal information, so that d
 
 ## The problem
 
-As a developer it's difficult to get an accurate representation of production-like data. The most common approaches for solving this are to write seed scripts, to copy the production database.
+As a developer it's difficult to get an accurate representation of data in production. Coding against actual data clears assumptions and removes ambiguiety when adding features or fixing bugs.
+
+The most common approaches for solving this are to write seed scripts, or to copy the production database.
 
 <div style={{textAlign: 'center'}}>
 
@@ -21,15 +23,15 @@ Seed scripts are tedious to write and maintain, inaccurate and a tiny representa
 
 ## The solution
 
-That's where Snaplet comes in! We're a self-service workflow that allows developers to copy and transform a database to create snapshots, which can be restored into any development environment in a snap! 
+Snaplet is a self-service workflow that allows developers to copy and transform a database which can be restored into any development environment.
 
 ### Examples
 
-1. Imagine joining a new team, typing `snaplet restore` and getting a snapshot of the database from the evening before
-2. Seeing a bug in production, typing `snaplet restore --new` and restoring an "on demand" snapshot in an instant
-3. Starting each PR with a fresh snapshot of the database
-4. Writing data-migrations against actual data
-
+1. Join a new team, run `snaplet restore` and get a snapshot from the evening before
+2. See a bug in production? run `snaplet restore --new` and restore an "on demand" snapshot in an instant
+3. Write E2E tests again actual data
+4. Spin up pull request/ deploy preview databases with actual data
+5. Write data-migrations against actual data
 
 ### The workflow
 

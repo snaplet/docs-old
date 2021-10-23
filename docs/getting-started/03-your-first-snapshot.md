@@ -1,6 +1,6 @@
 # Your first snapshot
 
-You've made it! You've done all the work required to create your first snapshot. We'll boot up a snapshot-worker which is a distinct container that'll connect to your database, copy and transform your data, and then upload your snapshot into a private bucket.
+You've done all the work required to create your first snapshot. We'll boot up a snapshot worker that'll connect to your database, copy and transform your data, and then upload the snapshot into a private bucket.
 
 <div style={{textAlign: 'center'}}>
 
@@ -18,4 +18,4 @@ Snapshots are emphemeral, if they're not restored in 7 days, they're deleted and
 
 </div>
 
-Whilst you wait... it's the perfect time to install the Snaplet CLI, which allows you to restore snapshots onto your development environments.
+Install the Snaplet CLI whilst you're waiting for the snapshot to finish.
