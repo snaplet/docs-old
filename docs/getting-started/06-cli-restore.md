@@ -31,7 +31,7 @@ The `list` command shows a list of versioned snapshots, you can restore a specif
 snaplet restore v1
 ```
  
-### Restore snapshots
+### Data-only restores
 ```bash
 snaplet restore --data-only
 ```
