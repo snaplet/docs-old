@@ -1,6 +1,6 @@
 # Usage with Prisma
 
-Let Snaplet seed your database with Prisma by letting migrations create the database structure, and Snaplet restoring the data. 
+Prisma Migrations creates the database structure, and then Snaplet restores the data.
 
 ```bash
 prisma migrate dev
