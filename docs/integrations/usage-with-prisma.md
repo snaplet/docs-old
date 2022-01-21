@@ -7,7 +7,7 @@ prisma migrate dev
 snaplet restore --data-only
 ```
 
-If you don't want to run two commands, you can automatically restore data, when running `prisma migrate reset` or `prisma migrate dev`, by adding the following to your `package.json` file.
+If you don't want to run two commands, you can automatically seed the database with data, after running `prisma migrate reset` or `prisma migrate dev`, by adding the following to your `package.json` file.
 
 ```bash
 "prisma": {
