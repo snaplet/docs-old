@@ -1,6 +1,6 @@
 # Usage with Prisma
 
-Prisma Migrations creates the database structure, and then Snaplet restores the data.
+Prisma Migrations creates the database structure, and Snaplet restores the data.
 
 ```bash
 prisma migrate dev
