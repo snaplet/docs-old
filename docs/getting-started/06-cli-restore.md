@@ -30,6 +30,12 @@ The `list` command shows a list of versioned snapshots, you can restore a specif
 ```bash
 snaplet restore v1
 ```
+ 
+### Data-only restores
+```bash
+snaplet restore --data-only
+```
+ Running the `snaplet restore` command with the `--data-only` flag ensures that you keep your current database structure and only the data is restored.```
 
 ## Learn more about Snaplet CLI
 
