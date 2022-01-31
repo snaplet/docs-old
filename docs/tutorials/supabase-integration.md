@@ -107,7 +107,7 @@ Snaplet requires the ability to drop the database schemas whilst whilst restorin
 4. Paste your access token in the terminal
 
 ### Step 7: Restore to the data target
-If you have made it this far, you are ready to now populate your data target with some anonymised, versioned and production-like data.
+You're now ready to restore your production snapshot into your Supabase development project.
 
 1. Navigate to your project directory
 2. Run `snaplet setup` – you will be prompted to enter your database credentials. These are the database credentials of your **data target.** This could be your staging or development database
