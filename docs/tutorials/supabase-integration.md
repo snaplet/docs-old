@@ -16,7 +16,7 @@ You can follow along in the video below as our founder, Peter Pistorius takes yo
 ### Things you'll need before you begin:
 1. **A production Supabase project's connection string:** These can be found in Supabase via Organization > Project > Database > Connection Pooling > Connection string
 2. **A development Supabase project's connection string:** Same steps as above, but a different project/environment
-3. **A read-only role** in Production (recommended): This can be done in Supabase via Organization > SQL Editor > + New Query
+3. **A read-only role** in Production (recommended): This can be done by running the following statements on Supabase via `Organization > SQL Editor > + New Query`
 
 ```sql
 -- Create a `read_all_data` role on all schemas
