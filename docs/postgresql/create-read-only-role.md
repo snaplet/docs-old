@@ -21,21 +21,25 @@ Change the **username** and the **password**!
 :::
 
 ```sql
--- create a "readaccess" role
-CREATE ROLE readaccess;
+-- Create a `read_all_data` role on all schemas
+CREATE ROLE snaplet_read_all_data;
 
--- Grant "SELECT" access to the "public" schema.
-GRANT USAGE ON SCHEMA public TO readaccess;
-GRANT SELECT ON ALL TABLES IN SCHEMA public TO readaccess;
+DO $do$
+DECLARE
+    sch text;
+BEGIN
+    FOR sch IN SELECT nspname FROM pg_namespace
+    LOOP
+        EXECUTE format($$ GRANT USAGE ON SCHEMA %I TO snaplet_read_all_data $$, sch);
+				EXECUTE format($$ GRANT SELECT ON ALL TABLES IN SCHEMA %I TO snaplet_read_all_data $$, sch);
+				EXECUTE format($$ ALTER DEFAULT PRIVILEGES IN SCHEMA %I GRANT SELECT ON TABLES TO snaplet_read_all_data $$, sch);
+    END LOOP;
+END;
+$do$;
 
--- Grant "SELECT" access to future tables.
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO readaccess;
-
--- Create a user with password.
-CREATE USER snaplet_readonly WITH PASSWORD 'a very good password';
-
--- Grant "readaccess" to your user.
-GRANT readaccess TO snaplet_readonly;
+-- Create a `snaplet` user and associate the `read_all_data` role.
+CREATE USER snaplet WITH PASSWORD 'a very good password';
+GRANT snaplet_read_all_data TO snaplet;
 ```
 
 ::::note

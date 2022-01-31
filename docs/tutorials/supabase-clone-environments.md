@@ -8,6 +8,12 @@ We're massive fans of [Supabase](https://supabase.com/) here at Snaplet, but as 
 
 > If your development, testing, and production environments differ, even in ways you might think don’t matter, then you lose the ability to accurately predict how your code change is going to behave in production. This confidence in the code heading to production is essential for the kind of continuous delivery, rapid deployment that allows applications and their development teams to thrive in the cloud. – [Kevin Hoffman](https://www.oreilly.com/content/environment-parity-for-rapidly-deployed-cloud-native-apps/)
 
+<div style={{textAlign: 'center'}}>
+
+![I absolutely love Supabase!](/img/snappy-holding-supabase-logo.svg)
+
+</div>
+
 Environment parity sounds like a dream come true. In this guide, we’re going to tell you exactly how to do that with your data in Supabase! End-to-end, it shouldn’t take more than 15 minutes, and doing so will allow you to code against an accurate development environment that you can periodically sync with production. Chef's kiss!
 
 You can follow along in the video below as our founder, Peter Pistorius takes you through the entire process, or refer to the written guide below.
@@ -19,27 +25,8 @@ You can follow along in the video below as our founder, Peter Pistorius takes yo
 2. **A development Supabase project's connection string:** Same steps as above, but a different project/environment
 3. **A read-only role** in Production (recommended): This can be done by running the following statements on Supabase via `Organization > SQL Editor > + New Query`
 
-```sql
--- Create a `read_all_data` role on all schemas
-CREATE ROLE snaplet_read_all_data;
+> To create a read-only role across all schemas you can checkout our [docs](/postgresql/create-read-only-role)
 
-DO $do$
-DECLARE
-    sch text;
-BEGIN
-    FOR sch IN SELECT nspname FROM pg_namespace
-    LOOP
-        EXECUTE format($$ GRANT USAGE ON SCHEMA %I TO snaplet_read_all_data $$, sch);
-				EXECUTE format($$ GRANT SELECT ON ALL TABLES IN SCHEMA %I TO snaplet_read_all_data $$, sch);
-				EXECUTE format($$ ALTER DEFAULT PRIVILEGES IN SCHEMA %I GRANT SELECT ON TABLES TO snaplet_read_all_data $$, sch);
-    END LOOP;
-END;
-$do$;
-
--- Create a `snaplet` user and associate the `read_all_data` role.
-CREATE USER snaplet WITH PASSWORD 'a very good password';
-GRANT snaplet_read_all_data TO snaplet;
-```
 4. **Superuser access** for the development project. This can be done in Supabase via `Organization > SQL Editor > + New Query` and running this statement:
    `ALTER USER postgres WITH superuser;`
 
@@ -118,6 +105,12 @@ Once you have successfully completed the above steps, you will have be presented
 1. Select a data source from the list
 2. Run `snaplet restore`
 
+
+<div style={{textAlign: 'center'}}>
+
+![Supabase is fun!](/img/snappy-with-supabase-ball.svg)
+
+</div>
 
 ## All done!
 
