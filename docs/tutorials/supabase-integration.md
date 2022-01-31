@@ -39,7 +39,7 @@ $do$;
 CREATE USER snaplet WITH PASSWORD 'a very good password';
 GRANT snaplet_read_all_data TO snaplet;
 ```
-4. **Superuser access** for the development project. This can be done in Supabase via Organization > SQL Editor > + New Query and running the query:
+4. **Superuser access** for the development project. This can be done in Supabase via `Organization > SQL Editor > + New Query` and running this statement:
    `ALTER USER postgres WITH superuser;`
 
 ### Step 1: Connect your data source
