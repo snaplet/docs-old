@@ -65,7 +65,6 @@ You’ll then have to confirm providing Snaplet access to your database. Snaplet
 
 ![Snaplet onboarding checking db credentials](../../static/screenshots/supabase-integration/onboarding_write_access.png)
 
-Once you have configured this or are comfortable with continuing with `WRITE` access, you can continue. 
 
 ### Step 2: Transform your data
 
