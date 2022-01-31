@@ -122,7 +122,6 @@ Once you have successfully completed the above steps, you will have be presented
 
 As a Supabase user, you can see how this solves an issue we all typically experience when attempting to create multiple development environments and populating each of those environments with data that you can work with. With Snaplet, this process is simplified down to creating the respective Supabase projects, connecting the data source (The production database) to Snaplet and telling Snaplet where to restore that data (staging and development databases).
 
-Usually, populating your staging and development databases can be a pain, but it doesn’t have to be. With Snaplet that workflow becomes much easier. All you have to worry about is creating a new project on Supabase and let Snaplet worry about getting your data in there.
 
 If you want to learn more about Snaplet, you can explore our [docs](https://docs.snaplet.dev/). If you have any questions, feel free to [reach out on Discord](https://discord.com/invite/6HUuajc866) .
 
