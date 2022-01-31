@@ -47,7 +47,6 @@ The first thing you’ll want to do is navigate to [https://www.snaplet.dev/](ht
 
 ![Snaplet onboarding select team name](../../static/screenshots/supabase-integration/onboarding_team_name.png)
 
-Once you create your team, proceed past the “Let’s get you started screen”. 
 
 
 ![Snaplet onboarding connect your database](../../static/screenshots/supabase-integration/onboarding_connect_db.png)
