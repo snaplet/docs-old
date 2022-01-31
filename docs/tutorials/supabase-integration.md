@@ -81,7 +81,7 @@ At this point, Snaplet will automatically detect any columns that have Personall
 Next you’ll want to create a snapshot of your production database. This is what you’re going to restore later into your data target (more on that later in the guide).
 
 ### Step 4: Create a data target on Supabase
-Your data target is essentially where you want Snaplet to restore the data from your production database into. To put it into context, this would most likely be either your staging or developer database.
+Your data target is where you want Snaplet to restore the captured snapshot of your production project. This would most likely be either your staging or developer Supabase project.
 
 If you don’t already have a developer database setup on Supabase, you’ll need to create a new data target by setting up a new project on Supabase. To create a new project you’ll have to do the following:
 
