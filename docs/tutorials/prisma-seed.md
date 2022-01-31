@@ -1,4 +1,4 @@
-# Usage with Prisma
+# Prisma Seed
 
 Prisma Migrations creates the database structure, and Snaplet restores the data.
 

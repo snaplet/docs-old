@@ -1,4 +1,5 @@
-# Supabase
+# Supabase Clone Environments
+
 ## Clone Supabase production data, without personal information, to a development environment
 
 We're massive fans of [Supabase](https://supabase.com/) here at Snaplet, but as a Supabase user, you’ll know the pain and manual configuration in setting up multiple environments on Supabase, and populating each of those with data. Snaplet makes populating your multiple development environments with data, and keeping that data consistent across those environments, incredibly simple. This is rooted in a philosophy we believe in here at Snaplet: Environment parity.
