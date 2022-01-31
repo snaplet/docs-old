@@ -7,7 +7,7 @@ We're massive fans of [Supabase](https://supabase.com/) here at Snaplet, but as 
 
 > If your development, testing, and production environments differ, even in ways you might think don’t matter, then you lose the ability to accurately predict how your code change is going to behave in production. This confidence in the code heading to production is essential for the kind of continuous delivery, rapid deployment that allows applications and their development teams to thrive in the cloud. – [Kevin Hoffman](https://www.oreilly.com/content/environment-parity-for-rapidly-deployed-cloud-native-apps/)
 
-Environment parity sounds like a dream come true. In this guide, we’re going to tell you exactly how to do that with Supabase! End-to-end! It shouldn’t take more than 15 minutes, and doing so will allow you to code against an accurate development environment that you can periodically sync with production. Chef’s kiss!
+Environment parity sounds like a dream come true. In this guide, we’re going to tell you exactly how to do that with your data in Supabase! End-to-end, it shouldn’t take more than 15 minutes, and doing so will allow you to code against an accurate development environment that you can periodically sync with production. Chef's kiss!
 
 You can follow along in the video below as our founder, Peter Pistorius takes you through the entire process, or refer to the written guide below.
 
