@@ -118,7 +118,7 @@ Once you have successfully completed the above steps, you will have be presented
 2. Run `snaplet restore`
 
 
-
+## All done!
 
 As a Supabase user, you can see how this solves an issue we all typically experience when attempting to create multiple development environments and populating each of those environments with data that you can work with. With Snaplet, this workflow is simplified down to creating the respective Supabase projects, connecting the data source (typically the production database) to Snaplet and then telling Snaplet where to restore that data (typically your staging and development databases).
 
