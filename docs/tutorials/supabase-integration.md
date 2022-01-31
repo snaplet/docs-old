@@ -11,7 +11,7 @@ Environment parity sounds like a dream come true. In this guide, we’re going t
 
 You can follow along in the video below as our founder, Peter Pistorius takes you through the entire process, or refer to the written guide below.
 
-[![IMAGE_ALT](https://img.youtube.com/vi/oPtMMhdhEP4/0.jpg)](https://www.youtube.com/watch?v=oPtMMhdhEP4)
+<iframe src="https://www.youtube.com/embed/oPtMMhdhEP4?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; modestbranding; showinfo=0" allowfullscreen></iframe>
 
 ### Things you'll need before you begin:
 1. **A production Supabase project's connection string:** These can be found in Supabase via Organization > Project > Database > Connection Pooling > Connection string
