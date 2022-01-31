@@ -117,7 +117,6 @@ Once you have successfully completed the above steps, you will have be presented
 1. Select a data source from the list
 2. Run `snaplet restore`
 
-At this point in time, your specified data target should have a tables populated with anonymised, versioned and production-like data.
 
 
 
