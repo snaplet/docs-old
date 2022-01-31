@@ -43,7 +43,7 @@ GRANT snaplet_read_all_data TO snaplet;
    `ALTER USER postgres WITH superuser;`
 
 ### Step 1: Connect your data source
-The first thing you’ll want to do is navigate to [https://www.snaplet.dev/](https://www.snaplet.dev/) and sign up for a new account (it’s free). Once you have successfully signed up for a new account, you’ll begin the onboarding process. Give your team a name and click `create`
+The first thing you’ll want to do is navigate to [https://www.snaplet.dev/](https://www.snaplet.dev/) and sign up for a new account (it’s free). Once you have successfully signed up for a new account, you’ll begin the onboarding process...
 
 ![Snaplet onboarding select team name](../../static/screenshots/supabase-integration/onboarding_team_name.png)
 
