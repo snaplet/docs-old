@@ -51,7 +51,9 @@ The first thing you’ll want to do is navigate to [https://www.snaplet.dev/](ht
 
 ![Snaplet onboarding connect your database](../../static/screenshots/supabase-integration/onboarding_connect_db.png)
 
-You’ll then want to enter the credentials of the Postgres database you would like to connect to Snaplet. You can find these credentials in your Supabase console under Settings > Project Settings > Database > Connection info. Right at the bottom of the page, you will find the connection string. Alternatively, you can copy each of the values under ‘Connection Info’ respectively and paste them into Snaplet. Remember that the password is the same password you used when creating the Supabase project. If you do not remember the password, you can always reset the database password on this same screen.
+You’ll then want to enter the credentials of your production Supabase project. Find the "Connection string" in Supabase via `Organization > Project > Settings > Database > Connection string` (At the bottom of the page.)
+
+Remember that the password is the same password you used when creating the Supabase project.
 
 
 ![Supabase console connection info](../../static/screenshots/supabase-integration/supabase_connection_info.png)
