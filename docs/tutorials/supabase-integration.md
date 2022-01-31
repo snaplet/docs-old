@@ -93,7 +93,7 @@ If you don’t already have a developer database setup on Supabase, you’ll nee
 > Remember the password you use when creating the project. You’ll need this password to connect your database to Snaplet later. 
 
 ### Step 5: Make your `postgres` user a superuser
-Granting superuser privileges is important because without it, the data restoration will fail. If you try to restore the snapshot from your data source without granting superuser privileges to your `postgres` user, you will run into an `Unhandled error: must be owner of schema storage` . So in order to grant these privileges you’ll want to:
+Snaplet requires the ability to drop the database schemas whilst whilst restoring a snapshot, in order to do that we require `superuser` privileges.
 
 1. Navigate to your the `SQL Editor` in your Supabase console
 2. Click on `new query`
