@@ -12,7 +12,9 @@ Snaplet connects to your PostgresQL database in order to create snapshots. We re
 
 </div>
 
-Connect to your database and run the following SQL statements. These creates a `snaplet_readonly` user with the password `a very good password` and gives them `readaccess` to the `public` schema.
+Connect to your database and run the following SQL statements. These creates a `snaplet_readonly` user with the password `a very good password` and gives them `snaplet_read_all_data` the the schema.
+
+PostgresQL v14 includes a `pg_read_all_data` role. Run `SELECT version()` in PostgresQL to determine your version.
 
 :::warning
 
@@ -20,26 +22,41 @@ Change the **username** and the **password**!
 
 :::
 
-```sql
--- create a "readaccess" role
-CREATE ROLE readaccess;
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
 
--- Grant "SELECT" access to the "public" schema.
-GRANT USAGE ON SCHEMA public TO readaccess;
-GRANT SELECT ON ALL TABLES IN SCHEMA public TO readaccess;
-
--- Grant "SELECT" access to future tables.
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO readaccess;
-
--- Create a user with password.
+<Tabs>
+  <TabItem value="apple" label="PostgresQL v14" default>
+    <CodeBlock language="sql">
+    {`SELECT version();
+-- Create a "snaplet_readonly" user and associate the "pg_read_all_data" role.
 CREATE USER snaplet_readonly WITH PASSWORD 'a very good password';
-
--- Grant "readaccess" to your user.
-GRANT readaccess TO snaplet_readonly;
-```
-
-::::note
-
-If you have more than just the `public` schema (like if you're using Supabase or Hasura) you'll need to include those too.
-
-::::
+GRANT pg_read_all_data TO snaplet_readonly;
+`}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="orange" label="PostgresQL v13 and below">
+    <CodeBlock language="sql">
+      {`SELECT version();
+CREATE ROLE snaplet_read_all_data;
+DO $do$
+DECLARE
+    sch text;
+BEGIN
+    FOR sch IN SELECT schema_name FROM information_schema.schemata WHERE schema_name NOT LIKE 'pg_%' AND schema_name != 'information_schema'
+    LOOP
+        EXECUTE format($$ GRANT USAGE ON SCHEMA %I TO snaplet_read_all_data $$, sch);
+        EXECUTE format($$ GRANT SELECT ON ALL TABLES IN SCHEMA %I TO snaplet_read_all_data $$, sch);
+        EXECUTE format($$ ALTER DEFAULT PRIVILEGES IN SCHEMA %I GRANT SELECT ON TABLES TO snaplet_read_all_data $$, sch);
+    END LOOP;
+END;
+$do$;
+-- Create a "snaplet_readonly" user and associate the "snaplet_read_all_data" role.
+CREATE USER snaplet_readonly WITH PASSWORD 'a very good password';
+GRANT snaplet_read_all_data TO snaplet_readonly;
+`}
+    </CodeBlock>
+  </TabItem>
+  
+</Tabs>
