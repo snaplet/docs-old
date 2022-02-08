@@ -35,7 +35,7 @@ snaplet restore v1
 ```bash
 snaplet restore --data-only
 ```
- Running the `snaplet restore` command with the `--data-only` flag ensures that you keep your current database structure and only the data is restored.```
+ Running the `snaplet restore` command with the `--data-only` flag ensures that you keep your current database structure and only the data is restored.
 
 ## Learn more about Snaplet CLI
 
