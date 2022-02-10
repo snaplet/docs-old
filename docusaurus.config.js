@@ -12,7 +12,12 @@ module.exports = {
   favicon: 'img/favicon.png',
   organizationName: 'snaplet', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
+  plugins: ['docusaurus-plugin-segment'],
   themeConfig: {
+    segment: {
+      apiKey: 'Acdn4JWGFWlZG9UAcTcbEaa8LuG17oMY',
+      // Add other options here.
+    },
     hideableSidebar: false,
     navbar: {
       title: 'Snaplet Documentation',
