@@ -15,8 +15,7 @@ module.exports = {
   plugins: ['docusaurus-plugin-segment'],
   themeConfig: {
     segment: {
-      apiKey: 'Acdn4JWGFWlZG9UAcTcbEaa8LuG17oMY',
-      // Add other options here.
+      apiKey: 'VY4RrFl2Qu7bCRmxzQ7IIj9dK7MFMzrH',
     },
     hideableSidebar: false,
     navbar: {
