@@ -12,7 +12,7 @@ Snaplet connects to your PostgresQL database in order to create snapshots. We re
 
 </div>
 
-Connect to your database and run the following SQL statements. These creates a `snaplet_readonly` user with the password `a very good password` and gives them `snaplet_read_all_data` the the schema.
+Connect to your database and run the following SQL statements. These creates a `snaplet_readonly` user with the password `a very good password` and gives them the `snaplet_read_all_data` role.
 
 PostgresQL v14 includes a `pg_read_all_data` role. Run `SELECT version()` in PostgresQL to determine your version.
 
