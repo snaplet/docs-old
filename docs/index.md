@@ -46,12 +46,6 @@ Snaplet is a self-service workflow that allows developers to copy and transform 
 3. The data is archived, encrypted, and the snapshot is stored in a private bucket.
 4. The snapshots are restored into development environments with the Snaplet CLI.
 
-:::info
-**Self-hosted snapshot workers are coming in Q4 2021.**
-
-You will not have to give us access to your database, and snapshots can be stored in your own private bucket.
-:::
-
 ## Getting started...
 
 Great, you're still here! Let's [create your first snapshot!](/getting-started/create-a-new-datasource)
