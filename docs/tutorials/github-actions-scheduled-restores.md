@@ -40,7 +40,7 @@ jobs:
           # SNAPLET_DATABASE_ID: "Use if `.snaplet/config.json` isn't setup."
 ```
 
-This workflow runs every morning at 5am, and can also be [manually triggered](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow#running-a-workflow)
+This workflow runs every morning at 4am, and can also be [manually triggered](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow#running-a-workflow)
 
 It checks out the repository, in order to access the `SNAPLET_DATABASE_ID` from `.snaplet/config.json`, then it installs the Snaplet CLI and runs the `snaplet restore --new` command.
 
