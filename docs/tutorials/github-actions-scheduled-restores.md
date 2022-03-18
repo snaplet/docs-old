@@ -13,7 +13,7 @@ In this tutorial we'll show you how to create a GitHub Actions Workflow to captu
 
 ## Create a GitHub Actions Workflow
 
-This GitHub Actions Workflow that will capture and restore a snapshot at 5am every day. It installs the Snaplet CLI and runs the `snaplet restore --new` command.
+This GitHub Actions Workflow that will capture and restore a snapshot at 4am every day. It installs the Snaplet CLI and runs the `snaplet restore --new` command.
 
 1. Create a `.github/workflows` directory in your repository on GitHub if this directory does not already exist.
 2. In the `.github/workflows` directory, create a file named `snaplet-restore.yml`.
