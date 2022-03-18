@@ -17,12 +17,6 @@ postgresql://snaplet_readonly:a-very-good-password@db.bmkxarhsomwjwvhhhiqa.supab
 ```
 :::
 
-:::info
-**Self-hosted snapshot workers are coming in Q4 2021.**
-
-You will not have to give us access to your database, and snapshots can be stored in your own private bucket.
-:::
-
 ## Snapshot worker IP addresses
 
 Snaplet uses the `54.93.75.84` and `18.158.21.101` IP addresses to connect to your database. It's a good idea to restrict all traffic to Postgres and grant access where it's absolutely required!
