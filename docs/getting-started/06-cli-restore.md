@@ -40,7 +40,7 @@ snaplet restore --data-only
 ### Restore specific tables only
 
 ```bash
-snaplet restore —data-only —tables
+snaplet restore --data-only --tables
 ```
 
 Running the `snaplet restore` command with the `--data-only` flag, combined with the `--tables` parameter, gives you finer control over which data is restored. This feature is handy for those instances where you want to refresh your data in specific tables only, without affecting anything else you might have changed. Refreshing just some tables can also be a lot faster compared to the entire database!
