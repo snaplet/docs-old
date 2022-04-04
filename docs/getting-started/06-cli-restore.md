@@ -47,7 +47,7 @@ Running the `snaplet restore` command with the `—data-only` flag, combined wit
 
 *Here’s an example:*
 
-`snaplet restore —data-only —tables=public.user,city`
+`snaplet restore --data-only --tables=public.user,city`
 
 In the example above, both the user and city table in the public schema would be refreshed, and nothing else. 
 
