@@ -1,5 +1,9 @@
 # Create a datasource
 
+:::tip
+The docs are currently under development
+:::
+
 Once you've [logged in](https://app.snaplet.dev/login), create a datasource that allows Snaplet to connect to your database. We never write to your database and recommend that you [create a readonly role](/postgresql/create-read-only-role).
 
 
