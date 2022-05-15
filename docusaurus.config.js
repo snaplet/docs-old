@@ -40,7 +40,7 @@ module.exports = {
           items: [
             {
               label: 'Discord',
-              href: 'https://discord.com/invite/aNSMaWtjKx',
+              href: 'https://app.snaplet.dev/chat',
             },
             {
               label: 'Twitter',
