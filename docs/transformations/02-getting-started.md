@@ -12,11 +12,10 @@ To transform the data in your database Snaplet needs two things:
 1. A connection URL to the database that you want to transform (This can be your development database).
 2. A `.snaplet/transformations.js` file that contains Transformations Functions.
 
-Let's create those files.
 
 ## Setup: Generating transformation files
 
-You should run `snaplet config setup` at the root of your codebase (in your git repo), so that the configuration and transformations files are versioned, and shareable with the rest of your team.
+Run `snaplet config setup` at the root of your codebase (in your git repo), so that the configuration and transformations files are shared with the rest of your team.
 
 ```bash
 ✔ Connection string … postgresql://localhost/snaplet_development
@@ -32,7 +31,7 @@ The first thing Snaplet needs is a **connection string to your database**, we us
 
 Regenerate these files with `snaplet config generate --type=typedef,transformations`
 
-You can add the `.snaplet/transformations.d.ts` to your `.gitignore` configuration.
+You can add the `.snaplet/transformations.d.ts` and `.snaplet/snapshots` to your `.gitignore` configuration.
 
 :::tip
 

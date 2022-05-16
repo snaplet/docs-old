@@ -6,13 +6,7 @@ This feature will be released on the 17th of May 2022.
 
 :::
 
-Snaplet transforms the data in your database via a JavaScript callback. This "Transformation Function" is associated to the structure of your database. As an example you have a `Users` table that contains an `email` column you would assign the callback to an object with the path `public.Users` and return an object containing `email`.
-
-<div style={{textAlign: 'center'}}>
-
-![Be one with the database!](/img/snappy-nervous.svg)
-
-</div>
+Snaplet transforms the data in your database via JavaScript callbacks. This "Transformation Function" is associated to the structure of your database. As an example if have a `Users` table that contains an `email` column you would create the following:
 
 ```js
 // .snaplet/transformations.js
@@ -30,9 +24,11 @@ module.exports = () => {
 }
 ```
 
-When a snapshot is captured the `email` columns are transformed to the value "my-new-email@example.org," which is fine, but you probably want to transform those values into something dynamic?
+When a snapshot is captured the `email` column is transformed to the value "my-new-email@example.org," which is exactly what we wanted, but you probably want to generate a bunch of emails so the data looks realistic.
 
-Which is exactly where `@snaplet/copycat` helps, it's a JavaScript package that generates deterministic fake values, by supplying an input (the original email address) it returns the same static value (a new email address). Which is great for testing!
+That's where `@snaplet/copycat` comes in! It's a library that generates deterministic fake values: By supplying an input _(the original email address),_ copycat returns a static value (a fake email address). As long as the input remains the same, the output will remain the same.
+
+Example:
 
 ```js
 // .snaplet/transformations.js
@@ -53,7 +49,7 @@ module.exports = () => {
 }
 ```
 
-Something to point out is that each Transformation Function receives a `row` object which contains the original row values, so you can perform conditional logic, or mutate a JSON object.
+Each Transformation Function receives a `row` object that contains the original row's values, this allows you to perform conditional transformations, mutate a JSON object, or create deterministic faker values.
 
 ```js
 // .snaplet/transformations.js
@@ -78,4 +74,4 @@ module.exports = () => {
 }
 ```
 
-Copycat is open-source and has templates for names, addresses, phone numbers and [other common transformations!](https://github.com/snaplet/copycat/#api-reference)
+Copycat is open-source and has templates for names, addresses, phone numbers and [many other common transformations!](https://github.com/snaplet/copycat/#api-reference)
