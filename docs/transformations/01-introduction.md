@@ -6,7 +6,7 @@ This feature will be released on the 17th of May 2022.
 
 :::
 
-Snaplet transforms the data in your database via JavaScript callbacks. This "Transformation Function" is associated to the structure of your database. As an example if you have an `Users` table that contains an `email` column you would create the following:
+Snaplet transforms the data in your database via JavaScript callbacks. This "Transformation Function" is associated to the structure of your database. As an example if you have a `Users` table that contains an `email` column you would create the following:
 
 ```js
 // .snaplet/transformations.js
