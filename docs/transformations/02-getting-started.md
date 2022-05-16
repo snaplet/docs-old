@@ -68,6 +68,6 @@ Use the `snaplet snapshot restore` command to restore a Snapshot from Snaplet Cl
 
 :::tip
 
-Restore locally using the _experimental_ `snaplet snapshot capture /path/to/snapshot` command. [Send us feedback](https://github.com/orgs/snaplet/discussions)
+Restore locally using the _experimental_ `snaplet snapshot restore /path/to/snapshot` command. [Send us feedback](https://github.com/orgs/snaplet/discussions)
 
 :::
