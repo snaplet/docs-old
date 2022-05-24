@@ -1,6 +1,6 @@
 # Cli Reference
 
-## `Auth`
+## **`Auth`**
 
 To manage your auth state use `snaplet auth`.
 
@@ -18,7 +18,7 @@ Login with an access token.
 
 <br/>
 
-## `Config`
+## **`Config`**
 
 To manage your project configuration in the cloud & locally use `snaplet config`
 
@@ -79,7 +79,7 @@ Push your current local project config to the cloud.
 
 <br/>
 
-## `Snapshot`
+## **`Snapshot`**
 
 To manage snapshots use `snaplet snapshot`. `[alias: ss]`.
 
@@ -135,13 +135,13 @@ To restore a snapshot
 
 <br/>
 
-## `Proxy`
+## **`Proxy`**
 
 To start a database proxy `[aliases: dev]`
 
 <br/>
 
-## `Db`
+## **`Db`**
 
 To manage database
 
@@ -159,6 +159,6 @@ Makes a copy of the database
 
 <br/>
 
-## `Upgrade`
+## **`Upgrade`**
 
 To upgrade the cli binary use `snaplet upgrade`.
