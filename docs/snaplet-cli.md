@@ -1,4 +1,4 @@
-# Cli Reference
+# CLI Reference
 
 ## **`Auth`**
 
