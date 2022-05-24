@@ -4,7 +4,7 @@
 
 To manage your auth state use `snaplet auth`.
 
-### login
+### `login`
 
 ** Description **
 
@@ -22,7 +22,7 @@ Login with an access token.
 
 To manage your project configuration in the cloud & locally use `snaplet config`
 
-### setup
+### `setup`
 
 ** Description **
 
@@ -41,7 +41,7 @@ Setup local project configuration
 | :--------- | :---- | :------ | :----------------------------- | :------ | :------------------------ |
 | -—generate | -     | boolean | <code>true &#124; false</code> | `true`  | `config setup --generate` |
 
-### generate
+### `generate`
 
 ** Description **
 
@@ -53,7 +53,7 @@ Generate transformations file and stores it in your configuration file.
 | :----- | :---- | :----- | :------------------------------------------- | :--------- | :-------------------- |
 | -—type | --t   | string | <code>typedefs &#124; transformations</code> | `typedefs` | `config generate --t` |
 
-### pull
+### `pull`
 
 ** Description **
 
@@ -65,7 +65,7 @@ Pull your configuration saved in the cloud into your local setup.
 | :----- | :---- | :----- | :------------------------------------------------------------------------- | :------------------------------------------ | :------------------------- |
 | --type | --t   | string | <code>schemas &#124; transformations &#124; typedefs &#124; schemas</code> | <code>schemas &#124; transformations</code> | `config pull --t <choice>` |
 
-### push
+### `push`
 
 ** Description **
 
@@ -83,7 +83,7 @@ Push your current local project config to the cloud.
 
 To manage snapshots use `snaplet snapshot`. `[alias: ss]`.
 
-### capture \[aliases: c\]
+### `capture [aliases: c]`
 
 ** Description **
 
@@ -101,7 +101,7 @@ Capture a new snapshot.
 | :------------ | :---- | :----- | :------------------------------ | :------ | :------------------- |
 | -—environment | —env  | string | <code>cloud &#124; local</code> | `local` | `ss c -env <choice>` |
 
-### create
+### `create`
 
 ** Description **
 
@@ -113,13 +113,13 @@ create a snapshot in cloud
 | :----- | :---- | :------ | :----------------------------- | :------ | :----------------- |
 | --json | -     | boolean | <code>true &#124; false</code> | `true`  | `ss create --json` |
 
-### list \[aliases: ls\]
+### `list [aliases: ls]`
 
 ** Description **
 
 list all snapshots
 
-### restore \[aliases: r\]
+### `restore [aliases: r]`
 
 ** Description **
 
@@ -145,7 +145,7 @@ To start a database proxy `[aliases: dev]`
 
 To manage database
 
-### copy \[aliases: clone | backup | cp\]
+### `copy [aliases: clone | backup | cp]`
 
 ** Description **
 
