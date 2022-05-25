@@ -1,6 +1,6 @@
 # CLI Reference
 
-## **`Auth`**
+## **`auth`**
 
 To manage your auth state use `snaplet auth`.
 
@@ -18,7 +18,7 @@ Login with an access token.
 
 <br/>
 
-## **`Config`**
+## **`config`**
 
 To manage your project configuration in the cloud & locally use `snaplet config`
 
@@ -79,15 +79,15 @@ Push your current local project config to the cloud.
 
 <br/>
 
-## **`Snapshot`**
+## **`snapshot`**
 
 To manage snapshots use `snaplet snapshot`. `[alias: ss]`.
 
-### `capture [aliases: c]`
+### `capture`
 
 ** Description **
 
-Capture a new snapshot.
+Capture a new snapshot. `[aliases: c]`
 
 ** Command Args **
 
@@ -113,17 +113,17 @@ create a snapshot in cloud
 | :----- | :---- | :------ | :----------------------------- | :------ | :----------------- |
 | --json | -     | boolean | <code>true &#124; false</code> | `true`  | `ss create --json` |
 
-### `list [aliases: ls]`
+### `list`
 
 ** Description **
 
-list all snapshots
+list all snapshots. `[aliases: ls]`
 
-### `restore [aliases: r]`
+### `restore`
 
 ** Description **
 
-To restore a snapshot
+To restore a snapshot. `[aliases: r]`
 
 ** Command Flags **
 
@@ -135,21 +135,21 @@ To restore a snapshot
 
 <br/>
 
-## **`Proxy`**
+## **`proxy`**
 
 To start a database proxy `[aliases: dev]`
 
 <br/>
 
-## **`Db`**
+## **`db`**
 
 To manage database
 
-### `copy [aliases: clone | backup | cp]`
+### `copy`
 
 ** Description **
 
-Makes a copy of the database
+Makes a copy of the database. `[aliases: clone | backup | cp]`
 
 ** Command Args **
 
@@ -159,6 +159,6 @@ Makes a copy of the database
 
 <br/>
 
-## **`Upgrade`**
+## **`upgrade`**
 
 To upgrade the cli binary use `snaplet upgrade`.

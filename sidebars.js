@@ -14,6 +14,7 @@ module.exports = {
     {
       type: "category",
       label: "Getting Started",
+      collapsed: false,
       items: [
         "getting-started/create-a-new-datasource",
         "getting-started/add-transformation",
@@ -28,6 +29,7 @@ module.exports = {
     {
       type: "category",
       label: "Transforming data",
+      collapsed: false,
       items: [
         "transformations/introduction",
         "transformations/getting-started",
@@ -37,6 +39,7 @@ module.exports = {
     {
       type: "category",
       label: "Tutorials",
+      collapsed: false,
       items: [
         "tutorials/github-actions-scheduled-restores",
         "tutorials/prisma-seed",
@@ -47,6 +50,7 @@ module.exports = {
     {
       type: "category",
       label: "PostgresQL wiki",
+      collapsed: false,
       items: [
         "postgresql/create-read-only-role",
         "postgresql/grant-ip-address-access",
