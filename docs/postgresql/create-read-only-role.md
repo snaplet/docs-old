@@ -39,6 +39,8 @@ GRANT pg_read_all_data TO snaplet_readonly;
   <TabItem value="orange" label="PostgresQL v13 and below">
     <CodeBlock language="sql">
       {`SELECT version();
+-- Create a "snaplet_read_all_data" role, find all the user generated schemas, 
+-- and associate the correct grants.
 CREATE ROLE snaplet_read_all_data;
 DO $do$
 DECLARE
@@ -48,7 +50,9 @@ BEGIN
     LOOP
         EXECUTE format($$ GRANT USAGE ON SCHEMA %I TO snaplet_read_all_data $$, sch);
         EXECUTE format($$ GRANT SELECT ON ALL TABLES IN SCHEMA %I TO snaplet_read_all_data $$, sch);
+        EXECUTE format($$ GRANT SELECT ON ALL SEQUENCES IN SCHEMA %I TO snaplet_read_all_data $$, sch);
         EXECUTE format($$ ALTER DEFAULT PRIVILEGES IN SCHEMA %I GRANT SELECT ON TABLES TO snaplet_read_all_data $$, sch);
+        EXECUTE format($$ ALTER DEFAULT PRIVILEGES IN SCHEMA %I GRANT SELECT ON SEQUENCES TO snaplet_read_all_data $$, sch);
     END LOOP;
 END;
 $do$;
