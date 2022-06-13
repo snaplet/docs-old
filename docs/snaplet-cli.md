@@ -133,6 +133,25 @@ To restore a snapshot. `[aliases: r]`
 | —data-only | -     | boolean | <code>true &#124; false</code> | false   | `ss r --data-only` |
 | —tables    | -     | string  | -                              | -       | `ss r --tables`    |
 
+### `share`
+
+** Description **
+
+To share a snapshot. `[aliases: upload]`
+
+** Command Args **
+
+| Argument                       | Required | Description                                   |
+| :----------------------------- | :------- | :-------------------------------------------- |
+| [snapshot-name\|snapshot-path] | No       | The name or the path of the snapshot to share |
+
+** Command Flags **
+
+| Name     | Alias | Type    | Choices                        | Default | Usage                                 |
+| -------- | ----- | ------- | ------------------------------ | ------- | ------------------------------------- |
+| —latest  | -     | boolean | <code>true &#124; false</code> | false   | `ss share --latest`                   |
+| —message | -m    | string  | -                              | false   | `ss share -m 'my beautiful snapshot'` |
+
 <br/>
 
 ## **`proxy`**
