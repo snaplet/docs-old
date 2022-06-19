@@ -1,18 +1,15 @@
-/* stylelint-disable docusaurus/copyright-header */
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
-
  html {
   box-sizing: border-box;
-  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", "Ubuntu", sans-serif;
   font-size: 16px;
-  letter-spacing: '0.01em';
   line-height: 1.6;
+  color: rgb(60, 66, 87);
 }
-
 
 h1 {
   font-size: 28px;
@@ -29,7 +26,11 @@ h3 {
   line-height: 1.6;
 }
 
-
+code {
+  color: #6878ED;
+  background: #ECEEFD;
+  border-color: #B4BCF6;
+}
 
 /* You can override the default Infima variables here. */
 :root {
@@ -56,8 +57,9 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.menu {
-  font-size: 15px;
+.navbar {
+  box-shadow: none;
+  border-bottom: 1px rgb(218, 221, 225) solid;
 }
 
 .footer {

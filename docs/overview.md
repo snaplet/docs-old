@@ -1,11 +1,10 @@
 ---
-sidebar_position: 1
 slug: /
 ---
 
-# Introduction
+# Overview
 
-Snaplet copies a Postgres database, transforming personal information, so that developers can **safely code against actual data.**
+Snaplet gives developers PostgresQL data that they can code against. It does this by capturing a snapshot of a database: copying the schema and providing a JavaScript runtime for transforming, reducing (subsetting) and generating the data.
 
 ## The problem
 
@@ -45,7 +44,3 @@ Snaplet is a self-service workflow that allows developers to copy and transform 
 2. The workers copy and transform your data.
 3. The data is archived, encrypted, and the snapshot is stored in a private bucket.
 4. The snapshots are restored into development environments with the Snaplet CLI.
-
-## Getting started...
-
-Great, you're still here! Let's [create your first snapshot!](/getting-started/create-a-new-datasource)
