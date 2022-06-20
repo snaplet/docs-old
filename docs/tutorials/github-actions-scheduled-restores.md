@@ -6,7 +6,7 @@ In this tutorial we'll show you how to create a GitHub Actions Workflow to captu
 
 **In order to restore snapshots you'll need:**
 
-1. [Setup a source database in Snaplet](/getting-started/create-a-new-datasource).
+1. Setup a source database in Snaplet
 2. You've run the `snaplet setup` command in your GitHub repository, which created a `.snaplet/config.json` file. This file associates your repository with your snapshots.
 3. A [Snaplet CLI access token](https://app.snaplet.dev/access-token/cli).
 4. A target database with superuser priviledges and a connection string to that database.

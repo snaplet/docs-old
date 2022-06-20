@@ -16,8 +16,8 @@ module.exports = {
       label: 'Getting started',
       collapsible: false,
       items: [
-        { type: 'doc', id: 'getting-started/install-cli', label: 'Install CLI' },
-        { type: 'doc', id: 'getting-started/setup-config', label: 'Setup Configuration' }
+        { type: 'doc', id: 'getting-started/installation', label: 'Installation' },
+        { type: 'doc', id: 'getting-started/configuration', label: 'Configuration' }
       ]
     }
   ]
