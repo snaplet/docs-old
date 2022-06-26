@@ -1,6 +1,3 @@
-
-
-
 module.exports = {
   docs: [
     {
@@ -17,7 +14,8 @@ module.exports = {
       collapsible: false,
       items: [
         { type: 'doc', id: 'getting-started/installation', label: 'Installation' },
-        { type: 'doc', id: 'getting-started/configuration', label: 'Configuration' }
+        { type: 'doc', id: 'getting-started/configuration', label: 'Configuration' },
+        { type: 'doc', id: 'getting-started/data-transformations', label: 'Data transformations' },
       ]
     }
   ]

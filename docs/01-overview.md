@@ -4,6 +4,8 @@ slug: /
 
 # Overview
 
+Snaplet is a command line utility that captures snapshots of a database that can be shared with a team, so that everyone can code against the same database.
+
 Snaplet gives developers PostgresQL data that they can code against. It does this by capturing a snapshot of a database: copying the schema and providing a JavaScript runtime for transforming, reducing (subsetting) and generating the data.
 
 ## The problem
