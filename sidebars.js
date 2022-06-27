@@ -15,7 +15,9 @@ module.exports = {
       items: [
         { type: 'doc', id: 'getting-started/installation', label: 'Installation' },
         { type: 'doc', id: 'getting-started/configuration', label: 'Configuration' },
-        { type: 'doc', id: 'getting-started/data-transformations', label: 'Data transformations' },
+        { type: 'doc', id: 'getting-started/data-operations', label: 'Data operations' },
+        { type: 'doc', id: 'getting-started/capturing', label: 'Capturing' },
+        { type: 'doc', id: 'getting-started/sharing', label: 'Sharing' },
       ]
     }
   ]
