@@ -1,13 +1,13 @@
 # Data operations
 
 Snaplet has four operations for customizing the data in a snapshot:
-- Transform: Replace existing values suitable for development
-- Exclude: Do not capture any data from a specific tables
-- Reduce (Subset): Only capture a subset of data whilst keeping referential integrity intact
+- Transform: Make existing values suitable for development
+- Exclude: Ignore data in specific tables
+- Reduce (Subset): Capture a subset of data whilst keeping referential integrity intact
 - Generate: Seed values when you don't have any data to transform
 
 These operations are defined as code via config files and JavaScript functions.
-This allows complete control over the shape of data in snapshots and a "gitops style workflow" so that a team of developers can own the data that they code against.
+This allows complete control over the shape of data in snapshots and introduces "gitops style workflow" so that a team of developers can own the data that they code against.
 
 During onboarding Snaplet generated a `.snaplet/transform.ts` file, where we identified columns that may contain personally identifiable information (PII), and associated a JavaScript function to that column so that the values captured are anonymized.
 
@@ -34,7 +34,7 @@ export default () => {
 
 The function assigned to `public.User` receives the existing row values in the `row` variable. Here we used the `id` value to create a new email address value: `"user_1@example.org", "user_2@example.org", etc...` 
 
-## Excluding data 
+## Exclude
 
 Databases often have tables that contain loads of machine generated data, like logs, that aren't really helpful during development.
 Since the code doesn't operate against this data, it can be safely excluded.
@@ -52,14 +52,13 @@ export default () => {
 }
 ```
 
-## Testing transformations "live preview"
+## Debug transformations with "live preview"
 
-Using JavaScript functions to tranform your data gives an incredible amount of flexability to transform data on with conditional logic, that complexity comes at the cost of writing syntax errors or introducing bugs.
+Using JavaScript functions to tranform your data gives an incredible amount of flexability with conditional logic, that complexity comes at the cost of writing syntax errors and introducing bugs.
 Snaplet provides a "live preview environment" via the `snaplet proxy` command to debug transformations, when you boot up the proxy it connects to your database, reads the `transform.ts` file and waits for a client connection.
 Then, you connect to the proxy with your favorite SQL querying tool, and validate your transformations in real time.
 
 
 ## Other data operations...
 
-In this chapter we covered transforming and excluding data.
-Snaplet also reduces (subsets) and generates data. Read more about those data operations in our data customization guide. [Coming soon]
+In this chapter we covered transforming and excluding data, but Snaplet can also reduces (subsets) and generates data. Read more about those data operations in our data operation guide. [Coming soon]
