@@ -1,12 +1,6 @@
 # Install CLI
 
-If you have npm, you can install the CLI from the command line, run:
-
-```bash
-npm install -g @snaplet/cli
-```
-
-If not, you can run the install script:
+You can install the CLI from the command line, run:
 
 ```bash
 curl -sL https://app.snaplet.dev/get-cli/ | bash

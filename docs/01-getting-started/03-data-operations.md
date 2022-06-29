@@ -38,7 +38,7 @@ The function assigned to `public.User` receives the existing row values in the `
 
 Databases often have tables that contain loads of machine generated data, like logs, that aren't really helpful during development.
 Since the code doesn't operate against this data, it can be safely excluded.
-Associating a `null` value to a table will prevent Snaplet from copying data.
+Associating a `false` value to a table will prevent Snaplet from copying data.
 Snaplet will still create the table's structure but copy none of the data.
 
 ```typescript
@@ -46,7 +46,7 @@ Snaplet will still create the table's structure but copy none of the data.
 export default () => {
   return {
     public: {
-      AuditLog: null
+      AuditLog: false
     }
   }
 }
@@ -54,11 +54,12 @@ export default () => {
 
 ## Debug transformations with "live preview"
 
-Using JavaScript functions to tranform your data gives an incredible amount of flexability with conditional logic, that complexity comes at the cost of writing syntax errors and introducing bugs.
+Using JavaScript functions to tranform your data gives an incredible amount of flexability, but that complexity comes at the cost of writing syntax errors and introducing bugs.
 Snaplet provides a "live preview environment" via the `snaplet proxy` command to debug transformations, when you boot up the proxy it connects to your database, reads the `transform.ts` file and waits for a client connection.
 Then, you connect to the proxy with your favorite SQL querying tool, and validate your transformations in real time.
 
 
 ## Other data operations...
 
-In this chapter we covered transforming and excluding data, but Snaplet can also reduces (subsets) and generates data. Read more about those data operations in our data operation guide. [Coming soon]
+In this chapter we covered transforming and excluding data, but Snaplet can also reduces (subsets) and generates data.
+Read more about those data operations in our data operation guide. [Coming soon]

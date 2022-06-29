@@ -19,39 +19,63 @@ module.exports = {
         { type: 'doc', id: 'getting-started/capturing', label: 'Capturing' },
         { type: 'doc', id: 'getting-started/sharing', label: 'Sharing' },
       ]
+    },
+    {
+      type: 'category',
+      label: 'Data operations',
+      collapsible: false,
+      items: [
+        // Transform
+        // Exclude
+        // Subset
+        // Generate
+        // { type: 'doc', id: 'getting-started/installation', label: 'Installation' },
+        // { type: 'doc', id: 'getting-started/configuration', label: 'Configuration' },
+        // { type: 'doc', id: 'getting-started/data-operations', label: 'Data operations' },
+        // { type: 'doc', id: 'getting-started/capturing', label: 'Capturing' },
+        // { type: 'doc', id: 'getting-started/sharing', label: 'Sharing' },
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Guides',
+      collapsible: false,
+      items: [
+        // Self-hosting
+        // 
+        
+        
+        // Usage with 
+        // Subset
+        // Generate
+        // { type: 'doc', id: 'getting-started/installation', label: 'Installation' },
+        // { type: 'doc', id: 'getting-started/configuration', label: 'Configuration' },
+        // { type: 'doc', id: 'getting-started/data-operations', label: 'Data operations' },
+        // { type: 'doc', id: 'getting-started/capturing', label: 'Capturing' },
+        // { type: 'doc', id: 'getting-started/sharing', label: 'Sharing' },
+      ]
+    },
+
+    {
+      type: 'category',
+      label: 'Tutorials',
+      collapsible: false,
+      items: [
+        // Usage with Supabase
+        // 
+        
+        
+        // Usage with 
+        // Subset
+        // Generate
+        // { type: 'doc', id: 'getting-started/installation', label: 'Installation' },
+        // { type: 'doc', id: 'getting-started/configuration', label: 'Configuration' },
+        // { type: 'doc', id: 'getting-started/data-operations', label: 'Data operations' },
+        // { type: 'doc', id: 'getting-started/capturing', label: 'Capturing' },
+        // { type: 'doc', id: 'getting-started/sharing', label: 'Sharing' },
+      ]
     }
   ]
-  // "index",
-  // {
-  //   type: "category",
-  //   label: "Introduction",
-  //   items: [
-  //     'index',
-  //   ]
-  // }
-  //   "index",
-  //   {
-  //     type: "",
-  //     label: "Quickstart",
-  //     link: {
-  //       type: ''
-  //     }
-  //   },
-  //   {
-  //     type: "category",
-  //     label: "Getting Started",
-  //     collapsed: true,
-  //     items: [
-  //       "getting-started/create-a-new-datasource",
-  //       "getting-started/add-transformation",
-  //       "getting-started/your-first-snapshot",
-  //       "getting-started/cli-installation",
-  //       "getting-started/cli-setup",
-  //       "getting-started/cli-restore",
-  //       "getting-started/invite-team-members",
-  //       "getting-started/schedule-snapshots",
-  //     ],
-  //   },
   //   {
   //     type: "category",
   //     label: "Transforming data",
