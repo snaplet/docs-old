@@ -1,2 +1,0 @@
-# Restoring a snapshot
-

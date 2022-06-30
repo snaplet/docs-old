@@ -13,99 +13,54 @@ module.exports = {
       label: 'Getting started',
       collapsible: false,
       items: [
-        { type: 'doc', id: 'getting-started/installation', label: 'Installation' },
+        { type: 'doc', id: 'getting-started/start-here', label: 'We start here' },
         { type: 'doc', id: 'getting-started/configuration', label: 'Configuration' },
         { type: 'doc', id: 'getting-started/data-operations', label: 'Data operations' },
         { type: 'doc', id: 'getting-started/capturing', label: 'Capturing' },
         { type: 'doc', id: 'getting-started/sharing', label: 'Sharing' },
+        { type: 'doc', id: 'getting-started/restoring', label: 'Restoring' },
+        { type: 'doc', id: 'getting-started/what-is-next', label: "What's next" },
       ]
     },
-    {
-      type: 'category',
-      label: 'Data operations',
-      collapsible: false,
-      items: [
-        // Transform
-        // Exclude
-        // Subset
-        // Generate
-        // { type: 'doc', id: 'getting-started/installation', label: 'Installation' },
-        // { type: 'doc', id: 'getting-started/configuration', label: 'Configuration' },
-        // { type: 'doc', id: 'getting-started/data-operations', label: 'Data operations' },
-        // { type: 'doc', id: 'getting-started/capturing', label: 'Capturing' },
-        // { type: 'doc', id: 'getting-started/sharing', label: 'Sharing' },
-      ]
-    },
-    {
-      type: 'category',
-      label: 'Guides',
-      collapsible: false,
-      items: [
-        // Self-hosting
-        // 
-        
-        
-        // Usage with 
-        // Subset
-        // Generate
-        // { type: 'doc', id: 'getting-started/installation', label: 'Installation' },
-        // { type: 'doc', id: 'getting-started/configuration', label: 'Configuration' },
-        // { type: 'doc', id: 'getting-started/data-operations', label: 'Data operations' },
-        // { type: 'doc', id: 'getting-started/capturing', label: 'Capturing' },
-        // { type: 'doc', id: 'getting-started/sharing', label: 'Sharing' },
-      ]
-    },
+    // {
+    //   type: 'category',
+    //   label: 'References',
+    //   collapsible: false,
+    //   items: [
+    //     // Data operations
+    //       // Transform
+    //       // Exclude
+    //       // Subset
+    //       // Generate
+    //     // Snapshot Capture
+    //     // Snapshot Restore
+    //     // Snaplet Project
+    //     // Instant Database  
+    //   ]
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Guides',
+    //   collapsible: false,
+    //   items: [
+    //     // Self-hosting
+    //     // Capturing a small sample of your database
+    //     // Generating data
+    //     // PostgresQL
+    //       //       "postgresql/create-read-only-role",
+    //       //       "postgresql/grant-ip-address-access",
+    //       //       "postgresql/self-signed-certificates",
+    //   ]
+    // },
 
-    {
-      type: 'category',
-      label: 'Tutorials',
-      collapsible: false,
-      items: [
-        // Usage with Supabase
-        // 
-        
-        
-        // Usage with 
-        // Subset
-        // Generate
-        // { type: 'doc', id: 'getting-started/installation', label: 'Installation' },
-        // { type: 'doc', id: 'getting-started/configuration', label: 'Configuration' },
-        // { type: 'doc', id: 'getting-started/data-operations', label: 'Data operations' },
-        // { type: 'doc', id: 'getting-started/capturing', label: 'Capturing' },
-        // { type: 'doc', id: 'getting-started/sharing', label: 'Sharing' },
-      ]
-    }
+    // {
+    //   type: 'category',
+    //   label: 'Tutorials',
+    //   collapsible: false,
+    //   items: [
+    //     // Usage with Supabase
+    //     // Usage with Prisma
+    //   ]
+    // }
   ]
-  //   {
-  //     type: "category",
-  //     label: "Transforming data",
-  //     collapsed: true,
-  //     items: [
-  //       "transformations/introduction",
-  //       "transformations/getting-started",
-  //       "transformations/javascript-runtime",
-  //     ],
-  //   },
-  //   {
-  //     type: "category",
-  //     label: "Tutorials",
-  //     collapsed: true,
-  //     items: [
-  //       "tutorials/github-actions-scheduled-restores",
-  //       "tutorials/prisma-seed",
-  //       "tutorials/supabase-clone-environments",
-  //     ],
-  //   },
-  //   "snaplet-cli",
-  //   {
-  //     type: "category",
-  //     label: "PostgresQL wiki",
-  //     collapsed: true,
-  //     items: [
-  //       "postgresql/create-read-only-role",
-  //       "postgresql/grant-ip-address-access",
-  //       "postgresql/self-signed-certificates",
-  //     ],
-  //   },
-  // ],
 };

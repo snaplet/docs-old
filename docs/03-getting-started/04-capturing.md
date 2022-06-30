@@ -27,6 +27,6 @@ To share this snapshot, run:
 snaplet snapshot share feed-synthesize
 ```
 
-You now have a fresh nugget of transformed data 🐥 that is saved to the `.snaplet/snapshots` directory.
-The snapshot contains everything you'll need to restore your database: the database schema, and the table data in CSV format.
+You now have a fresh "nugget of transformed data 🐥" that is saved to the `.snaplet/snapshots` directory.
+The snapshot contains all the right ingredients  you'll need to restore your database: the schema and the table data in CSV format.
 
