@@ -43,7 +43,8 @@ module.exports = {
         // Self-hosting
         // Capturing a small sample of your database
         // Generating data
-        { type: 'doc', id: 'guides/postgresql', label: 'PostgreSQL'}
+        { type: 'doc', id: 'guides/postgresql', label: 'PostgreSQL'},
+        
         // GitHub Actions
       ]
     },
@@ -52,9 +53,9 @@ module.exports = {
       label: 'Tutorials',
       collapsible: false,
       items: [
-        { type: 'doc', id: 'guides/prisma-seed', label: 'GitHub Actions: Scheduled Snapshot Restoration'},
-        { type: 'doc', id: 'guides/prisma-seed', label: 'Prisma Seed'},
-        { type: 'doc', id: 'guides/supabase-clone-environments', label: 'Supabase Clone Environments'}
+        { type: 'doc', id: 'tutorials/github-actions', label: 'GitHub Actions & Snapshots'},
+        { type: 'doc', id: 'tutorials/prisma-seed', label: 'Prisma Seed'},
+        { type: 'doc', id: 'tutorials/supabase', label: 'Supabase Clone Environments'}
       ]
     }
   ]
