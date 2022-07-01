@@ -25,7 +25,7 @@ You can follow along in the video below as our founder, Peter Pistorius takes yo
 2. **A development Supabase project's connection string:** Same steps as above, but a different project/environment
 3. **A read-only role** in Production (recommended): This can be done by running the following statements on Supabase via `Organization > SQL Editor > + New Query`
 
-> To create a read-only role across all schemas you can checkout our [docs](/postgresql/create-read-only-role)
+> To create a read-only role across all schemas you can checkout our [docs](/guides/postgresql#create-a-read-only-role)
 
 4. **Superuser access** for the development project. This can be done in Supabase via `Organization > SQL Editor > + New Query` and running this statement:
    `ALTER USER postgres WITH superuser;`
@@ -46,7 +46,7 @@ Remember that the password is the same password you used when creating the Supab
 
 ![Supabase console connection info](../../static/screenshots/supabase-integration/supabase_connection_info.png)
 
-You’ll then have to confirm providing Snaplet access to your database. Snaplet will prompt you to only provide `read-only` access to your database. We have a guide in our documentation on how to go about this and you can check that out [here](https://docs.snaplet.dev/postgresql/create-read-only-role).
+You’ll then have to confirm providing Snaplet access to your database. Snaplet will prompt you to only provide `read-only` access to your database. We have a guide in our documentation on how to go about this and you can check that out [here](/guides/postgresql#create-a-read-only-role).
 
 > Note that whatever connection string you provide here will be that of your `Data Source` – essentially the production database in a real-life scenario
 
