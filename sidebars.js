@@ -13,7 +13,7 @@ module.exports = {
       label: 'Getting started',
       collapsible: false,
       items: [
-        { type: 'doc', id: 'getting-started/start-here', label: 'Start here!' },
+        { type: 'doc', id: 'getting-started/start-here', label: 'Start here' },
         { type: 'doc', id: 'getting-started/configuration', label: 'Configuration' },
         { type: 'doc', id: 'getting-started/data-operations', label: 'Data operations' },
         { type: 'doc', id: 'getting-started/capturing', label: 'Capturing' },
@@ -41,10 +41,7 @@ module.exports = {
       collapsible: false,
       items: [
         // Self-hosting
-        // Capturing a small sample of your database
-        // Generating data
         { type: 'doc', id: 'guides/postgresql', label: 'PostgreSQL'},
-        
         // GitHub Actions
       ]
     },

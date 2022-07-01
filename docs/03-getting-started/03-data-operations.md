@@ -7,13 +7,13 @@ Snaplet has four operations for customizing the data in a snapshot:
 - Generate: Seed values when you don't have any data to transform
 
 These operations are defined as code via config files and JavaScript functions.
-This allows complete control over the shape of data in snapshots and introduces "gitops style workflow" so that a team of developers can own the data that they code against.
-
-During onboarding Snaplet generated a `.snaplet/transform.ts` file, where we identified columns that may contain personally identifiable information (PII), and associated a JavaScript function to that column so that the values captured are anonymized.
+This gives a team of developers control over the shape of their data and introduces a **gitops style workflow.**
 
 ## Transform
 
-Snaplet transforms the data in your database using JavaScript functions that are mapped to the structure of your database.
+During setup Snaplet generated a `.snaplet/transform.ts` file where we identified columns that may contain personally identifiable information (PII), and associated a JavaScript function to those columns so that the values in the snasphot are anonymized.
+
+During the capture process the data in your database is transformed using JavaScript functions that are mapped to the structure of your database.
 As an example, if you have a `User` table with an `email` column you can transform the original value to a new one with the following:
 
 ```typescript
@@ -32,7 +32,19 @@ export default () => {
 }
 ```
 
-The function assigned to `public.User` receives the existing row values in the `row` variable. Here we used the `id` value to create a new email address value: `"user_1@example.org", "user_2@example.org", etc...` 
+The function assigned to `public.User` receives the existing row values in the `row` variable. Here we used the `id` value to create a new email address value: `"user_1@example.org", "user_2@example.org", etc...`
+
+### Better fake values with Copycat
+
+Copycat is our open-source library for generating fake-data that includes templates for names, addresses, phone numbers and [many other common transformations!](https://github.com/snaplet/copycat/#api-reference).
+
+It produces _static values,_ so for any given input it'll produce the exact same output! Having static values is super helpful when coding or testing, as an example:
+```js
+
+copycat.email('a-real-email@domain.com') // => beth.cranshaw@example.org
+copycat.email('a-real-email@domain.com') // => beth.cranshaw@example.org
+copycat.email('1') // => jane.maplemoth@example.org
+```
 
 ## Exclude
 
@@ -54,7 +66,7 @@ export default () => {
 
 ## Debug transformations with "live preview"
 
-Using JavaScript functions to tranform your data gives an incredible amount of flexability, but that complexity comes at the cost of writing syntax errors and introducing bugs.
+Using JavaScript functions to tranform your data gives an incredible amount of flexability, but that flexability comes at the cost of writing bugs.
 Snaplet provides a "live preview environment" via the `snaplet proxy` command to debug transformations, when you boot up the proxy it connects to your database, reads the `transform.ts` file and waits for a client connection.
 Then, you connect to the proxy with your favorite SQL querying tool, and validate your transformations in real time.
 
@@ -62,4 +74,4 @@ Then, you connect to the proxy with your favorite SQL querying tool, and validat
 ## Other data operations...
 
 In this chapter we covered transforming and excluding data, but Snaplet can also reduces (subsets) and generates data.
-Read more about those data operations in our data operation guide. [Coming soon]
+Read more about those data operations in our [data operations reference](/references/data-operations).

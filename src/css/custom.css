@@ -68,15 +68,16 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .menu {
+  cursor: default;
   font-size: 14px;
 }
 
-.menu__list-item-collapsible .menu__link {
+.theme-doc-sidebar-item-category-level-1 .menu__list-item-collapsible .menu__link {
   color: black;
   font-weight: bold;
   margin-top: 24px;
 }
 
-.menu__list-item-collapsible:hover {
+.theme-doc-sidebar-item-category-level-1 .menu__list-item-collapsible:hover {
   background-color: transparent !important;
 }
