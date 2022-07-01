@@ -17,9 +17,11 @@ module.exports = {
     segment: {
       apiKey: 'VY4RrFl2Qu7bCRmxzQ7IIj9dK7MFMzrH',
     },
-    // hideableSidebar: false,
     navbar: {
-      title: 'Snaplet',
+      logo: {
+        alt: 'Snaplet',
+        src: 'img/logo.svg',
+      },
       items: [
         {
           label: 'Discord',
