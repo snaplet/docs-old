@@ -1,61 +1,62 @@
-/**
- * Creating a sidebar enables you to:
- - create an ordered group of docs
- - render a sidebar for each doc of that group
- - provide next/previous navigation
-
- The sidebars can be generated from the filesystem, or explicitly defined here.
-
- Create as many sidebars as you want.
- */
 module.exports = {
   docs: [
-    "index",
     {
-      type: "category",
-      label: "Getting Started",
-      collapsed: false,
-      items: [
-        "getting-started/create-a-new-datasource",
-        "getting-started/add-transformation",
-        "getting-started/your-first-snapshot",
-        "getting-started/cli-installation",
-        "getting-started/cli-setup",
-        "getting-started/cli-restore",
-        "getting-started/invite-team-members",
-        "getting-started/schedule-snapshots",
-      ],
+      type: 'doc',
+      id: 'overview',
     },
     {
-      type: "category",
-      label: "Transforming data",
-      collapsed: false,
-      items: [
-        "transformations/introduction",
-        "transformations/getting-started",
-        "transformations/javascript-runtime",
-      ],
+      type: 'doc',
+      id: 'quickstart',
     },
     {
-      type: "category",
-      label: "Tutorials",
-      collapsed: false,
+      type: 'category',
+      label: 'Getting started',
+      collapsible: false,
       items: [
-        "tutorials/github-actions-scheduled-restores",
-        "tutorials/prisma-seed",
-        "tutorials/supabase-clone-environments",
-      ],
+        { type: 'doc', id: 'getting-started/start-here', label: 'Start here!' },
+        { type: 'doc', id: 'getting-started/configuration', label: 'Configuration' },
+        { type: 'doc', id: 'getting-started/data-operations', label: 'Data operations' },
+        { type: 'doc', id: 'getting-started/capturing', label: 'Capturing' },
+        { type: 'doc', id: 'getting-started/sharing', label: 'Sharing' },
+        { type: 'doc', id: 'getting-started/restoring', label: 'Restoring' },
+        { type: 'doc', id: 'getting-started/what-is-next', label: "What's next..." },
+      ]
     },
-    "snaplet-cli",
     {
-      type: "category",
-      label: "PostgresQL wiki",
-      collapsed: false,
+      type: 'category',
+      label: 'References',
+      collapsible: false,
       items: [
-        "postgresql/create-read-only-role",
-        "postgresql/grant-ip-address-access",
-        "postgresql/self-signed-certificates",
-      ],
+        { type: 'doc', id: 'references/data-operations', label: 'Data operations' },
+        { type: 'doc', id: 'references/snapshots', label: 'Snapshots'}
+        // Snapshot Capture
+        // Snapshot Restore
+        // Snaplet Project
+        // Instant Database  
+      ]
     },
-  ],
+    {
+      type: 'category',
+      label: 'Guides',
+      collapsible: false,
+      items: [
+        // Self-hosting
+        // Capturing a small sample of your database
+        // Generating data
+        { type: 'doc', id: 'guides/postgresql', label: 'PostgreSQL'},
+        
+        // GitHub Actions
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Tutorials',
+      collapsible: false,
+      items: [
+        { type: 'doc', id: 'tutorials/github-actions', label: 'GitHub Actions & Snapshots'},
+        { type: 'doc', id: 'tutorials/prisma-seed', label: 'Prisma Seed'},
+        { type: 'doc', id: 'tutorials/supabase', label: 'Supabase Clone Environments'}
+      ]
+    }
+  ]
 };

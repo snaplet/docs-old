@@ -1,8 +1,6 @@
----
-sidebar_position: 2
----
+# PostgresQL
 
-# Create a read-only role
+## Create a read-only role
 
 Snaplet connects to your PostgresQL database in order to create snapshots. We recommend that you give us read-only access to your database, and that you restrict connection to a specific set of IP addresses.
 
@@ -64,3 +62,17 @@ GRANT snaplet_read_all_data TO snaplet_readonly;
   </TabItem>
   
 </Tabs>
+
+## Grant IP address access
+
+Snaplet uses `54.93.75.84` and `18.158.21.101` to connect to your database. It's a good idea to restrict all traffic to PostgresQL, and only grant access where it's absolutely required.
+
+## Self-Signed Certificates
+
+To make Snaplet work with servers using self-signed certificates. Please add `sslmode=no-verify` to the database connection string.
+
+Example
+
+```
+export SNAPLET_DATABASE_URL='postgresql://<user>:<password>@<host>:<port>/<database>?sslmode=required&ssl=true&sslmode=no-verify'
+```

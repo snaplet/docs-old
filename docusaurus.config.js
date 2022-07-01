@@ -17,13 +17,18 @@ module.exports = {
     segment: {
       apiKey: 'VY4RrFl2Qu7bCRmxzQ7IIj9dK7MFMzrH',
     },
-    hideableSidebar: false,
+    // hideableSidebar: false,
     navbar: {
-      title: 'Snaplet Documentation',
+      title: 'Snaplet',
       items: [
         {
-          href: 'https://github.com/snaplet/docs',
+          label: 'Discord',
+          href: 'https://app.snaplet.dev/chat',
+          position: 'right',
+        },
+        {
           label: 'GitHub',
+          href: 'https://github.com/snaplet/docs',
           position: 'right',
         },
         {
@@ -65,7 +70,7 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} Snaplet, Inc. All rights reserved.`,
     },
     prism: {
-      theme: lightCodeTheme,
+      theme: darkCodeTheme,
       darkTheme: darkCodeTheme,
       additionalLanguages: ['bash'],
     },
