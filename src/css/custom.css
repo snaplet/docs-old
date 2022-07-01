@@ -66,3 +66,17 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   border-top: 1px rgb(218, 221, 225) solid;
   background-color: transparent;
 }
+
+.menu {
+  font-size: 14px;
+}
+
+.menu__list-item-collapsible .menu__link {
+  color: black;
+  font-weight: bold;
+  margin-top: 24px;
+}
+
+.menu__list-item-collapsible:hover {
+  background-color: transparent !important;
+}
