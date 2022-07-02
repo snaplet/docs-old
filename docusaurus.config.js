@@ -17,6 +17,11 @@ module.exports = {
     segment: {
       apiKey: 'VY4RrFl2Qu7bCRmxzQ7IIj9dK7MFMzrH',
     },
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
     navbar: {
       logo: {
         alt: 'Snaplet',
