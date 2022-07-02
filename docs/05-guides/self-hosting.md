@@ -11,28 +11,17 @@ In this case you run the command to capture a snapshot of your database on a mac
 
 ## Hosting the capture process
 
-The Snaplet CLI requires access to your snapshot configuration: `.snaplet` directory and the configuration files in order to know _how you want to modify your snapshots._
-Many people capture snapshots in CI/CD (GitHub Actions tutorial is coming soon!), which already has access to your source code, otherwise you can use a Snaplet Project to _pull the configuration._
+The Snaplet CLI requires access to your `.snaplet` config directory in order to know _how you want to modify your snapshots._
+Many people capture snapshots in CI/CD because it's already trusted, already has access to the `.snaplet` config directory via the source code and fits into a gitops development workflow.
+Otherwise you can store and retrieve the config via a Snaplet Project.
 
-<Tabs>
-  <TabItem value="apple" label="With source-code (CI/CD)" default>
-    <ol>
-      <li>Checkout repository to get `.snaplet` config directory</li>
-      <li>Install Snaplet CLI</li>
-      <li>Run `SNAPLET_DATABASE_URL=[secret] snapshot capture /tmp/my-snapshot`</li>
-    </ol>
-  </TabItem>
-  <TabItem value="orange" label="Without source-code (Snaplet Project)">
-    <ol>
-      <li>Install Snaplet CLI</li>
-      <li>Run `SNAPLET_PROJECT_ID=[project-id] snaplet config pull`</li>
-      <li>Run `SNAPLET_DATABASE_URL=[secret] snapshot capture /tmp/my-snapshot`</li>
-    </ol>
-  </TabItem>  
-</Tabs>
 
-Both the  will store a snapshot in `/tmp/my-snapshot` that you can upload to share with your team.
+1. Install Snaplet CLI
+2. Checkout your source code from repository, or run `SNAPLET_PROJECT_ID=[project-id] snaplet config pull` to retrieve a config via Snaplet Project.
+3. Run `SNAPLET_DATABASE_URL=[secret] snapshot capture /tmp/my-snapshot` 
 
-## Hosting the snapshots
+That's it, you have now a snapshot in `/tmp/my-snapshot` that you can upload and share with your team.
 
-[TODO]
+## Uploading and sharing snapshots
+
+

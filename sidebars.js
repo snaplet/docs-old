@@ -50,9 +50,9 @@ module.exports = {
       label: 'Tutorials',
       collapsible: false,
       items: [
-        { type: 'doc', id: 'tutorials/github-actions', label: 'GitHub Actions & Snapshots'},
+        { type: 'doc', id: 'tutorials/github-actions', label: 'Scheduled '},
         { type: 'doc', id: 'tutorials/prisma-seed', label: 'Prisma Seed'},
-        { type: 'doc', id: 'tutorials/supabase', label: 'Supabase Clone Environments'}
+        { type: 'doc', id: 'tutorials/supabase-clone-environments', label: 'Supabase Clone Environments'}
       ]
     }
   ]
