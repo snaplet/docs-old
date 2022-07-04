@@ -72,7 +72,7 @@ Most of the time you will only need a portion of the data in your database. Snap
 
 You can run `snaplet subset config` which will guide you through the process of capturing a subset of your database. During the first step you can choose which tables to exclude from the snapshot. Then you will decide which table will be the starting point of your subset and how many rows to capture. You can also write a "where" clause to limit the rows being captured. This will create a config file (`.snaplet/subsetting.json`) which you can modify afterwards.
 
-Here a basic example of the `subsetting.json` file:
+Here is a basic example of the `subsetting.json` file:
 
 ```json
 {
