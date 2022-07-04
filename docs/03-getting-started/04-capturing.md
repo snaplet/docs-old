@@ -1,10 +1,10 @@
 # Capturing a snapshot
 
-Here we'll capture a snapshot of your _development database_ which may be a slightly contrived example, since the rest of your team would likely want to code against a transformed snapshot of production or staging.
+Now that you're happy with your `.snaplet/transform.ts` file we'll capture a snapshot of your _development database_, which may be a slightly contrived, since the rest of your team would likely want to code against a snapshot of production or staging.
 
 Stick with us, since the steps for capturing a snapshot of production are the same, the only difference being the switching of the connection string via a `SNAPLET_DATABASE_URL` environmental variable. At the end of this guide we'll go over different ways of capturing your production database in a self-hosted environment, or as a Snaplet Project.
 
-To capture a transformed snapshot, run: `snaplet snapshot capture`
+To snapshot your database, run `snaplet snapshot capture`
 
 ```terminal
 # highlight-next-line
@@ -28,5 +28,6 @@ snaplet snapshot share feed-synthesize
 ```
 
 You now have a fresh "nugget of transformed data 🐥" that is saved to the `.snaplet/snapshots` directory.
-The snapshot contains all the right ingredients  you'll need to restore your database: the schema and the table data in CSV format.
+The snapshot contains the schema, some metadata, and the data in CSV format.
 
+All the right ingredients your team members need to restore your database!

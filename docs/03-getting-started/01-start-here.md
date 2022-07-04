@@ -2,9 +2,9 @@
 
 This section is all about getting started quickly with Snaplet.
 We'll run you through a workflow that captures, transforms, and shares a snapshot of your **local development database.**
-We're using your **local development database** because you're currently evaluating Snaplet, right? And you may not want to test it against your production or staging database! Frankly, we prefer it that way.
+We're using your local development database because you're currently evaluating Snaplet, and you may not want to test it against your production or staging database! Frankly, we prefer it that way!
 
-Once you're ready to **adopt Snaplet for real** then you can choose to capture snapshots in a self-hosted environment where you'll change the credentials via an environmental variable, or via a Snaplet Project where you'll give us read-only credentials to your database.
+Once you're ready to _adopt Snaplet for real_ you can choose to entirely or partly self-host Snaplet in your own environment.
 
 Let's go!
 

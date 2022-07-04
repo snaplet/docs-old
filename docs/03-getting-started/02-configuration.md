@@ -1,10 +1,10 @@
 # Configuration
 
 Run `snaplet config setup` in the directory with your source code, this command creates a `.snaplet` directory and the configuration files used by the CLI.
-These configuration files should be added to your repository so that your team can use the defaults you've stipulated here. 
+These configuration files should be added to your repository so that your team will use the defaults you've entered here. 
 
 You'll need the **connection string to the development database that your code operates against.** 
-Snaplet uses this connection string to restore snaphots, so the role should be a SUPERUSER.
+The role should be a `SUPERUSER` because Snaplet uses this connection string to restore snaphots.
 
 Run `snaplet config setup`:
 
