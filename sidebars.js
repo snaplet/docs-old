@@ -36,6 +36,12 @@ module.exports = {
             { type: 'doc', id: 'references/data-operations/generate', label: 'Generate (Seed) 🐥' },
           ]
         },
+        {
+          type: 'category', label: 'Snapshots', items: [
+            { type: 'doc', id: 'references/snapshots/overview', label: 'Overview' },
+            { type: 'doc', id: 'references/snapshots/encryption', label: 'Encryption' },
+          ]
+        },
 
         { type: 'doc', id: 'references/snapshots', label: 'Snapshots' },
         { type: 'doc', id: 'references/snaplet-projects', label: 'Snaplet Project' },
