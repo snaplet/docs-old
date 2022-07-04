@@ -32,14 +32,14 @@ module.exports = {
             { type: 'doc', id: 'references/data-operations/overview', label: 'Overview' },
             { type: 'doc', id: 'references/data-operations/transform', label: 'Transform' },
             { type: 'doc', id: 'references/data-operations/exclude', label: 'Exclude' },
-            { type: 'doc', id: 'references/data-operations/reduce', label: 'Reduce (Subset)' },
-            { type: 'doc', id: 'references/data-operations/generate', label: 'Generate (Seed)' },
+            { type: 'doc', id: 'references/data-operations/reduce', label: 'Reduce (Subset) 🐥' },
+            { type: 'doc', id: 'references/data-operations/generate', label: 'Generate (Seed) 🐥' },
           ]
         },
 
         { type: 'doc', id: 'references/snapshots', label: 'Snapshots' },
         { type: 'doc', id: 'references/snaplet-projects', label: 'Snaplet Project' },
-        { type: 'doc', id: 'references/instant-database', label: 'Instant database 🐥' },
+        { type: 'doc', id: 'references/instant-database', label: 'Instant database 🥚' },
         { type: 'doc', id: 'references/cli-commands', label: 'CLI Commands' },
       ]
     },

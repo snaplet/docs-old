@@ -35,7 +35,7 @@ The example above is slightly contrived since you've captured a snapshot of your
 You may want to capture from production or staging, so that the snapshots are an accurate reflection of the data your code runs against.
 
 1. Read our step-by-step [Getting started guide](/getting-started/start-here/)
-2. Read our self-hosted snaphost guide [coming soon...]
-3. Learn about our [data operations](/references/data-operations/)
-4. Learn about reducing the size of your snapshot via subsetting [Coming soon...]
-5. Generate data [Coming soon...]
+2. Read our [self-hosted guide](/guides/self-hosting/)
+3. Learn about our [data operations](/references/data-operations/overview)
+4. Learn about reducing the size of your snapshot via [subsetting](/references/data-operations/reduce)
+5. Empty database, [generate data!](/references/data-operations/generate)

@@ -17,5 +17,5 @@ Read our [self-hosting guide.](/guides/self-hosting/)
 
 ## Learn more!
 
-1. Learn more about our other [data operations](/references/data-operations/)
-2. Learn more about instant-databases `[coming soon]`
+1. Learn more about our other [data operations](/references/data-operations/overview)
+2. Need a temporary database in a snap? Learn more about [instant-database](/references/instant-database/)

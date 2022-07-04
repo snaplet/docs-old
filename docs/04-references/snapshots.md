@@ -57,6 +57,6 @@ Note that, the default schema is assumed to be public, so you don’t need to sp
 
 ## Learn more about Snaplet CLI
 
-That's it! You're done. You've created and restored a snapshot, but there's a bunch more than Snaplet is capable of, learn more about those features in our [CLI reference](/snaplet-cli)
+That's it! You're done. You've created and restored a snapshot, but there's a bunch more than Snaplet is capable of, learn more about those features in our [CLI reference](/references/cli-commands)
 
 

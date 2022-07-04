@@ -77,4 +77,4 @@ Then, you connect to the proxy with your favorite SQL querying tool, and validat
 ## Other data operations...
 
 In this chapter we covered transforming and excluding data, but Snaplet can also reduces (subsets) and generates data.
-Read more about those data operations in our [data operations reference](/references/data-operations).
+Read more about those data operations in our [data operations reference](/references/data-operations/overview).
