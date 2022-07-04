@@ -28,11 +28,11 @@ module.exports = {
       collapsible: false,
       items: [
         { type: 'doc', id: 'references/data-operations', label: 'Data operations' },
-        { type: 'doc', id: 'references/snapshots', label: 'Snapshots'}
-          // Snapshot Capture
-          // Snapshot Restore
-        // Snaplet Project
-        // Instant Database  
+        { type: 'doc', id: 'references/snapshots', label: 'Snapshots'},
+        { type: 'doc', id: 'references/snaplet-projects', label: 'Snaplet Projects'},
+        { type: 'doc', id: 'references/instant-databases', label: 'Instant databases'},
+        { type: 'doc', id: 'references/cli-commands', label: 'CLI Commands'},
+        
       ]
     },
     {
@@ -50,7 +50,7 @@ module.exports = {
       label: 'Tutorials',
       collapsible: false,
       items: [
-        { type: 'doc', id: 'tutorials/github-actions', label: 'Scheduled '},
+        { type: 'doc', id: 'tutorials/github-actions', label: 'GitHub Actions & snapshots'},
         { type: 'doc', id: 'tutorials/prisma-seed', label: 'Prisma Seed'},
         { type: 'doc', id: 'tutorials/supabase-clone-environments', label: 'Supabase Clone Environments'}
       ]
