@@ -1,4 +1,8 @@
 # Snaplet Project
 
-`This document is a work in progress`
+:::note Experimental
+
+This is a work in progress.
+
+:::
 

@@ -81,3 +81,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 .theme-doc-sidebar-item-category-level-1 .menu__list-item-collapsible:hover {
   background-color: transparent !important;
 }
+
+.theme-doc-sidebar-item-category-level-2 .menu__list-item-collapsible .menu__link {
+  margin-top: 0;
+}

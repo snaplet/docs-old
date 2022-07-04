@@ -1,4 +1,4 @@
-# What's next...
+# What's next?
 
 In this getting started guide we've shown you how to capture, transform, share and restore snapshots of your database of your local database.
 
@@ -15,7 +15,7 @@ If not, then self-host the capture process on a machine that you trust (Like in 
 
 Read our [self-hosting guide.](/guides/self-hosting/)
 
-## What's next?
+## Learn more!
 
 1. Learn more about our other [data operations](/references/data-operations/)
 2. Learn more about instant-databases `[coming soon]`
