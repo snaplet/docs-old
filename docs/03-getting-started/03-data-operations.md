@@ -68,7 +68,7 @@ export default () => {
 ```
 ## Reduce (Subset)
 
-Read more about reducing your data in your database [here](/eferences/data-operations/reduce).
+Read more about reducing your data in your database [here](/references/data-operations/reduce).
 
 ## Debug transformations with "live preview"
 
