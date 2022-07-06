@@ -17,7 +17,7 @@ You now have "a nuggest of data 🐥" that you can share with you team so that e
 ## Sharing a snapshot
 
 1. Run `snaplet auth setup`
-2. Create a project with `snaplet project setup`. A project is where snapshots are shared with your team.
+2. Create a Snaplet Cloud Project with `snaplet project setup`. This is where snapshots are shared with your team
 3. Run `snaplet snapshot share --message "My first snapshot"`
 4. Run `snaplet snapshot list`
 
@@ -25,7 +25,7 @@ There you go! The snapshot is uploaded to your project and ready to be restored 
 
 ## Restoring a snapshot
 
-1. Add the `.snaplet` folder to your repository. The Snaplet CLI uses the configuration to link your source code to a Snaplet Project.
+1. Add the `.snaplet` folder to your repository. The Snaplet CLI uses the configuration to link your source code to a Snaplet Cloud Project.
 2. Invite members to your project at http://app.snaplet.dev
 3. Get them to install the CLI, accept the project invite, and run `snaplet snapshot restore`
 

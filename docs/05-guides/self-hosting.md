@@ -17,6 +17,6 @@ Many people capture snapshots in CI/CD because it's already trusted, already has
 
 That's it, you have now a snapshot in `/tmp/my-snapshot` that you can upload and share with your team.
 
-## Sharing snapshot via a Snaplet Project
+## Sharing snapshot via a Snaplet Cloud Project
 
-Run `snaplet snaspshot share /tmp/my-snapshot` to upload it to a Snaplet Project.
+Run `snaplet snaspshot share /tmp/my-snapshot` to upload it to a Snaplet Cloud Project.

@@ -6,7 +6,7 @@ This is an unreleased feature.
 
 :::
 
-We are currently evaluating the feature to give developers an "instant database" to code, or run PR previews against. Each Snaplet Project receives a single PostgresQL database instance where multipled databases can be created.
+We are currently evaluating the feature to give developers an "instant database" to code, or run PR previews against. Each Snaplet Cloud Project receives a single PostgresQL instance where multipled databases can be created.
 
 ## Creating a database
 
