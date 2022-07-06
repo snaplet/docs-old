@@ -25,8 +25,9 @@ There you go! The snapshot is uploaded to your project and ready to be restored 
 
 ## Restoring a snapshot
 
-1. Add the `.snaplet` folder to your repository. The Snaplet CLI uses the configuration to link your source code to a Snaplet Cloud Project.
-2. Invite members to your project at http://app.snaplet.dev
+1. Add the `.snaplet` folder to your repository.
+The Snaplet CLI uses the configuration to link your source code to a Snaplet Cloud Project.
+2. Invite members to your Snaplet Cloud Project, run `snaplet project invite`.
 3. Get them to install the CLI, accept the project invite, and run `snaplet snapshot restore`
 
 ## What's next...
@@ -38,4 +39,4 @@ You may want to capture from production or staging, so that the snapshots are an
 2. Read our [self-hosted guide](/guides/self-hosting/)
 3. Learn about our [data operations](/references/data-operations/overview)
 4. Learn about reducing the size of your snapshot via [subsetting](/references/data-operations/reduce)
-5. Empty database, [generate data!](/references/data-operations/generate)
+5. Empty database? [Generate data!](/references/data-operations/generate)
