@@ -1,6 +1,6 @@
 # Quickstart
 
-Want to share a snapshot of a database with your team? You're in the right place!
+Need data to code against? You're in the right place!
 
 In the next few steps we'll create a snapshot of your database, whilst transforming the data, then sharing that snapshot with your team, so that they can restore it into their own development environment.
 
