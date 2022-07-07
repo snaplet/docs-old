@@ -33,7 +33,7 @@ jobs:
       - name: Install Snaplet CLI
         run: curl -sL https://app.snaplet.dev/get-cli/ | bash
       - name: Restore Snapshot
-        run: snaplet snapshot create
+        run: snaplet snapshot create -y
         env:
           SNAPLET_DATABASE_URL: ${{ secrets.SNAPLET_DATA_TARGET_DB_URL }}
           SNAPLET_ACCESS_TOKEN: ${{ secrets.SNAPLET_ACCESS_TOKEN }}
@@ -45,7 +45,7 @@ This workflow runs every morning at 4am, and can also be [manually triggered](ht
 It checks out the repository, in order to access the `SNAPLET_DATABASE_ID` from `.snaplet/config.json`, then it installs the Snaplet CLI and runs the `snaplet snapshot create` command.
 
 :::tip
-Use `snaplet snapshot restore` instead to restore the last captured snapshot rather than creating a new one.
+Use `snaplet snapshot restore -y` instead to restore the last captured snapshot rather than creating a new one.
 :::
 
 ## Adding Secrets to GitHub
