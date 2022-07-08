@@ -37,12 +37,12 @@ jobs:
         env:
           SNAPLET_DATABASE_URL: ${{ secrets.SNAPLET_DATA_TARGET_DB_URL }}
           SNAPLET_ACCESS_TOKEN: ${{ secrets.SNAPLET_ACCESS_TOKEN }}
-          # SNAPLET_DATABASE_ID: "Use if `.snaplet/config.json` isn't setup."
+          # SNAPLET_PROJECT_ID: "Use if `.snaplet/config.json` isn't setup."
 ```
 
 This workflow runs every morning at 4am, and can also be [manually triggered](https://docs.github.com/en/actions/managing-workflow-runs/manually-running-a-workflow#running-a-workflow)
 
-It checks out the repository, in order to access the `SNAPLET_DATABASE_ID` from `.snaplet/config.json`, then it installs the Snaplet CLI and runs the `snaplet snapshot create` command.
+It checks out the repository, in order to access the `projectId` from `.snaplet/config.json`, then it installs the Snaplet CLI and runs the `snaplet snapshot create` command.
 
 :::tip
 Use `snaplet snapshot restore -y` instead to restore the last captured snapshot rather than creating a new one.
