@@ -90,8 +90,7 @@ module.exports = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/snaplet/docs',
-          routeBasePath: '/'
+            'https://github.com/snaplet/docs/tree/main',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -99,4 +98,5 @@ module.exports = {
       },
     ],
   ],
+  scripts: [{ src: 'https://plausible.io/js/script.js', defer: true, 'data-domain': 'snaplet.dev' }],
 };
