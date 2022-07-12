@@ -18,7 +18,7 @@ The most common approaches for solving this are to write seed scripts, or to cop
 
 </div>
 
-Seed scripts are tedious to write and maintain, inaccurate and a tiny representation of accurate data. Whilst copying from production lacks decent workflows, is slow because you have to copy all the data and contains personal information.
+Seed scripts are tedious to write and maintain, inaccurate and a tiny representation of accurate data and copying from production lacks decent workflows,  is slow because you have to copy all the data, and it contains personal information.
 
 ## The solution
 
