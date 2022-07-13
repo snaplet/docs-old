@@ -34,11 +34,9 @@ To create a database from a snapshot, run `snaplet db create`:
 ```bash
 # highlight-next-line
 $ snaplet db create instant_db_tutorial
-# You will be asked to pick a snapshot,
-# if you don't provide one using the --snapshot or --latest option
+# You will be asked to pick a snapshot if you don't provide one using the --snapshot or --latest option
 ✔ Snapshot › v1-cassidy-underpass-interface 483 kB  4 days ago
-# If you are using the instant database feature for the first time,
-# you will have the infrastructure provisioned
+# If you are using the instant database feature for the first time you will have the infrastructure provisioned
 ✔ Instant database server provisioned [24s]
 # The snapshot is restored to the instant database
 ✔ Database instant_db_tutorial created from snapshot v1-cassidy-underpass-interface [12s]
