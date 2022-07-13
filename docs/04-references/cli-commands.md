@@ -1,164 +1,348 @@
 # CLI Reference
 
-## **`auth`**
+## **auth**
 
-To manage your auth state use `snaplet auth`.
+The `snaplet auth` command is used to manage auth state.
 
-### `login`
+**Usage**
 
-** Description **
+```bash
+snaplet auth [action]
+```
 
-Login with an access token.
+### **login**
 
-** Command Args **
+The `snaplet auth login` command is used to login with an access token.
 
-| Option         | Required | Description                                                                                                                       |
-| :------------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| [access-token] | No       | The login command action will open a <br/> link at [Snaplet Cloud](https://app.snaplet.dev/) where you will find an access token. |
+**Usage**
 
-<br/>
+```bash
+snaplet auth login [access-token]
+```
 
-## **`config`**
+## **config**
 
-To manage your project configuration in the cloud & locally use `snaplet config`
+The `snaplet config` command is used to manage configuration.
 
-### `setup`
+**Usage**
 
-** Description **
+```bash
+snaplet config [action]
+```
 
-Setup local project configuration
+### **create**
 
-** Command Args **
+The `snaplet config create` command is used to create a new project.
 
-| Argument            | Required | Description                      |
-| :------------------ | :------- | :------------------------------- |
-| [database-id]       | No       | The source database id.          |
-| [connection-string] | No       | The target db connection string. |
+**Usage**
 
-** Command Flags **
+```bash
+snaplet config create [name]
+```
 
-| Name       | Alias | Type    | Choices                        | Default | Usage                     |
-| :--------- | :---- | :------ | :----------------------------- | :------ | :------------------------ |
-| -—generate | -     | boolean | <code>true &#124; false</code> | `true`  | `config setup --generate` |
+**Command Flags**
 
-### `generate`
+| Name   | Alias | Type   |
+| ------ | ----- | ------ |
+| --team | -t    | string |
 
-** Description **
+### **generate**
 
-Generate transformations file and stores it in your configuration file.
+The `snaplet config generate` command is used to generate transform files.
 
-** Command Flags **
+**Usage**
 
-| Name   | Alias | Type   | Choices                                      | Default    | Usage                 |
-| :----- | :---- | :----- | :------------------------------------------- | :--------- | :-------------------- |
-| -—type | --t   | string | <code>typedefs &#124; transformations</code> | `typedefs` | `config generate --t` |
+```bash
+snaplet config generate
+```
 
-### `pull`
+**Command Flags**
 
-** Description **
+| Name      | Alias | Type    | Choices                 | Default  |
+| --------- | ----- | ------- | ----------------------- | -------- |
+| --type    | -t    | string  | typedefs,transform,keys | typedefs |
+| --dry-run |       | boolean |                         | false    |
 
-Pull your configuration saved in the cloud into your local setup.
+### **list**
 
-** Command Flags **
+The `snaplet config list` command is used to list config variables.
 
-| Name   | Alias | Type   | Choices                                                                    | Default                                     | Usage                      |
-| :----- | :---- | :----- | :------------------------------------------------------------------------- | :------------------------------------------ | :------------------------- |
-| --type | --t   | string | <code>schemas &#124; transformations &#124; typedefs &#124; schemas</code> | <code>schemas &#124; transformations</code> | `config pull --t <choice>` |
+**Usage**
 
-### `push`
+```bash
+snaplet config list
+```
 
-** Description **
+### **pull**
 
-Push your current local project config to the cloud.
+The `snaplet config pull` command is used to pull cloud project config to local.
 
-** Command Flags **
+**Usage**
 
-| Name   | Alias | Type   | Choices                                     | Default                                     | Usage                     |
-| :----- | :---- | :----- | :------------------------------------------ | :------------------------------------------ | :------------------------ |
-| -—type | --t   | string | <code>schemas &#124; transformations</code> | <code>schemas &#124; transformations</code> | `config push -t <choice>` |
+```bash
+snaplet config pull
+```
 
-<br/>
+**Command Flags**
 
-## **`snapshot`**
+| Name   | Alias | Type   | Choices                              | Default                              |
+| ------ | ----- | ------ | ------------------------------------ | ------------------------------------ |
+| --type | -t    | string | schemas,transform,typedefs,publicKey | schemas,transform,typedefs,publicKey |
 
-To manage snapshots use `snaplet snapshot`. `[alias: ss]`.
+### **push**
 
-### `capture`
+The `snaplet config push` command is used to push local project config to cloud.
 
-** Description **
+**Usage**
 
-Capture a new snapshot. `[aliases: c]`
+```bash
+snaplet config push
+```
 
-** Command Args **
+**Command Flags**
 
-| Argument           | Required | Description |
-| :----------------- | :------- | :---------- |
-| [destination-path] | No       | -           |
+| Name   | Alias | Type   | Choices                                | Default                                |
+| ------ | ----- | ------ | -------------------------------------- | -------------------------------------- |
+| --type | -t    | string | schemas,transform,subsetting,publicKey | schemas,transform,subsetting,publicKey |
 
-** Command Flags **
+### **setup**
 
-| Name          | Alias | Type   | Choices                         | Default | Usage                |
-| :------------ | :---- | :----- | :------------------------------ | :------ | :------------------- |
-| -—environment | —env  | string | <code>cloud &#124; local</code> | `local` | `ss c -env <choice>` |
+The `snaplet config setup` command is used to setup local project configuration.
 
-### `create`
+**Usage**
 
-** Description **
+```bash
+snaplet config setup [project-id] [connection-string]
+```
 
-create a snapshot in cloud
+**Command Flags**
 
-** Command Flags **
+| Name       | Type    | Default |
+| ---------- | ------- | ------- |
+| --generate | boolean | true    |
+| --yes      | boolean | false   |
 
-| Name   | Alias | Type    | Choices                        | Default | Usage              |
-| :----- | :---- | :------ | :----------------------------- | :------ | :----------------- |
-| --json | -     | boolean | <code>true &#124; false</code> | `true`  | `ss create --json` |
+## **discord**
 
-### `list`
+The `snaplet discord` command is used to opens the Snaplet Discord chat window in your browser.
 
-** Description **
+**Usage**
 
-list all snapshots. `[aliases: ls]`
+```bash
+snaplet discord
+```
 
-### `restore`
+## **project**
 
-** Description **
+The `snaplet project` command is used to manage project configuration.
 
-To restore a snapshot. `[aliases: r]`
+**Usage**
 
-** Command Flags **
+```bash
+snaplet project [action]
+```
 
-| Name       | Alias | Type    | Choices                        | Default | Usage              |
-| ---------- | ----- | ------- | ------------------------------ | ------- | ------------------ |
-| —data      | -     | boolean | <code>true &#124; false</code> | true    | `ss r --data`      |
-| —data-only | -     | boolean | <code>true &#124; false</code> | false   | `ss r --data-only` |
-| —tables    | -     | string  | -                              | -       | `ss r --tables`    |
+### **info**
 
-<br/>
+The `snaplet project info` command is used to display information about the project.
 
-## **`proxy`**
+**Usage**
 
-To start a database proxy `[aliases: dev]`
+```bash
+snaplet project info
+```
 
-<br/>
+**Command Flags**
 
-## **`db`**
+| Name  | Type   |
+| ----- | ------ |
+| --abc | string |
 
-To manage database
+### **invite**
 
-### `copy`
+The `snaplet project invite` command is used to create an invite URL for this project.
 
-** Description **
+**Usage**
 
-Makes a copy of the database. `[aliases: clone | backup | cp]`
+```bash
+snaplet project invite
+```
 
-** Command Args **
+### **setup**
 
-| Argument | Required | Description |
-| -------- | -------- | ----------- |
-| [name]   | No       | -           |
+The `snaplet project setup` command is used to set up a project.
 
-<br/>
+**Usage**
 
-## **`upgrade`**
+```bash
+snaplet project setup [project-id]
+```
 
-To upgrade the cli binary use `snaplet upgrade`.
+## **proxy**
+
+The `snaplet proxy` command is used to start a database proxy.
+
+**Usage**
+
+```bash
+snaplet proxy
+```
+
+## **snapshot**
+
+The `snaplet snapshot` command is used to manage snapshots.
+
+**Usage**
+
+```bash
+snaplet snapshot [action]
+```
+
+### **capture**
+
+The `snaplet snapshot capture` command is used to capture a new snapshot.
+
+**Usage**
+
+```bash
+snaplet snapshot capture [destination-path]
+```
+
+**Command Flags**
+
+| Name      | Alias         | Type   | Choices     | Default |
+| --------- | ------------- | ------ | ----------- | ------- |
+| --env     | --environment | string | cloud,local | local   |
+| --message | -m            | string |             |         |
+| --subset  | --subset-path | string |             |         |
+
+### **create**
+
+The `snaplet snapshot create` command is used to create a snapshot in cloud.
+
+**Usage**
+
+```bash
+snaplet snapshot create
+```
+
+**Command Flags**
+
+| Name   | Type    | Default |
+| ------ | ------- | ------- |
+| --json | boolean | false   |
+
+### **list**
+
+The `snaplet snapshot list` command is used to list all snapshots.
+
+**Usage**
+
+```bash
+snaplet snapshot list
+```
+
+### **restore**
+
+The `snaplet snapshot restore` command is used to restore a snapshot.
+
+**Usage**
+
+```bash
+snaplet snapshot restore [snapshot-name]
+```
+
+**Command Flags**
+
+| Name        | Alias     | Description                                                    | Type    | Deprecated | Default |
+| ----------- | --------- | -------------------------------------------------------------- | ------- | :--------: | ------- |
+| --db        | --db-name |                                                                | string  |     ✅      |         |
+| --new       |           |                                                                | boolean |     ✅      | false   |
+| --data      |           | Skip data, only restore schema                                 | boolean |            | true    |
+| --data-only |           | Restore data only (keep the current schema and indexes)        | boolean |            | false   |
+| --tables    |           | Specify which tables to restore data for (used with data-only) | string  |            |         |
+| --yes       | -y        | Performs a restore without a confirmation message              | boolean |            | false   |
+
+### **share**
+
+The `snaplet snapshot share` command is used to Share a snapshot.
+
+**Usage**
+
+```bash
+snaplet snapshot share [snapshot-name|snapshot-path]
+```
+
+**Command Args**
+
+| Name         | Description | Type   |
+| ------------ | ----------- | ------ |
+| snapshotName |             | string |
+
+**Command Flags**
+
+| Name         | Alias | Description                  | Type    | Default |
+| ------------ | ----- | ---------------------------- | ------- | ------- |
+| --latest     |       | The latest snapshot captured | boolean | false   |
+| --message    | -m    |                              | string  |         |
+| --no-encrypt |       | Disable encryption           | boolean | false   |
+
+## **subset**
+
+The `snaplet subset` command is used to manage subsetting.
+
+**Usage**
+
+```bash
+snaplet subset [action]
+```
+
+### **setup**
+
+The `snaplet subset setup` command is used to configure subsetting.
+
+**Usage**
+
+```bash
+snaplet subset setup
+```
+
+## **team**
+
+The `snaplet team` command is used to manage team configuration.
+
+**Usage**
+
+```bash
+snaplet team [action]
+```
+
+### **create**
+
+The `snaplet team create` command is used to create a new team.
+
+**Usage**
+
+```bash
+snaplet team create [name]
+```
+
+## **upgrade**
+
+The `snaplet upgrade` command is used to upgrade this binary.
+
+**Usage**
+
+```bash
+snaplet upgrade
+```
+
+## **completion**
+
+The `snaplet completion` command is used to generate completion script.
+
+**Usage**
+
+```bash
+snaplet completion
+```
