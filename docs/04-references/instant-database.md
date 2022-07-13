@@ -1,6 +1,6 @@
 # Instant Database
 
-:::warning Work in progress
+:::caution Work in progress
 
 This is an unreleased feature.
 
