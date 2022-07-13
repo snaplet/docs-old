@@ -11,7 +11,7 @@ In this tutorial we'll create a snapshot of your database, transform the data, a
 3. Review `.snaplet/transform.ts` and debug it via `snaplet proxy`
 4. Once happy, run `snaplet snapshot capture` to get your first snapshot of your database
 
-The snapshot is stored in the `.snaplet/snapshots` directory. You now have "a nugget of data 🐥" that you can code against. 
+The snapshot is stored in the `.snaplet/snapshots` directory. You now have "a nugget of data 🍗" that you can code against. 
 
 You can also share this snapshot with your team so that everyone can code against the same database!
 
