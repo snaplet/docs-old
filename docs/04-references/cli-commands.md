@@ -30,6 +30,81 @@ The `snaplet config` command is used to manage configuration.
 snaplet config [action]
 ```
 
+### **create**
+
+The `snaplet config create` command is used to create a new project.
+
+**Usage**
+
+```bash
+snaplet config create [name]
+```
+
+**Command Flags**
+
+| Name   | Alias | Type   |
+| ------ | ----- | ------ |
+| --team | -t    | string |
+
+### **generate**
+
+The `snaplet config generate` command is used to generate transform files.
+
+**Usage**
+
+```bash
+snaplet config generate
+```
+
+**Command Flags**
+
+| Name      | Alias | Type    | Choices                 | Default  |
+| --------- | ----- | ------- | ----------------------- | -------- |
+| --type    | -t    | string  | typedefs,transform,keys | typedefs |
+| --dry-run |       | boolean |                         | false    |
+
+### **list**
+
+The `snaplet config list` command is used to list config variables.
+
+**Usage**
+
+```bash
+snaplet config list
+```
+
+### **pull**
+
+The `snaplet config pull` command is used to pull cloud project config to local.
+
+**Usage**
+
+```bash
+snaplet config pull
+```
+
+**Command Flags**
+
+| Name   | Alias | Type   | Choices                              | Default                              |
+| ------ | ----- | ------ | ------------------------------------ | ------------------------------------ |
+| --type | -t    | string | schemas,transform,typedefs,publicKey | schemas,transform,typedefs,publicKey |
+
+### **push**
+
+The `snaplet config push` command is used to push local project config to cloud.
+
+**Usage**
+
+```bash
+snaplet config push
+```
+
+**Command Flags**
+
+| Name   | Alias | Type   | Choices                                | Default                                |
+| ------ | ----- | ------ | -------------------------------------- | -------------------------------------- |
+| --type | -t    | string | schemas,transform,subsetting,publicKey | schemas,transform,subsetting,publicKey |
+
 ### **setup**
 
 The `snaplet config setup` command is used to setup local project configuration.
@@ -47,70 +122,15 @@ snaplet config setup [project-id] [connection-string]
 | --generate | boolean | true    |
 | --yes      | boolean | false   |
 
-### **create**
+## **discord**
 
-The `snaplet config create` command is used to create a new project.
-
-**Usage**
-
-```bash
-snaplet config create [name]
-```
-
-**Command Flags**
-
-| Name   | Alias | Type   |
-| ------ | ----- | ------ |
-| --team | -t    | string |
-
-### **pull**
-
-The `snaplet config pull` command is used to pull cloud project config to local.
+The `snaplet discord` command is used to opens the Snaplet Discord chat window in your browser.
 
 **Usage**
 
 ```bash
-snaplet config pull
+snaplet discord
 ```
-
-**Command Flags**
-
-| Name   | Alias | Type   | Choices                    | Default                    |
-| ------ | ----- | ------ | -------------------------- | -------------------------- |
-| --type | -t    | string | schemas,transform,typedefs | schemas,transform,typedefs |
-
-### **push**
-
-The `snaplet config push` command is used to push local project config to cloud.
-
-**Usage**
-
-```bash
-snaplet config push
-```
-
-**Command Flags**
-
-| Name   | Alias | Type   | Choices                      | Default                      |
-| ------ | ----- | ------ | ---------------------------- | ---------------------------- |
-| --type | -t    | string | schemas,transform,subsetting | schemas,transform,subsetting |
-
-### **generate**
-
-The `snaplet config generate` command is used to generate transform files.
-
-**Usage**
-
-```bash
-snaplet config generate
-```
-
-**Command Flags**
-
-| Name      | Alias | Type    | Choices            | Default  |
-| --------- | ----- | ------- | ------------------ | -------- |
-| --type    | -t    | string  | typedefs,transform | typedefs |
-| --dry-run |       | boolean |                    | false    |
 
 ## **project**
 
@@ -120,16 +140,6 @@ The `snaplet project` command is used to manage project configuration.
 
 ```bash
 snaplet project [action]
-```
-
-### **setup**
-
-The `snaplet project setup` command is used to set up a project.
-
-**Usage**
-
-```bash
-snaplet project setup [project-id]
 ```
 
 ### **info**
@@ -156,6 +166,26 @@ The `snaplet project invite` command is used to create an invite URL for this pr
 
 ```bash
 snaplet project invite
+```
+
+### **setup**
+
+The `snaplet project setup` command is used to set up a project.
+
+**Usage**
+
+```bash
+snaplet project setup [project-id]
+```
+
+## **proxy**
+
+The `snaplet proxy` command is used to start a database proxy.
+
+**Usage**
+
+```bash
+snaplet proxy
 ```
 
 ## **snapshot**
@@ -202,6 +232,16 @@ snaplet snapshot create
 | ------ | ------- | ------- |
 | --json | boolean | false   |
 
+### **list**
+
+The `snaplet snapshot list` command is used to list all snapshots.
+
+**Usage**
+
+```bash
+snaplet snapshot list
+```
+
 ### **restore**
 
 The `snaplet snapshot restore` command is used to restore a snapshot.
@@ -214,24 +254,14 @@ snaplet snapshot restore [snapshot-name]
 
 **Command Flags**
 
-| Name          | Alias     | Description                                                    | Type    | Deprecated | Default |
-| ------------- | --------- | -------------------------------------------------------------- | ------- | :--------: | ------- |
-| --db          | --db-name |                                                                | string  |     ✅      |         |
-| --new         |           |                                                                | boolean |     ✅      | false   |
-| --schema-only |           | Skip data, only restore schema                                 | boolean |            | false   |
-| --data-only   |           | Restore data only (keep the current schema and indexes)        | boolean |            | false   |
-| --tables      |           | Specify which tables to restore data for (used with data-only) | string  |            |         |
-| --yes         | -y        | Performs a restore without a confirmation message              | boolean |            | false   |
-
-### **list**
-
-The `snaplet snapshot list` command is used to list all snapshots.
-
-**Usage**
-
-```bash
-snaplet snapshot list
-```
+| Name        | Alias     | Description                                                    | Type    | Deprecated | Default |
+| ----------- | --------- | -------------------------------------------------------------- | ------- | :--------: | ------- |
+| --db        | --db-name |                                                                | string  |     ✅      |         |
+| --new       |           |                                                                | boolean |     ✅      | false   |
+| --data      |           | Skip data, only restore schema                                 | boolean |            | true    |
+| --data-only |           | Restore data only (keep the current schema and indexes)        | boolean |            | false   |
+| --tables    |           | Specify which tables to restore data for (used with data-only) | string  |            |         |
+| --yes       | -y        | Performs a restore without a confirmation message              | boolean |            | false   |
 
 ### **share**
 
@@ -251,10 +281,31 @@ snaplet snapshot share [snapshot-name|snapshot-path]
 
 **Command Flags**
 
-| Name      | Alias | Description                  | Type    | Default |
-| --------- | ----- | ---------------------------- | ------- | ------- |
-| --latest  |       | The latest snapshot captured | boolean | false   |
-| --message | -m    |                              | string  |         |
+| Name         | Alias | Description                  | Type    | Default |
+| ------------ | ----- | ---------------------------- | ------- | ------- |
+| --latest     |       | The latest snapshot captured | boolean | false   |
+| --message    | -m    |                              | string  |         |
+| --no-encrypt |       | Disable encryption           | boolean | false   |
+
+## **subset**
+
+The `snaplet subset` command is used to manage subsetting.
+
+**Usage**
+
+```bash
+snaplet subset [action]
+```
+
+### **setup**
+
+The `snaplet subset setup` command is used to configure subsetting.
+
+**Usage**
+
+```bash
+snaplet subset setup
+```
 
 ## **team**
 
@@ -276,16 +327,6 @@ The `snaplet team create` command is used to create a new team.
 snaplet team create [name]
 ```
 
-## **proxy**
-
-The `snaplet proxy` command is used to start a database proxy.
-
-**Usage**
-
-```bash
-snaplet proxy
-```
-
 ## **upgrade**
 
 The `snaplet upgrade` command is used to upgrade this binary.
@@ -295,117 +336,6 @@ The `snaplet upgrade` command is used to upgrade this binary.
 ```bash
 snaplet upgrade
 ```
-
-## **database** 🥚 (experimental feature)
-
-The `snaplet database` command is used to manage instant databases.
-
-**Usage**
-
-```bash
-snaplet database [action]
-```
-
-### **create**
-
-The `snaplet database create` command is used to create an instant database from a snapshot.
-
-**Usage**
-
-```bash
-snaplet database create [database-name]
-```
-
-**Command Args**
-
-| Name         | Description | Type   |
-| ------------ | ----------- | ------ |
-| databaseName |             | string |
-
-**Command Flags**
-
-| Name       | Description                                                     | Type    | Default |
-| ---------- | --------------------------------------------------------------- | ------- | ------- |
-| --snapshot | The unique name of the snapshot to use to populate the database | string  |         |
-| --git      | Infer the database name from the current git branch             | boolean | false   |
-| --latest   | Select the latest snapshot captured to populate the database    | boolean | false   |
-
-### **delete**
-
-The `snaplet database delete` command is used to delete an instant database.
-
-**Usage**
-
-```bash
-snaplet database delete [database-name]
-```
-
-**Command Args**
-
-| Name         | Description | Type   |
-| ------------ | ----------- | ------ |
-| databaseName |             | string |
-
-**Command Flags**
-
-| Name  | Description                                         | Type    | Default |
-| ----- | --------------------------------------------------- | ------- | ------- |
-| --git | Infer the database name from the current git branch | boolean | false   |
-
-### **list**
-
-The `snaplet database list` command is used to list instant databases.
-
-**Usage**
-
-```bash
-snaplet database list
-```
-
-### **url**
-
-The `snaplet database url` command is used to show an instant database url.
-
-**Usage**
-
-```bash
-snaplet database url [database-name]
-```
-
-**Command Args**
-
-| Name         | Description | Type   |
-| ------------ | ----------- | ------ |
-| databaseName |             | string |
-
-**Command Flags**
-
-| Name  | Description                                         | Type    | Default |
-| ----- | --------------------------------------------------- | ------- | ------- |
-| --git | Infer the database name from the current git branch | boolean | false   |
-
-### **cache**
-
-The `snaplet database cache` command is used to cache a snapshot into the instant database server.
-
-**Usage**
-
-```bash
-snaplet database cache [snapshot]
-```
-
-**Command Args**
-
-| Name     | Description | Type   |
-| -------- | ----------- | ------ |
-| snapshot |             | string |
-
-**Command Flags**
-
-| Name     | Description                                                                 | Type    | Default |
-| -------- | --------------------------------------------------------------------------- | ------- | ------- |
-| --latest | Select the latest snapshot captured to cache in the instant database server | boolean | false   |
-| --clear  | Remove the snapshot from the instant database server cache                  | boolean | false   |
 
 ## **completion**
 
