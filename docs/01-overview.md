@@ -4,13 +4,13 @@ slug: /
 
 # Overview
 
-Snaplet gives developers PostgresQL data that they can code against. It does this by capturing a snapshot of a database: copying the schema and providing a JavaScript runtime for transforming, reducing (subsetting) and generating the data.
+Snaplet gives developers production-accurate PostgreSQL data and ephemeral databases that they can code against. It does this by capturing a 'snapshot' of a database, copying the schema, and providing a JavaScript runtime for transforming, reducing (subsetting) and generating synthetic data. Developers can then share these snapshots with their team for collaborative development.
 
 ## The problem
 
-As a developer, it's difficult to get accurate data to code against. Coding against accurate data clears assumptions and removes ambiguiety when adding features or fixing bugs.
+As a developer, it's difficult to get accurate data to code against. Coding against accurate data reduces errors as a result of fewer assumptions, and generally removes ambiguity when adding features or fixing bugs.
 
-The most common approaches for solving this are to write seed scripts, or to copy the production database.
+The two most common approaches to getting production-accurate data is to generate it via a seed script, or to directly copy a database, either production itself, or a production-like database such as staging or QA.
 
 <div style={{textAlign: 'center'}}>
 
@@ -18,12 +18,12 @@ The most common approaches for solving this are to write seed scripts, or to cop
 
 </div>
 
-Seed scripts are tedious to write and maintain, inaccurate and a tiny representation of accurate data, whereas copying from production lacks decent workflows, is slow because you have to copy all the data, and it contains personal information.
+Both of these approaches have drawbacks. Seed scripts are tedious to write and maintain, are often inaccurate, and generally offer a tiny, non-representative sampling of  data. Copying from production happens outside of established development workflows, is slow and cumbersome because you have to copy all the data, and almost certainly contains personal information about your users.
 
 ## The solution
 
 Snaplet is a command line tool that gives developers a "code as configuration" environment for transforming, reducing (subsetting), and generating data.
-The data is stored as snapshots that can be restored into any development environment.
+The data is stored as snapshots that can be restored into any development environment, and shared with teammates for collaborative development against a shared database.
 
 ### Examples
 
