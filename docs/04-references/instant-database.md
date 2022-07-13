@@ -7,7 +7,9 @@ This is an unreleased feature.
 :::
 
 
-We are currently evaluating the feature to give developers an "instant database" to code, or run PR previews against. Each Snaplet Cloud Project receives a single PostgresQL server instance where multiple databases can be created.
+We are currently evaluating the feature to give developers an "instant database" to code, or run PR previews against.
+Each Snaplet Cloud Project receives a single PostgresQL server instance where multiple databases can be created.
+The database server is hosted in a [Fly Machine](https://fly.io/docs/reference/machines/) with 1 shared CPU, 1GB of RAM and 3GB of persistent volume.
 
 ## Overview
 
