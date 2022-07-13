@@ -107,6 +107,7 @@ To cache a snapshot into the database server, run `snaplet db cache`:
 $ snaplet db cache v1-cassidy-underpass-interface
 ✔ Snapshot v1-cassidy-underpass-interface cached into instant database server [12s]
 
+# highlight-next-line
 $ snaplet db create is_it_fast_enough --snapshot v1-cassidy-underpass-interface
 ✔ Database is_it_fast_enough created from cached snapshot v1-cassidy-underpass-interface [389ms] # Notice the time here!
 You can connect to your database at: postgresql://postgres:*********@snaplet-<orgId>-<projectId>.fly.dev:5432/is_it_fast_enough
