@@ -7,9 +7,11 @@ It contains all the information required to restore a database back to that poin
 ## Capturing a snapshot
 
 To capture a snapshot of a database, run:
+
 ```bash
 snaplet snapshot capture
 ```
+
 This will capture the database specified in `databaseUrl` in the `.snaplet/config.json` configuration file. This can be overidden with the `SNAPLET_DATABASE_URL` environmental variable.
 
 `pg_dump` is required to capture the schema.
@@ -27,6 +29,7 @@ snaplet snapshot capture /path/to/stored-snapshot
 Snaplet will create the directory for you.
 
 In the snapshot directory we store:
+
 - `summary.json`: a bit of metadata that we used during restorations
 - `schema.sql`: your database structure (schema)
 - `tables/[schema]_[tableName].csv`: A bunch of table data in csv format.
@@ -51,13 +54,14 @@ This can be overidden with the `SNAPLET_DATABASE_URL` environmental variable.
 If you're using Snaplet Cloud Snaplet will lookup the latest snapshot, and Snaplet will look into the `.snaplet/snapshots` directory.
 
 You can also restore from a specific directory by specifying the path:
+
 ```bash
 snaplet snapshot restore /path/to/stored-snapshot
 ```
 
-### Decrypting snapshots (Coming soon...)
+### Decrypting snapshots
 
-Snapshot that are encrypted with a public key (`publicKey` in `.snaplet/config.json`) are decrypted via the private key in `.snaplet/id_rsa`.
+Snapshots that are encrypted with a public key (`publicKey` in `.snaplet/config.json`) are decrypted via the private key in `.snaplet/id_rsa`.
 
 To generate a public and private key pair, run `snaplet config generate --type=keys`.
 
@@ -70,7 +74,7 @@ snaplet snapshot restore --data-only
 ```
 
 Running the `snaplet snapshot restore` command with the `--data-only` flag ensures that you keep your current database structure and only the data is restored.
- 
+
 ### Restore specific tables only
 
 ```bash
@@ -79,11 +83,11 @@ snaplet snapshot restore --data-only --tables
 
 Running the `snaplet snapshot restore` command with the `--data-only` flag, combined with the `--tables` parameter, gives you finer control over which data is restored. This feature is handy for those instances where you want to refresh your data in specific tables only, without affecting anything else you might have changed. Refreshing just some tables can also be a lot faster compared to the entire database!
 
-*Here’s an example:*
+_Here’s an example:_
 
 `snaplet snapshot restore --data-only --tables=public.user,city`
 
-In the example above, both the user and city table in the public schema would be refreshed, and nothing else. 
+In the example above, both the user and city table in the public schema would be refreshed, and nothing else.
 
 Note that, the default schema is assumed to be public, so you don’t need to specify a schema for tables that exist in public (i.e: `snaplet snapshot restore --data-only --tables=city`)
 
@@ -99,7 +103,6 @@ snaplet snapshot share
 
 Will ask you to select the snapshot that you wish to share.
 You can also specify the unique name or path to the snapshot in order to share it.
-
 
 ### Encryption (Coming soon...)
 
