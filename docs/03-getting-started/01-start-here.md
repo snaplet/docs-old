@@ -2,9 +2,8 @@
 
 This section is all about getting started quickly with Snaplet.
 We'll run you through a workflow that captures, transforms, and shares a snapshot of your **local development database.**
-We're using your local development database because you're currently evaluating Snaplet, and you may not want to test it against your production or staging database! Frankly, we prefer it that way!
 
-Once you're ready to _adopt Snaplet for real_ you can choose to entirely or partly self-host Snaplet in your own environment.
+We're using your local development database because it demonstrates what Snaplet can do without having to connect to your production or staging database. Once you're ready to _adopt Snaplet for real_ you can choose to entirely or partially [self-host](/guides/self-hosting) Snaplet in your own infrastructure, while securely connecting a database of your choice.
 
 Let's go!
 
@@ -16,7 +15,7 @@ Let's go!
 
 # Install CLI
 
-You can install the CLI from the command line, run:
+Start by installing the Snaplet CLI. To install the CLI from the command line, run:
 
 ```bash
 curl -sL https://app.snaplet.dev/get-cli/ | bash
