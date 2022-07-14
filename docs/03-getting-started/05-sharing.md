@@ -10,7 +10,7 @@ A project can also capture snapshots, but in this guide we'll use it for sharing
 
 1. You'll need a user account in order to create a project, run `snaplet auth setup` to log in or sign up
 2. To associate your source code to a Snaplet Cloud Project, run `snaplet project setup`.
-This will update the `.snaplet/config.json` file, which should be added to your repository so that other developers on your team can restore from the same project
+   This will update the `.snaplet/config.json` file, which should be added to your repository so that other developers on your team can restore from the same project
 
 ## Share!
 
@@ -22,9 +22,9 @@ $ snaplet snapshot share
 ✔ Snapshot deployed: snaplet snapshot restore feed-synthesize [16s]
 ```
 
-Your snapshot is compressed and uploaded to your project. It's only accessible to developers that you've invited to your team.
+Your snapshot is encrypted, compressed and uploaded to your project. It's only accessible to developers that you've invited to your team.
 
-Public/ Priavate key encrpytion is coming soon!
+**Note:** you can add the `--no-encrypt` flag if you want to keep your keys, but opt out.
 
 ## Inviting members to your project
 
@@ -33,5 +33,3 @@ Coming soon: Do this directly via the CLI with `snaplet project invite`
 1. Head on over to https://app.snaplet.dev
 2. Click on team members
 3. Generate a token and share it with them
-
-
