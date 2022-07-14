@@ -1,8 +1,9 @@
 # Capturing a snapshot
 
-Now that you're happy with your `.snaplet/transform.ts` file we'll capture a snapshot of your _development database_, which may be a slightly contrived, since the rest of your team would likely want to code against a snapshot of production or staging.
+Now that you've reviewed your `.snaplet/transform.ts` file and are satisfied with the transformations, Snaplet will capture a snapshot of your _local development database_. As we mentioned, this may be a slightly contrived scenario, as you and the rest of your team may want to code against a snapshot of your production or staging database instead. 
 
-Stick with us, since the steps for capturing a snapshot of production are the same, the only difference being the switching of the connection string via a `SNAPLET_DATABASE_URL` environmental variable.
+Stick with us though, as the steps for capturing a snapshot of production (or any other database) are the same, the only difference being changing the connection string via a `SNAPLET_DATABASE_URL` environmental variable. 
+
 At the end of this guide we'll go over different ways of capturing your production database in a self-hosted environment, or as a Snaplet Cloud Project.
 
 To snapshot your database, run `snaplet snapshot capture`
@@ -28,7 +29,7 @@ To share this snapshot, run:
 snaplet snapshot share feed-synthesize
 ```
 
-You now have a fresh "nugget of data 🍗" that is saved to the `.snaplet/snapshots` directory.
-The snapshot contains the schema, some metadata, and the data in CSV format.
+That's it! You've captured a snapshot of your local database, and you now have a fresh "nugget of data 🍗" that is saved to the `.snaplet/snapshots` directory.
+The snapshot contains the schema, some metadata, and the data in CSV format (transformed as per your transformations).
 
-All the right ingredients your team members need to restore your database!
+Your snapshot has all the right ingredients your team members need to restore your database to their environment, so everyone on the team can code against the same data!
