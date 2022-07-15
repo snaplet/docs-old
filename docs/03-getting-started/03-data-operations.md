@@ -78,4 +78,5 @@ Using JavaScript functions to tranform your data gives you an incredible amount 
 
 ## Other data operations...
 
-In this chapter we covered transforming and excluding data, but Snaplet can also generate data. Read more about other data operations in our [data operations reference](/references/data-operations/overview).
+In this chapter we covered transforming and excluding data, but Snaplet can also reduce (subset) and generate data.
+Read more about those data operations in our [data operations reference](/references/data-operations/overview).

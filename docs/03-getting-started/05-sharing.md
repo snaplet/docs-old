@@ -1,16 +1,14 @@
 # Sharing a snapshot
 
-Now that you have a snapshot you'll likely want to share it with members of your team. You could upload it to S3, but then you'll need to write some glue-code and distribute keys, and that's no fun!
-So, we'll just use a Snaplet Cloud Project to host your snapshots instead.
+Now that you have a snapshot you'll likely want to share it with members of your team. While you can always self-host your snapshots on your own cloud service, Snaplet Cloud makes it super easy to host and share your snapshots with your team from within the CLI.  
 
 ## Setup a Snaplet Cloud Project
 
-Snaplet is designed to be self-hosted, but we also offer the ability partly or completely host it via a Snaplet Cloud Project.
-A project can also capture snapshots, but in this guide we'll use it for sharing our snapshots.
+In order to share your snapshots with your team, you'll need a Snaplet Cloud user account. (Snaplet Cloud can also be used to capture snapshots, but we'll just be using it here for sharing.)
 
-1. You'll need a user account in order to create a project, run `snaplet auth setup` to log in or sign up
-2. To associate your source code to a Snaplet Cloud Project, run `snaplet project setup`.
-This will update the `.snaplet/config.json` file, which should be added to your repository so that other developers on your team can restore from the same project
+1. You need a user account to create a project. Run `snaplet auth setup` to log in or sign up to Snaplet Cloud
+2. Link your source code to a Snaplet Cloud Project. Run `snaplet project setup`.
+   This will update the `.snaplet/config.json` file, which should be added to your repository so that other developers on your team can restore from the same project
 
 ## Share!
 
@@ -22,16 +20,20 @@ $ snaplet snapshot share
 ✔ Snapshot deployed: snaplet snapshot restore feed-synthesize [16s]
 ```
 
-Your snapshot is compressed and uploaded to your project. It's only accessible to developers that you've invited to your team.
+Your snapshot is encrypted, compressed and uploaded to your project. It's only accessible to developers that you've invited to your team.
 
-Public/ Priavate key encrpytion is coming soon!
+**Note:** you can add the `--no-encrypt` flag if you want to keep your keys, but opt out.
 
 ## Inviting members to your project
 
-Coming soon: Do this directly via the CLI with `snaplet project invite`
+Invite members to your project directly via the CLI with `snaplet project invite`
 
+You can also manage invites via the Snaplet web app:
 1. Head on over to https://app.snaplet.dev
 2. Click on team members
 3. Generate a token and share it with them
 
 
+
+## Sharing without Snaplet Cloud
+Don't want Snaplet to host and share your snapshots? Upload them to your own cloud hosting service instead! You'll need to write some glue code and distribute keys, but snapshots can be hosted exclusively on your own environment if that's your preference. 
