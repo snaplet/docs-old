@@ -1,12 +1,13 @@
 # Data operations
 
 Snaplet has four operations for manipulating the data in a snapshot:
-- **Transform:** Make existing data safe and suitable for development by transforming personally identifiable data
-- **Exclude:** Ignore data in specific tables
+- **Transform:** Make existing data suitable for development by transforming the original value into a new one
+- **Exclude:** Remove data in specific tables
 - **Reduce (Subset):** Capture a subset of data whilst keeping referential integrity intact
 - **Generate:** Seed values when you don't have any data
 
-These operations are defined as code via config files and JavaScript functions. This gives a development team control over the shape of their data, and introduces a _"gitops style workflow"_ for database snapshot management.
+These operations are defined as code via config files and JavaScript functions.
+This gives a development team control over the shape of their data, and introduces a _"gitops style workflow"_ for database snapshot management.
 
 In this guide we're going to focus on transforming and excluding data.
 
@@ -41,8 +42,7 @@ Here we used the `id` value to create a new email address value: `"user_1@exampl
 Copycat is our open-source library for generating fake-data that includes templates for names, addresses, phone numbers and [many other common transformations!](https://github.com/snaplet/copycat/#api-reference)
 
 It produces _deterministic values,_ so for any given input it'll always produce the exact same output! For example:
-```js
-
+```typescript
 copycat.email('a-real-email@domain.com') // => beth.cranshaw@example.org
 copycat.email('a-real-email@domain.com') // => beth.cranshaw@example.org
 copycat.email('1') // => jane.maplemoth@example.org
@@ -67,6 +67,7 @@ export default () => {
   }
 }
 ```
+
 ## Reduce (Subset)
 
 When creating a representative snapshot of your database to code against, you will typically need to capture only a small portion of the data in that database. Snaplet lets you capture a subset of your data when creating a snapshot, which reduces your snapshot's size and by extension, the time spent uploading and downloading snapshots. This is especially useful if you're connecting directly to a production or staging database that is many GBs in size. For the purpose of this getting started guide, we won't be subsetting your snapshot, but you can read more about subsetting your database snapshots [here](/references/data-operations/reduce).
