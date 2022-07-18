@@ -27,7 +27,7 @@ export default () => {
       User: ({ row }) => {
         return {
           // highlight-next-line
-          email: 'user_' + row.id + '@example.org',
+          email: 'user_' + row.id + '@example.org', 
         }
       }
     }
@@ -45,9 +45,9 @@ Copycat is our open-source library for generating fake-data that includes templa
 It produces _static values,_ so for any given input it'll produce the exact same output! Having static values is super helpful when coding or testing, as an example:
 
 ```js
-copycat.email("a-real-email@domain.com") // => beth.cranshaw@example.org
-copycat.email("a-real-email@domain.com") // => beth.cranshaw@example.org
-copycat.email("1") // => jane.maplemoth@example.org
+copycat.email('a-real-email@domain.com') // => beth.cranshaw@example.org
+copycat.email('a-real-email@domain.com') // => beth.cranshaw@example.org
+copycat.email('1') // => jane.maplemoth@example.org
 ```
 
 ## Exclude Tables
