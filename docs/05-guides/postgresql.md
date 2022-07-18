@@ -65,14 +65,19 @@ GRANT snaplet_read_all_data TO snaplet_readonly;
 
 ## Grant IP address access
 
-Snaplet uses `54.93.75.84` and `18.158.21.101` to connect to your database. It's a good idea to restrict all traffic to PostgresQL, and only grant access where it's absolutely required.
+Snaplet uses `54.93.75.84`, `3.64.37.135` and `18.158.21.101` to connect to your database. It's a good idea to restrict all traffic to PostgresQL, and only grant access where it's absolutely required.
 
 ## Self-Signed Certificates
 
-To make Snaplet work with servers using self-signed certificates. Please add `sslmode=no-verify` to the database connection string.
-
-Example
-
+To make Snaplet work with servers using self-signed certificates. Please add `sslmode=require` to the database connection string:
+```terminal
+SNAPLET_DATABASE_URL='postgresql://<user>:<password>@<host>:<port>/<database>?sslmode=required&ssl=true&sslmode=require snaplet snapshot restore'
 ```
-export SNAPLET_DATABASE_URL='postgresql://<user>:<password>@<host>:<port>/<database>?sslmode=required&ssl=true&sslmode=no-verify'
+
+During the snapshot capture process, use `NODE_TLS_REJECT_UNAUTHORIZED=0`:
+```terminal
+NODE_TLS_REJECT_UNAUTHORIZED=0 SNAPLET_DATABASE_URL='postgresql://<user>:<password>@<host>:<port>/<database>?sslmode=required&ssl=true&sslmode=require snaplet snapshot capture'
 ```
+
+
+Example:
