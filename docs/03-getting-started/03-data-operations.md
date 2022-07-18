@@ -3,7 +3,7 @@
 Snaplet has four operations for customizing the data in a snapshot:
 
 - **Transform:** Make existing data suitable for development
-- **Exclude:** Ignore data in specific tables
+- **Exclude:** Ignore data in specific schemas or tables
 - **Reduce (Subset):** Capture a subset of data whilst keeping referential integrity intact
 - **Generate:** Seed values when you don't have any data
 

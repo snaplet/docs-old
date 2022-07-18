@@ -104,7 +104,7 @@ snaplet snapshot share
 Will ask you to select the snapshot that you wish to share.
 You can also specify the unique name or path to the snapshot in order to share it.
 
-### Encryption (Coming soon...)
+### Encryption
 
 Snapshots are encrypted using a public key (store as `publicKey` in `.snaplet/config.json`).
 This happens automatically when they're are shared. In order to opt-out use the `--no-encrypt` flag.
