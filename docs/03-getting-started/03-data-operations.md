@@ -27,12 +27,12 @@ export default () => {
       User: ({ row }) => {
         return {
           // highlight-next-line
-          email: "user_" + row.id + "@example.org",
-        };
-      },
-    },
-  };
-};
+          email: 'user_' + row.id + '@example.org',
+        }
+      }
+    }
+  }
+}
 ```
 
 The function assigned to `public.User` receives the existing row values in the `row` variable.
@@ -45,9 +45,9 @@ Copycat is our open-source library for generating fake-data that includes templa
 It produces _static values,_ so for any given input it'll produce the exact same output! Having static values is super helpful when coding or testing, as an example:
 
 ```js
-copycat.email("a-real-email@domain.com"); // => beth.cranshaw@example.org
-copycat.email("a-real-email@domain.com"); // => beth.cranshaw@example.org
-copycat.email("1"); // => jane.maplemoth@example.org
+copycat.email("a-real-email@domain.com") // => beth.cranshaw@example.org
+copycat.email("a-real-email@domain.com") // => beth.cranshaw@example.org
+copycat.email("1") // => jane.maplemoth@example.org
 ```
 
 ## Exclude Tables
@@ -62,10 +62,10 @@ Snaplet will still create the table's structure but skip the data.
 export default () => {
   return {
     public: {
-      AuditLog: false,
-    },
-  };
-};
+      AuditLog: false
+    }
+  }
+}
 ```
 
 ## Exclude Schemas
@@ -75,7 +75,7 @@ Databases also often have schemas that are used for operations that are isolated
 ```typescript
 // .snaplet/schemas.json
 {
-  public: false;
+  public: false
 }
 ```
 
