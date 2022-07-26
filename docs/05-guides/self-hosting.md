@@ -19,4 +19,4 @@ That's it, you have now a snapshot in `/tmp/my-snapshot` that you can upload and
 
 ## Sharing snapshot via a Snaplet Cloud Project
 
-Run `snaplet snaspshot share /tmp/my-snapshot` to upload it to a Snaplet Cloud Project.
+Run `snaplet snapshot share /tmp/my-snapshot` to upload it to a Snaplet Cloud Project.
