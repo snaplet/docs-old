@@ -2,15 +2,15 @@
 
 :::note Experimental
 
-This is a preview feature. We would love your feedback!
+This is a preview feature. We would love your [feedback!](https://app.snaplet.dev/chat)
 
 :::
 
 ## Use cases
 
-Imagine you created a new project with a new database, you designed the schema, and now you need some data to test against. Snaplet allows you to generate fake data for your database. Now you can write tests againt the new data and also experience your UX and UI with the new data.
+Imagine you've created a new project with a brand new database, you've designed the schema, and now you need some data to test against. Snaplet allows you to generate fake data for your database. You can write tests against the new data, and also experience your UX and UI with the new data.
 
-In another scenario, you have a populated database. You are busy with a feature which adds a new table. No need to write a seed script, Snaplet lets you generate data for the new table.
+In another scenario, you have a populated database. You are busy with a feature which adds a new table. There's no need to write a seed script - Snaplet lets you generate data for the new table.
 
 ## Generate data
 
@@ -22,6 +22,6 @@ Snaplet will generate data for the tables in your database while keeping relatio
 
 :::note Nullable Relationships
 
-Forgein keys are used to determine the relationships between tables. Because circular relationships can occur, Snaplet will not generate data for nullable relationships (Forgein keys, where the foreign key can be null).
+Foreign keys are used to determine the relationships between tables. Because circular relationships can occur, Snaplet will not generate data for nullable relationships (Foreign keys, where the foreign key can be null).
 
 :::
