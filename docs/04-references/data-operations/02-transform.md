@@ -23,7 +23,7 @@ export default config;
 
 When a snapshot is captured the `email` column is transformed to the value `"my-new-email@example.org,"` which is exactly what we wanted, but you probably want to generate a bunch of emails so the data looks realistic.
 
-That's where `@snaplet/copycat` comes in! It's a library that generates deterministic fake values: By supplying an input _(the original email address),_ copycat returns a static value (a fake email address). As long as the input remains the same, the output will remain the same.
+That's where [`@snaplet/copycat`](https://github.com/snaplet/copycat) comes in! It's a library that generates deterministic fake values: by supplying an input _(the original email address),_ copycat returns a static value (a fake email address). As long as the input remains the same, the output will remain the same.
 
 Example:
 
@@ -124,7 +124,7 @@ snaplet proxy
 Listening on postgresql://localhost:2345...
 ```
 
-You'll be able to connect to `postgresql://localhost:2345`, where each query is passed along to your database, but the response is transformed in realtime via Transformation Functions.
+You'll be able to connect to `postgresql://localhost:2345`, where each query is passed along to your database, but the response is transformed in realtime via Transformation Functions. 
 
 ### Dealing with character limits
 
