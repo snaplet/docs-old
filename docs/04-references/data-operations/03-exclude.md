@@ -7,11 +7,11 @@ Snaplet will still create the table's structure but skip the data.
 
 ```typescript
 // .snaplet/transform.ts
-export default () => {
+export const config = () => {
   return {
     public: {
-      AuditLog: false
-    }
-  }
-}
+      AuditLog: false,
+    },
+  };
+};
 ```

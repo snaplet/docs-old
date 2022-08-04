@@ -4,21 +4,19 @@ Snaplet transforms the data in your database via JavaScript callbacks. This "Tra
 
 ```ts
 // .snaplet/transform.ts
-import { copycat } from "@snaplet/copycat";
-import type { Transform } from "./structure";
+import { copycat } from '@snaplet/copycat';
+import type { Transform } from './structure';
 
-const config: Transform = () => ({
+export const config: Transform = () => ({
   public: {
     Users() {
       return {
         // highlight-next-line
-        email: "my-new-email@example.org",
+        email: 'my-new-email@example.org',
       };
     },
   },
 });
-
-export default config;
 ```
 
 When a snapshot is captured the `email` column is transformed to the value `"my-new-email@example.org,"` which is exactly what we wanted, but you probably want to generate a bunch of emails so the data looks realistic.
@@ -29,10 +27,10 @@ Example:
 
 ```ts
 // .snaplet/transform.ts
-import { copycat } from "@snaplet/copycat";
-import type { Transform } from "./structure";
+import { copycat } from '@snaplet/copycat';
+import type { Transform } from './structure';
 
-const config: Transform = () => ({
+export const config: Transform = () => ({
   public: {
     Users({ row }) {
       return {
@@ -42,23 +40,21 @@ const config: Transform = () => ({
     },
   },
 });
-
-export default config;
 ```
 
 Each Transformation Function receives a `row` object that contains the original row's values, this allows you to perform conditional transformations, mutate a JSON object, or create deterministic faker values.
 
 ```js
 // .snaplet/transform.ts
-import { copycat } from "@snaplet/copycat";
-import type { Transform } from "./structure";
+import { copycat } from '@snaplet/copycat';
+import type { Transform } from './structure';
 
-const config: Transform = () => ({
+export const config: Transform = () => ({
   public: {
     Users({ row }) {
       // Transform our user's data, not our developer's data.
       // highlight-next-line
-      if (row.role !== "SUPERUSER") {
+      if (row.role !== 'SUPERUSER') {
         return {
           name: copcat.fullName(row.name),
           email: copycat.email(row.email),
@@ -68,8 +64,6 @@ const config: Transform = () => ({
     },
   },
 });
-
-export default config;
 ```
 
 Copycat is open-source and has templates for names, addresses, phone numbers and [many other common transformations!](https://github.com/snaplet/copycat/#api-reference)
@@ -136,23 +130,21 @@ In these cases, [`copycat.scramble`](https://github.com/snaplet/copycat#copycats
 
 ```ts
 // .snaplet/transform.ts
-import { copycat } from "@snaplet/copycat";
-import type { Transform } from "./structure";
+import { copycat } from '@snaplet/copycat';
+import type { Transform } from './structure';
 
-const config: Transform = () => ({
+export const config: Transform = () => ({
   public: {
     Users({ row }) {
       return {
         // highlight-next-line
         address: copycat.scramble(row.address, {
-          preserve: [",", " "],
+          preserve: [',', ' '],
         }), // '741 Hazle Forks, Carmel 8164, Dominica' => 'tqynqduk@qjlrftv.fig'
       };
     },
   },
 });
-
-export default config;
 ```
 
 Snaplet will also account for character limits this way when generating an example `transform.ts` config for you: if Snaplet sees a column containing PII that has a character limit, the example `transform.ts` config we generate for you will instead make use of [`copycat.scramble`](https://github.com/snaplet/copycat#copycatscramblestring-options) for that column.
