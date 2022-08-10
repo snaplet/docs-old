@@ -1,0 +1,17 @@
+name: Algolia DocSearch Scraper
+
+on:
+  schedule:
+    - scrap: "0 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  scrap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: darrenjennings/algolia-docsearch-action@master
+        with:
+          algolia_application_id: PPVJZD9QQI
+          algolia_api_key: ${{ secrets.ALGOLIA_API_KEY }}
+          file: algolia.config.json
