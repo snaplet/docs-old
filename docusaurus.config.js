@@ -14,6 +14,11 @@ module.exports = {
   projectName: 'docs', // Usually your repo name.
   plugins: ['docusaurus-plugin-segment'],
   themeConfig: {
+    algolia: {
+      appId: 'PPVJZD9QQI',
+      apiKey: '221836c058f50b764becd187638295b2',
+      indexName: 'snaplet-docs',
+    },
     segment: {
       apiKey: 'VY4RrFl2Qu7bCRmxzQ7IIj9dK7MFMzrH',
     },
