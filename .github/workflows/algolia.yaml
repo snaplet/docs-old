@@ -2,11 +2,11 @@ name: Algolia DocSearch Scraper
 
 on:
   schedule:
-    - scrap: "0 3 * * *"
+    - cron: "0 3 * * *"
   workflow_dispatch:
 
 jobs:
-  scrap:
+  cron:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
