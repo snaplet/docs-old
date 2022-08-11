@@ -22,10 +22,10 @@ $ snaplet database --help
 snaplet database [action]
 
 Commands:
-  snaplet database create [database-name]  create an preview database from a snapshot         [aliases: c]
-  snaplet database delete [database-name]  delete an preview database                         [aliases: d]
+  snaplet database create [database-name]  create a preview database from a snapshot         [aliases: c]
+  snaplet database delete [database-name]  delete a preview database                         [aliases: d]
   snaplet database list                    list preview databases                             [aliases: ls]
-  snaplet database url [database-name]     show an preview database url                       [aliases: u]
+  snaplet database url [database-name]     show a preview database url                       [aliases: u]
   snaplet database cache [snapshot]        cache a snapshot into the preview database server  [aliases: ca]
 ```
 
