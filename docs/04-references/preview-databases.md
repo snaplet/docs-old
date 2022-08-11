@@ -37,15 +37,15 @@ To create a database from a snapshot, run `snaplet db create`:
 
 ```bash
 # highlight-next-line
-$ snaplet db create instant_db_tutorial
+$ snaplet db create preview_db_tutorial
 # You will be asked to pick a snapshot if you don't provide one using the --snapshot or --latest option
 ✔ Snapshot › v1-cassidy-underpass-interface 483 kB  4 days ago
 # If you are using the preview database feature for the first time you will have the infrastructure provisioned
 ✔ Preview database server provisioned [24s]
 # The snapshot is restored to the preview database
-✔ Database instant_db_tutorial created from snapshot v1-cassidy-underpass-interface [12s]
+✔ Database preview_db_tutorial created from snapshot v1-cassidy-underpass-interface [12s]
 # You can now use your database!
-You can connect to your database at: postgresql://postgres:*********@snaplet-<orgId>-<projectId>.fly.dev:5432/instant_db_tutorial
+You can connect to your database at: postgresql://postgres:*********@snaplet-<orgId>-<projectId>.fly.dev:5432/preview_db_tutorial
 ```
 
 If you don't want to provide an explicit name for the database, you can use the `--git` option. Your database will be named after your current branch name:
@@ -69,7 +69,7 @@ To list all databases, run `snaplet db list`:
 $ snaplet db list
 DATABASES
 NAME                   SIZE     SNAPSHOT
-instant_db_tutorial    14 MB    v1-cassidy-underpass-interface
+preview_db_tutorial    14 MB    v1-cassidy-underpass-interface
 snappy_feature_meow    14 MB    v1-cassidy-underpass-interface
 ```
 
@@ -81,8 +81,8 @@ To delete a database, run `snaplet db delete`:
 
 ```bash
 # highlight-next-line
-$ snaplet db delete instant_db_tutorial
-✔ Deleted database instant_db_tutorial
+$ snaplet db delete preview_db_tutorial
+✔ Deleted database preview_db_tutorial
 ```
 
 ## Displaying a database url
