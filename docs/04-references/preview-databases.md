@@ -1,17 +1,17 @@
-# Preview Database
+# Preview Databases
 
-:::caution Work in progress
+:::note Experimental
 
-This is an unreleased feature.
+This is a preview feature. We would love your feedback!
 
 :::
 
 
-We are currently evaluating the feature to give developers a "preview database" to code, or run PR previews against.
+We want to give developers a "preview database" to code, or run pull-request previews against.
 
-Each Snaplet Cloud Project receives a single PostgresQL server instance where multiple databases can be created.
+Each Snaplet Cloud Project receives a single PostgresQL server instance where multiple preview databases can be created.
 
-The database server is hosted on a [Fly Machine](https://fly.io/docs/reference/machines/) with 1 shared CPU, 1GB of RAM and 3GB of persistent volume.
+The database server is hosted on a [Fly Machine](https://fly.io/docs/reference/machines/) with 1 shared CPU, 1GB of RAM and 10GB of persistent volume.
 
 ## Overview
 
