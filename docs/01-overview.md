@@ -4,7 +4,7 @@ slug: /
 
 # Overview
 
-Snaplet gives developers production-accurate PostgreSQL data and ephemeral databases that they can code against. It does this by capturing a 'snapshot' of a database, copying the schema, and providing a JavaScript runtime for transforming, reducing (subsetting) and generating synthetic data. Developers can then share these snapshots with their team for collaborative development.
+Snaplet gives developers production-accurate PostgreSQL data and preview databases that they can code against. It does this by capturing a 'snapshot' of a database, copying the schema, and providing a JavaScript runtime for transforming, reducing (subsetting) and generating synthetic data. Developers can then share these snapshots with their team for collaborative development.
 
 ## The problem
 
@@ -44,4 +44,4 @@ The data is stored as snapshots that can be restored into any development enviro
 1. Capture a snapshot
 2. Generate, transform, reduce or exclude data
 3. Share the snapshot
-4. Restore to dev environment 
+4. Restore to dev environment
