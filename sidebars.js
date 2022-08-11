@@ -38,7 +38,7 @@ module.exports = {
         },
         { type: 'doc', id: 'references/snapshots', label: 'Snapshots' },
         { type: 'doc', id: 'references/snaplet-cloud-project', label: 'Snaplet Cloud Projects' },
-        { type: 'doc', id: 'references/instant-database', label: 'Instant database 🥚' },
+        { type: 'doc', id: 'references/preview-database', label: 'Preview database 🥚' },
         { type: 'doc', id: 'references/cli-commands', label: 'CLI Commands' },
       ]
     },
