@@ -13,7 +13,7 @@ Many people capture snapshots in CI/CD because it's already trusted, already has
 
 1. Install Snaplet CLI
 2. Checkout your source code from repository
-3. Run `SNAPLET_DATABASE_URL=[secret] snapshot capture /tmp/my-snapshot` 
+3. Run `SNAPLET_DATABASE_URL=[secret] snaplet snapshot capture /tmp/my-snapshot` 
 
 That's it, you have now a snapshot in `/tmp/my-snapshot` that you can upload and share with your team.
 
