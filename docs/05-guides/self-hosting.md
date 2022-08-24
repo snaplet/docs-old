@@ -1,10 +1,12 @@
 # Self-hosting
 
-`This document is a work in progress!`
+:::info
 
-The Snaplet CLI contains all the moving parts required to self-host.
-The idea with self-hosting is that you don't want a 3rd party processor ("Snaplet") access to your database, or the snapshots that you're capturing.
-In this case you run the command to capture a snapshot of your database on a machine that you trust.
+This feature and documentation is currently a work in progress.
+
+:::
+
+  In this case you run the command to capture a snapshot of your database on a machine that you trust.
 
 ## Hosting the capture process
 
