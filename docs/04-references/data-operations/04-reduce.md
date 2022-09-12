@@ -58,7 +58,7 @@ Example `subsetting.json` file:
     },
      {
       "table": "public.User",
-      "where": "\"User\".\"id\" == 13"
+      "where": "\"User\".\"lastName\" == Lee"
     },
   ],
   "keep_disconnected_tables": true
@@ -68,7 +68,7 @@ In this example we select 10% of the rows in the Organization, but only where th
 * In a use case where we originally have a 100 Organizations and more that 10 of the Organizations has an id larger than 300 we would have a subset of 10 of the Organizations. 
 * In the case where we have say only 5 Organizations with id's larger than 300, then we would have only 5 Organizations in the subset.
 
-Things get more complicated with the next target. Say each Organization has an administrator(User) associated with it. Here the Organization table has a foreign key pointing to User. In this case when we selected the Organization's rows we also had to get all the associated User's. So when we move on to the next target(User) we already have users in the subset and we cannot remove them or else we will break the forgein key constraits. So we include all users where the id is equal to 13.
+Things get more complicated with the next target. Say each Organization has an administrator(User) associated with it. Here the Organization table has a foreign key pointing to User. In this case when we selected the Organization's rows we also had to get all the associated User's. So when we move on to the next target(User) we already have users in the subset and we cannot remove them or else we will break the forgein key constraits. Thus we add to the subset all users where the lastName is equal to "Lee".
 
 ### Disconnected tables (keep_disconnected_tables: boolean)
 
