@@ -72,11 +72,11 @@ Things get more complicated with the next target. Say each Organization has an a
 
 ### Disconnected tables (keep_disconnected_tables: boolean)
 
-In your database there could be tables that dont have a relationship to the specified initial_targets. One can choose to either keep(`keep_disconnected_tables: true`) them in the snapshot or exclude them(`keep_disconnected_tables: false`) from the snapshot. 
+In your database there could be tables that don't have a relationship to the specified initial_targets. One can choose to either keep(`keep_disconnected_tables: true`) them in the snapshot or exclude them(`keep_disconnected_tables: false`) from the snapshot. 
 
 ### Excluding tables from subset
 
-To exclude spesific tables from the snapshot see [exclude](docs/04-references/data-operations/03-exclude.md) documentation.
+To exclude specific tables from the snapshot see [exclude](docs/04-references/data-operations/03-exclude.md) documentation.
 
 ## See below video for a demonstration of the subsetting process(Outdated):
 <iframe src="https://www.loom.com/embed/920a6e1dcea84485b47be16062c968e6" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; modestbranding; showinfo=0" allowfullscreen width="100%" height="400px"></iframe>
