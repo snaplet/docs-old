@@ -1,0 +1,42 @@
+{
+  "index_name": "snaplet-docs",
+  "start_urls": [
+    "https://docs.snaplet.dev"
+  ],
+  "sitemap_urls": [
+    "https://docs.snaplet.dev/sitemap.xml"
+  ],
+  "sitemap_alternate_links": true,
+  "selectors": {
+    "lvl0": {
+      "selector": "//li[contains(@class,'theme-doc-sidebar-item-category-level-1')]//div[contains(@class, 'menu__list-item-collapsible')]//a[contains(@class, 'menu__link--active')]/text()",
+      "type": "xpath",
+      "global": true,
+      "default_value": "Docs"
+    },
+    "lvl1": "article h1",
+    "lvl2": "article h2",
+    "lvl3": "article h3",
+    "lvl4": "article h4",
+    "lvl5": "article h5, article td:first-child",
+    "lvl6": "article h6",
+    "text": "article p, article li, article td:last-child"
+  },
+  "custom_settings": {
+    "separatorsToIndex": "_",
+    "attributesForFaceting": [
+      "language",
+      "version",
+      "type",
+      "docusaurus_tag"
+    ],
+    "attributesToRetrieve": [
+      "hierarchy",
+      "content",
+      "anchor",
+      "url",
+      "url_without_anchor",
+      "type"
+    ]
+  }
+}

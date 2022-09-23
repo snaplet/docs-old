@@ -28,18 +28,20 @@ module.exports = {
       collapsible: false,
       items: [
         {
-          type: 'category', label: 'Data operations', items: [
+          type: 'category', label: 'Data operations', collapsible: false, items: [
             { type: 'doc', id: 'references/data-operations/overview', label: 'Overview' },
             { type: 'doc', id: 'references/data-operations/transform', label: 'Transform' },
             { type: 'doc', id: 'references/data-operations/exclude', label: 'Exclude' },
-            { type: 'doc', id: 'references/data-operations/reduce', label: 'Reduce (Subset) 🐥' },
-            { type: 'doc', id: 'references/data-operations/generate', label: 'Generate (Seed) 🐥' },
+            { type: 'doc', id: 'references/data-operations/reduce', label: 'Subset (Reduce) 🐥' },
+            { type: 'doc', id: 'references/data-operations/generate', label: 'Seed (Generate) 🐥' },
           ]
         },
         { type: 'doc', id: 'references/snapshots', label: 'Snapshots' },
         { type: 'doc', id: 'references/snaplet-cloud-project', label: 'Snaplet Cloud Projects' },
-        { type: 'doc', id: 'references/instant-database', label: 'Instant database 🥚' },
+        { type: 'doc', id: 'references/preview-databases', label: 'Preview databases 🐥' },
         { type: 'doc', id: 'references/cli-commands', label: 'CLI Commands' },
+        { type: 'doc', id: 'references/configuration-files', label: 'Configuration files' },
+        { type: 'doc', id: 'references/connection-strings', label: 'Connection strings' },
       ]
     },
     {

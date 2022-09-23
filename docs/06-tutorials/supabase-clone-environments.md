@@ -98,12 +98,10 @@ Snaplet requires the ability to drop the database schemas whilst restoring a sna
 You're now ready to restore your production snapshot into your Supabase development project.
 
 1. Navigate to your project directory
-2. Run `snaplet setup` – you will be prompted to enter your database credentials. These are the database credentials of your **data target.** This could be your staging or development database
-
-Once you have successfully completed the above steps, you will have be presented with a list of options – these options are databases that are connected to your Snaplet account.
-
-1. Select a data source from the list
-2. Run `snaplet restore`
+2. Run `snaplet config setup` – you will be prompted to enter your database credentials. These are the database credentials of your **data target.** This could be your staging or development database
+3. Run `snaplet project setup` - you will be presented a list of options, these are databases that are connected to your Snaplet account
+4. Select a data source from the list
+5. Run `snaplet snapshot restore`
 
 
 <div style={{textAlign: 'center'}}>

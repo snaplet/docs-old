@@ -1,16 +1,16 @@
 # Data operations
 
-Snaplet has four operations for customizing the data in a snapshot:
+Snaplet has four operations for manipulating the data in a snapshot:
 
-- **Transform:** Make existing data suitable for development
-- **Exclude:** Ignore data in specific schemas or tables
+- **Transform:** Make existing data suitable for development by transforming the original value into a new one
+- **Exclude:** Remove data in specific tables
 - **Reduce (Subset):** Capture a subset of data whilst keeping referential integrity intact
 - **Generate:** Seed values when you don't have any data
 
 These operations are defined as code via config files and JavaScript functions.
-This gives a team of developers control over the shape and needs of their data and introduces a _"gitops style workflow."_
+This gives a development team control over the shape of their data, and introduces a _"gitops style workflow"_ for database snapshot management.
 
-In this guide we're going to focus on transforming data.
+In this guide we're going to focus on transforming and excluding data.
 
 ## Transforming data
 
@@ -21,18 +21,18 @@ As an example, if you have a `User` table with an `email` column you can transfo
 
 ```typescript
 // .snaplet/transform.ts
-export default () => {
+export const config = () => {
   return {
     public: {
       User: ({ row }) => {
         return {
           // highlight-next-line
-          email: 'user_' + row.id + '@example.org', 
-        }
-      }
-    }
-  }
-}
+          email: 'user_' + row.id + '@example.org',
+        };
+      },
+    },
+  };
+};
 ```
 
 The function assigned to `public.User` receives the existing row values in the `row` variable.
@@ -40,54 +40,43 @@ Here we used the `id` value to create a new email address value: `"user_1@exampl
 
 ### Better fake values with Copycat
 
-Copycat is our open-source library for generating fake-data that includes templates for names, addresses, phone numbers and [many other common transformations!](https://github.com/snaplet/copycat/#api-reference).
+Copycat is our open-source library for generating fake-data that includes templates for names, addresses, phone numbers and [many other common transformations!](https://github.com/snaplet/copycat/#api-reference)
 
-It produces _static values,_ so for any given input it'll produce the exact same output! Having static values is super helpful when coding or testing, as an example:
+It produces _deterministic values,_ so for any given input it'll always produce the exact same output! For example:
 
-```js
-copycat.email('a-real-email@domain.com') // => beth.cranshaw@example.org
-copycat.email('a-real-email@domain.com') // => beth.cranshaw@example.org
-copycat.email('1') // => jane.maplemoth@example.org
+```typescript
+copycat.email('a-real-email@domain.com'); // => beth.cranshaw@example.org
+copycat.email('a-real-email@domain.com'); // => beth.cranshaw@example.org
+copycat.email('1'); // => jane.maplemoth@example.org
 ```
 
-## Exclude Tables
+Having predictable, deterministic values is helpful when coding or testing, as your transformed values are always handled consistently.
 
-Databases often have tables that contain loads of machine generated data, like logs, that aren't really helpful during development.
+## Exclude
+
+Databases often have tables that contain loads of machine generated data, like logs, that aren't really necessary or helpful during development.
 Since the code doesn't operate against this data, it can be safely excluded.
 Associating a `false` value to a table will prevent Snaplet from copying data.
-Snaplet will still create the table's structure but skip the data.
+Snaplet will still create the table's structure but skip the data, speeding up both snapshot capture and restoration.
 
 ```typescript
 // .snaplet/transform.ts
-export default () => {
+export const config = () => {
   return {
     public: {
-      AuditLog: false
-    }
-  }
-}
-```
-
-## Exclude Schemas
-
-Databases also often have schemas that are used for operations that are isolated from one another. There will be cases where you want to ignore a schema when capturing a snapshot. Associating a `false` value to a schema in your `.snaplet/schema` file will prevent Snaplet from copying data.
-
-```typescript
-// .snaplet/schemas.json
-{
-  public: false
-}
+      AuditLog: false,
+    },
+  };
+};
 ```
 
 ## Reduce (Subset)
 
-Read more about reducing your data in your database [here](/references/data-operations/reduce).
+When creating a representative snapshot of your database to code against, you will typically need to capture only a small portion of the data in that database. Snaplet lets you capture a subset of your data when creating a snapshot, which reduces your snapshot's size and by extension, the time spent uploading and downloading snapshots. This is especially useful if you're connecting directly to a production or staging database that is many GBs in size. For the purpose of this getting started guide, we won't be subsetting your snapshot, but you can read more about subsetting your database snapshots [here](/references/data-operations/reduce).
 
 ## Debug transformations with "live preview"
 
-Using JavaScript functions to tranform your data gives you an incredible amount of flexability, but that flexability comes at the cost of introducing bugs.
-Snaplet provides a _live preview environment_ via the `snaplet proxy` command to debug transformations, when you boot up the proxy it connects to your database, reads the `transform.ts` file and waits for a client connection.
-Then, you connect to the proxy with your favorite SQL querying tool, and validate your transformations in real time.
+Using JavaScript functions to tranform your data gives you an incredible amount of flexibility, but that flexibility may come at the cost of introducing unintentional bugs. Snaplet provides a _live preview environment_ via the `snaplet proxy` command to debug transformations. When you boot up the Snaplet proxy it connects to your database, reads the `transform.ts` file and waits for a client connection. Then, you can connect to the proxy with your SQL tool, and validate your transformations in real time. This allows you to test and change your JavaScript transformations in real-time without any changes to the original database.
 
 ## Other data operations...
 

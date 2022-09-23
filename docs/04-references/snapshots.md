@@ -1,8 +1,7 @@
 # Snapshots
 
-A snapshot is the captured state of a database at a given point in time.
-(Internally referred to as a "nugget of data 🍗").
-It contains all the information required to restore a database back to that point in time; which is the schema (database structure) and the table data.
+A snapshot is the captured state of a database at a given point in time. (Internally we refer to this snapshot as a "nugget of data 🍗").
+It contains all the information required to restore a database back to that point in time: both the schema (database structure) and the actual table data.
 
 ## Capturing a snapshot
 
@@ -20,7 +19,7 @@ Whilst a snapshot is captured the schema and table data can be modified in strea
 
 ### Storage of snapshots
 
-The snapshots are automatically stored in `.snaplet/snapshots`, but you can specify a path:
+Snapshots are automatically stored in `.snaplet/snapshots`, but you can specify a path:
 
 ```bash
 snaplet snapshot capture /path/to/stored-snapshot
@@ -32,7 +31,7 @@ In the snapshot directory we store:
 
 - `summary.json`: a bit of metadata that we used during restorations
 - `schema.sql`: your database structure (schema)
-- `tables/[schema]_[tableName].csv`: A bunch of table data in csv format.
+- `tables/[schema]_[tableName].csv`: your table data in csv format.
 
 The data is uncompressed and unencrypted.
 
@@ -51,7 +50,7 @@ This can be overidden with the `SNAPLET_DATABASE_URL` environmental variable.
 
 ### Searching for snapshots
 
-If you're using Snaplet Cloud Snaplet will lookup the latest snapshot, and Snaplet will look into the `.snaplet/snapshots` directory.
+If you're using Snaplet Cloud, Snaplet will lookup the latest snapshot in the `.snaplet/snapshots` directory.
 
 You can also restore from a specific directory by specifying the path:
 
@@ -59,13 +58,22 @@ You can also restore from a specific directory by specifying the path:
 snaplet snapshot restore /path/to/stored-snapshot
 ```
 
+### Encrypting Snapshots
+
+In order to encrypt your snapshots, you’ll need to have a public key in your config. Run `snaplet config setup` to generate an RSA key-pair, which stores a private key in an `id_rsa` file and a public key in your `config.js`. 
+
+Once your RSA key-pair is setup, snapshots captured via Snaplet Cloud capture are automatically encrypted as part of the capture process, while snapshots captured via the CLI are encrypted when you run a `snapshot share` command.
+
+In order to opt-out of encrypting a snapshot, use the `--no-encrypt` flag.
+
+
 ### Decrypting snapshots
 
 Snapshots that are encrypted with a public key (`publicKey` in `.snaplet/config.json`) are decrypted via the private key in `.snaplet/id_rsa`.
 
-To generate a public and private key pair, run `snaplet config generate --type=keys`.
+To generate a public and private key pair, run `snaplet config setup`.
 
-The public key can be safely shared with a Snaplet Cloud Project (`snaplet config push`); when Snaplet Cloud captures on your behalf we'll encrypt using the public key, and your team will keep the private key.
+The public key can be safely shared with Snaplet Cloud Project (`snaplet config push`) team members; when Snaplet Cloud captures on your behalf we'll encrypt using the public key, and your team will keep the private key.
 
 ### Data-only restores
 
@@ -95,21 +103,13 @@ Note that, the default schema is assumed to be public, so you don’t need to sp
 
 ## Sharing of snapshots
 
-If you have a Snaplet Cloud Project setup (`projectId` is in `.snaplet/config.json`) then you can easily compress, encrypt and upload snapshots to a Snaplet Cloud Project wehere your team can restore them.
+If you have a Snaplet Cloud Project setup (`projectId` is in `.snaplet/config.json`) then you can easily compress, encrypt and upload snapshots to a Snaplet Cloud Project where your team can restore them. The command: 
 
 ```bash
 snaplet snapshot share
 ```
 
-Will ask you to select the snapshot that you wish to share.
-You can also specify the unique name or path to the snapshot in order to share it.
-
-### Encryption
-
-Snapshots are encrypted using a public key (store as `publicKey` in `.snaplet/config.json`).
-This happens automatically when they're are shared. In order to opt-out use the `--no-encrypt` flag.
-
-In order to generate a public and private key pair, run `snaplet config generate --type=keys`.
+will ask you to select the snapshot that you wish to share. You can also specify the unique name or path to the snapshot in order to share it.
 
 ---
 
