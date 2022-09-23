@@ -41,6 +41,7 @@ module.exports = {
         { type: 'doc', id: 'references/preview-databases', label: 'Preview databases 🐥' },
         { type: 'doc', id: 'references/cli-commands', label: 'CLI Commands' },
         { type: 'doc', id: 'references/configuration-files', label: 'Configuration files' },
+        { type: 'doc', id: 'references/connection-strings', label: 'Connection strings' },
       ]
     },
     {
