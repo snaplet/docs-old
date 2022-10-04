@@ -3,7 +3,7 @@
 Snaplet has four operations for manipulating the data in a snapshot:
 
 - **Transform:** Make existing data suitable for development by transforming the original value into a new one
-- **Exclude:** Remove data in specific tables
+- **Exclude:** Remove data in specific schemas and tables
 - **Reduce (Subset):** Capture a subset of data whilst keeping referential integrity intact
 - **Generate:** Seed values when you don't have any data
 
@@ -52,7 +52,7 @@ copycat.email('1'); // => jane.maplemoth@example.org
 
 Having predictable, deterministic values is helpful when coding or testing, as your transformed values are always handled consistently.
 
-## Exclude
+## Exclude Tables
 
 Databases often have tables that contain loads of machine generated data, like logs, that aren't really necessary or helpful during development.
 Since the code doesn't operate against this data, it can be safely excluded.
@@ -68,6 +68,17 @@ export const config = () => {
     },
   };
 };
+```
+
+## Exclude Schemas
+
+Databases also often have schemas that are used for operations that are isolated from one another. There will be cases where you want to ignore a schema when capturing a snapshot. Associating a false value to a schema in your .snaplet/schema file will prevent Snaplet from copying data.
+
+```typescript
+// .snaplet/schemas.json
+{
+  public: false
+}
 ```
 
 ## Reduce (Subset)
