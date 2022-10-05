@@ -89,7 +89,7 @@ Snaplet requires the ability to drop the database schemas whilst restoring a sna
 4. Run the query
 
 ### Step 6: Install the Snaplet CLI
-1. Open your terminal and run `curl -sL [https://app.snaplet.dev/get-cli/](https://app.snaplet.dev/get-cli/) | bash`
+1. Open your terminal and run `curl -sL https://app.snaplet.dev/get-cli/ | bash`
 2. Run `snaplet auth`
 3. Navigate to [`https://app.snaplet.dev/access-token/cli`](https://app.snaplet.dev/access-token/cli) to get your access token
 4. Paste your access token in the terminal
