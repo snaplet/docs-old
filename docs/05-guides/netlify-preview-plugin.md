@@ -1,6 +1,6 @@
-# How to use Snaplet Snapshots, Preview databases and Netlify Preview Deployments
+# How to use Snaplet Snapshots, Preview Databases and Netlify Preview Deployments
 
-Snaplet gives developers databases with data to code against. Using Snaplet and Netlify Preview Deployments is a match made for the clouds: Once you have a preview database for each Netlify Preview Environment you no longer have worry about conflicting migrations and unexpected mutations to data, since each preview database is isolated and scoped to a deployment.
+Snaplet gives developers databases with data to code against. Using Snaplet and Netlify Preview Deployments is a match made for the clouds: Once you have a preview database for each Netlify Preview Environment you no longer have to worry about conflicting migrations and unexpected mutations to data, since each preview database is isolated and scoped to a deployment.
 
 Below is a video of Snaplet founder, Peter Pistorius, presenting the plugin at Prisma's - What's new in Prisma.
 
@@ -30,7 +30,7 @@ Let’s assume you have a producation database that you’re currently using aga
 # Install the CLI
 curl -sL https://app.snaplet.dev/get-cli/ | bash
 
-# Setup you config
+# Setup your config
 snaplet auth setup
 
 # Create a local snapshot of your prod database.
@@ -63,7 +63,7 @@ package = "@snaplet/netlify-preview-database-plugin"
 
 **3.1. Enable deploy contexts for environment variables (beta feature):** Navigate to `Netlify Labs` > `Scopes and Deploy Contexts for Environment Variables` and click on the enable button.
 
-> **Why:** The plugin will update your the database environment variable value linked to the deploy context.
+> **Why:** The plugin will update your database environment variable value linked to the deploy context.
 
 ![Netlify labs setting found on Avatar.](/screenshots/netlify-labs.png)
 
@@ -75,7 +75,7 @@ package = "@snaplet/netlify-preview-database-plugin"
 
 **3.4. Add required plugin environment variables.**
 
-**3.4.1. A Snaplet access token (`SNAPLET_ACCESS_TOKEN`):** This can be found in the Snaplet UI, by clicking on the Access tokens menu item at the top.
+**3.4.1. A Snaplet access token (`SNAPLET_ACCESS_TOKEN`):** This can be found in the Snaplet UI, by clicking on the access tokens menu item at the top.
 
 ![Snaplet access token in dashboard.](/screenshots/netlify-snaplet-access-token.png)
 
@@ -99,4 +99,4 @@ When you've completed all the steps, once a pr is created your git client, a new
 
 ![Netlify build logs output.](/screenshots/netlify-build-logs.png)
 
-After your build is done, a preview button will appear which allow you to preview the changes made in that pr.
+After your build is done, a preview button will appear which will allow you to preview the changes made in that pr.
