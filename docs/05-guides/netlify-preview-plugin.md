@@ -26,7 +26,9 @@ For this guide, we're assuming that you have a production database that you're c
 # Install the CLI
 curl -sL https://app.snaplet.dev/get-cli/ | bash
 
+
 # Setup your Snaplet config
+
 snaplet auth setup
 
 # Create a local snapshot of your production database
@@ -59,7 +61,7 @@ package = "@snaplet/netlify-preview-database-plugin"
 
 **3.1. Enable deploy contexts for environment variables. This is a beta feature - ** Navigate to `Netlify Labs` > `Scopes and Deploy Contexts for Environment Variables` and click on the enable button.
 
-> **Why:** The plugin will update your the database environment variable value linked to the deploy context.
+> **Why:** The plugin will update your database environment variable value linked to the deploy context.
 
 ![Netlify labs setting found on Avatar.](/screenshots/netlify-labs.png)
 
@@ -71,7 +73,7 @@ package = "@snaplet/netlify-preview-database-plugin"
 
 **3.4. Add required plugin environment variables.**
 
-**3.4.1. A Snaplet access token (`SNAPLET_ACCESS_TOKEN`):** This can be found in the Snaplet UI, by clicking on the Access tokens menu item at the top.
+**3.4.1. A Snaplet access token (`SNAPLET_ACCESS_TOKEN`):** This can be found in the Snaplet UI, by clicking on the access tokens menu item at the top.
 
 ![Snaplet access token in dashboard.](/screenshots/netlify-snaplet-access-token.png)
 
@@ -94,6 +96,7 @@ package = "@snaplet/netlify-preview-database-plugin"
 When you've completed all the steps, once a pr is created your git client, a new build will be triggered in Netlify and run the plugin before the build process begins.
 
 ![Netlify build logs output.](/screenshots/netlify-build-logs.png)
+
 
 After your build is done, a preview button will appear which allow you to preview the changes made in that PR.
 
