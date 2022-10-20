@@ -98,8 +98,6 @@ You'll also need to add an environment variable for your Netlify Access Token. T
 **3.7. Add your GitHub access token (`GITHUB_ACCESS_TOKEN`):** 
 One final environment variable - your GitHub access token! We'll need to create one in GitHub, by clicking on your **avatar** in the top right, and then navigating to **Settings** > **Developer Settings** > **Personal access tokens** > **Tokens (classic)** and clicking **Generate new token** (use a **classic token** if promted).  Make sure to scope it **repo** and click the **Generate token** button. We use this token to fetch information about the pull request associated with the branch the plugin is running in, which allows the plugin to clean up databases after PRs are merged. As with all the other tokens, create an environment variable called `GITHUB_ACCESS_TOKEN` in your Netlify project.
 
-![Github token in dashboard](/screenshots/netlify-personal-access-token.png)
-
 That's it! All done and configured. You should have five environment variables in total, and you're now able to test your integration.
 
 <br/>
