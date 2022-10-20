@@ -92,7 +92,7 @@ You'll also need to add a Snaplet project id to Netlify, which associates the pr
 
 You'll also need to add an environment variable for your Netlify Access Token. This value can be found in the Netlify UI: click on your **avatar** in the top right menu, then navigate to **User settings** > **Applications** > **OAuth** > **Personal access tokens**. Generate an access token and copy this value, and create a new environment variable for your Netlify project called `NETLIFY ACCESS TOKEN`.
 
-![Netlify access token in dashboard](/screenshots/netlify-personal-access-token.png)
+![Netlify access token in dashboard](/screenshots/netlify-personal-access-token1.png)
 
 
 **3.7. Add your GitHub access token (`GITHUB_ACCESS_TOKEN`):** 
