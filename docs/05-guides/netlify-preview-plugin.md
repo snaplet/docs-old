@@ -72,7 +72,7 @@ Alright. Let's add some new environment variables to your Netlify project.
 
 **3.3. Add the database URL environment variable (`DATABASE_URL`):**
 
-Start with the database URL environment variable, if this doesn't exist already. This is the URL of your actual Netlify site's production database. Click **Add a variable** to add your database URL environment variable. We recommended that you use the **Different values for each deploy context** setting, and specify the DATABASE_URL for your **production** environment, to prevent any chance of your production data leaking into other environments. 
+Start with the database URL environment variable, if this doesn't exist already. This is the URL of your actual Netlify site's production database. Click **Add a variable** to add your database URL environment variable. We recommended that you use the **Different values for each deploy context** setting, and specify the `DATABASE_URL` for your **production** environment, to prevent any chance of your production data leaking into other environments. 
 
 ![Database environment variable.](/screenshots/netlify-db-url-new.png)
 
