@@ -72,13 +72,13 @@ Alright. Let's add some new environment variables to your Netlify project.
 
 **3.3. Add the database URL environment variable (`DATABASE_URL`):**
 
-Start with the database URL environment variable, if this doesn't exist already. This is the URL of your actual Netlify site's production database. Click **Add a variable** to add your database URL environment variable. We recommended that you use **different values for each deploy context**, and specify the DATABASE_URL for your production environment, to prevent any chance of your production data leaking into other environments.
+Start with the database URL environment variable, if this doesn't exist already. This is the URL of your actual Netlify site's production database. Click **Add a variable** to add your database URL environment variable. We recommended that you use the **Different values for each deploy context** setting, and specify the DATABASE_URL for your **production** environment, to prevent any chance of your production data leaking into other environments. 
 
 ![Database environment variable.](/screenshots/netlify-db-url-new.png)
 
 **3.4. Add a Snaplet access token (`SNAPLET_ACCESS_TOKEN`):** 
 
-You'll need to add a Snaplet access token environment variable. Start by generating a new access token from within the Snaplet UI - look for **Access tokens** in the top right of your browser. Generate a new access token, give it a name, copy the value, and add it to your Netlify project as a new environment variable `SNAPLET_ACCESS_TOKEN`.
+You'll now need to add a Snaplet access token environment variable. Start by generating a new access token from within the Snaplet UI - look for **Access tokens** in the top right of your browser. Generate a new access token, give it a name, copy the value, and add it to your Netlify project as a new environment variable `SNAPLET_ACCESS_TOKEN`. For this and the remaining environment variables, use the **Same value for all deploy contexts** setting.
 
 ![Snaplet access token in dashboard.](/screenshots/netlify-snaplet-access-token1.png)
 
