@@ -72,9 +72,9 @@ Alright. Let's add some new environment variables to your Netlify project.
 
 **3.3. Add the database URL environment variable (`DATABASE_URL`):**
 
-Start with the database URL environment variable, if this doesn't exist already. This is the URL of your actual Netlify site's production database. Click **Add a variable** to add your database URL environment variable. 
+Start with the database URL environment variable, if this doesn't exist already. This is the URL of your actual Netlify site's production database. Click **Add a variable** to add your database URL environment variable. We recommended that you use **different values for each deploy context**, and specify the DATABASE_URL for your production environment, to prevent any chance of your production data leaking into other environments.
 
-![Database environment variable.](/screenshots/netlify-db-url.png)
+![Database environment variable.](/screenshots/netlify-db-url-new.png)
 
 **3.4. Add a Snaplet access token (`SNAPLET_ACCESS_TOKEN`):** 
 
@@ -96,7 +96,11 @@ You'll also need to add an environment variable for your Netlify Access Token. T
 
 
 **3.7. Add your GitHub access token (`GITHUB_ACCESS_TOKEN`):** 
-One final environment variable - your GitHub access token! We'll need to create one in GitHub, by clicking on your **avatar** in the top right, and then navigating to **Settings** > **Developer Settings** > **Personal access tokens** > **Tokens (classic)** and clicking **Generate new token** (use a **classic token** if promted).  Make sure to scope it **repo** and click the **Generate token** button. We use this token to fetch information about the pull request associated with the branch the plugin is running in, which allows the plugin to clean up databases after PRs are merged. As with all the other tokens, create an environment variable called `GITHUB_ACCESS_TOKEN` in your Netlify project.
+One final environment variable - your GitHub access token! We'll need to create one in GitHub, by clicking on your **avatar** in the top right, and then navigating to **Settings** > **Developer Settings** > **Personal access tokens** > **Tokens (classic)** and clicking **Generate new token** (use a **classic token** if promted).  Make sure to scope it **repo** and click the **Generate token** button. 
+
+![Netlify access token in dashboard](/screenshots/netlify-github-token.png)
+
+We use this token to fetch information about the pull request associated with the branch the plugin is running in, which allows the plugin to clean up databases after PRs are merged. As with all the other tokens, create an environment variable called `GITHUB_ACCESS_TOKEN` in your Netlify project.
 
 That's it! All done and configured. You should have five environment variables in total, and you're now able to test your integration.
 
@@ -116,4 +120,4 @@ After your build is done, a preview button will appear which allow you to previe
 
 Well done! You've successfully captured a snapshot of your database (anonymizing sensitive personally-identifiable information), and restored that snapshot's data into your Netlify Preview Environment's database. You now have an isolated deployment environment with a unique, isolated database for each preview deployment! 
 
-We hope this guide helped! If you get stuck or need assistance, come ask us on [Discord](https://www.snaplet.dev/). 
+We hope this guide helped! If you get stuck or need assistance, come ask us on [Discord](https://app.snaplet.dev/chat). 
