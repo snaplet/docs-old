@@ -72,10 +72,10 @@ export const config = () => {
 
 ## Exclude Schemas
 
-Databases also often have schemas that are used for operations that are isolated from one another. There will be cases where you want to ignore a schema when capturing a snapshot. Associating a false value to a schema in your .snaplet/schema file will prevent Snaplet from copying data.
+Databases also often have schemas that are used for operations that are isolated from one another. There will be cases where you want to ignore a schema when capturing a snapshot. Associating a false value to a schema in your `.snaplet/schemasConfig.json` file will prevent Snaplet from copying data.
 
 ```typescript
-// .snaplet/schemas.json
+// .snaplet/schemasConfig.json
 {
   public: false
 }
