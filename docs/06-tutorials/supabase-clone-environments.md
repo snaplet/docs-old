@@ -23,12 +23,9 @@ You can follow along in the video below as our founder, Peter Pistorius takes yo
 ### Things you'll need before you begin:
 1. **A production Supabase project's connection string:** These can be found in Supabase via `Organization > Project > Database > Connection Pooling > Connection string`
 2. **A development Supabase project's connection string:** Same steps as above, but a different project/environment
-3. **A read-only role** in Production (recommended): This can be done by running the following statements on Supabase via `Organization > SQL Editor > + New Query`
+3. **A read-only role** in Production (recommended):
 
-> To create a read-only role across all schemas you can checkout our [docs](/guides/postgresql#create-a-read-only-role)
-
-4. **Superuser access** for the development project. This can be done in Supabase via `Organization > SQL Editor > + New Query` and running this statement:
-   `ALTER USER postgres WITH superuser;`
+> To create a read-only role across all schemas you can checkout our [docs](/guides/postgresql#create-a-read-only-role). Note that you'll need to run the commands using [`psql`](https://www.postgresql.org/docs/current/app-psql.html) locally (`psql <connection-string>`), not using the SQL Editor in Supabase's UI.
 
 ### Step 1: Connect your data source
 The first thing you’ll want to do is navigate to [https://www.snaplet.dev/](https://www.snaplet.dev/) and sign up for a new account (it’s free). Once you have successfully signed up for a new account, you’ll begin the onboarding process...
@@ -80,25 +77,17 @@ If you don’t already have a developer database setup on Supabase, you’ll nee
 
 > Remember the password you use when creating the project. You’ll need this password to connect your database to Snaplet later. 
 
-### Step 5: Make your `postgres` user a superuser
-Snaplet requires the ability to drop the database schemas whilst restoring a snapshot, in order to do that we require `superuser` privileges.
-
-1. Navigate to your `SQL Editor` in your Supabase console
-2. Click on `new query`
-3. Paste `alter user postgres with superuser;` into the SQL editor
-4. Run the query
-
-### Step 6: Install the Snaplet CLI
+### Step 5: Install the Snaplet CLI
 1. Open your terminal and run `curl -sL https://app.snaplet.dev/get-cli/ | bash`
 2. Run `snaplet auth`
 3. Navigate to [`https://app.snaplet.dev/access-token/cli`](https://app.snaplet.dev/access-token/cli) to get your access token
 4. Paste your access token in the terminal
 
-### Step 7: Restore to the data target
+### Step 6: Restore to the data target
 You're now ready to restore your production snapshot into your Supabase development project.
 
 1. Navigate to your project directory
-2. Run `snaplet config setup` – you will be prompted to enter your database credentials. These are the database credentials of your **data target.** This could be your staging or development database
+2. Run `snaplet config setup` – you will be prompted to enter your database credentials. These are the database credentials of your **data target.** This could be your staging or development database. Note that you need to be using the `postgres` user for your development environment. This will already be the case if you copied the connection string from `Organization > Project > Database > Connection Pooling > Connection string` for your development project.
 3. Run `snaplet project setup` - you will be presented a list of options, these are databases that are connected to your Snaplet account
 4. Select a data source from the list
 5. Run `snaplet snapshot restore`
