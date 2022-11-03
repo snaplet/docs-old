@@ -1,17 +1,17 @@
-# Instant Database
+# Preview Databases
 
-:::caution Work in progress
+:::note Experimental
 
-This is an unreleased feature.
+This is a preview feature. We would love your feedback!
 
 :::
 
 
-We are currently evaluating the feature to give developers an "instant database" to code, or run PR previews against.
+We want to give developers a "preview database" to code, or run pull-request previews against.
 
-Each Snaplet Cloud Project receives a single PostgresQL server instance where multiple databases can be created.
+Each Snaplet Cloud Project receives a single PostgresQL server instance where multiple preview databases can be created.
 
-The database server is hosted on a [Fly Machine](https://fly.io/docs/reference/machines/) with 1 shared CPU, 1GB of RAM and 3GB of persistent volume.
+The database server is hosted on a [Fly Machine](https://fly.io/docs/reference/machines/) with 1 shared CPU, 1GB of RAM and 10GB of persistent volume.
 
 ## Overview
 
@@ -22,11 +22,11 @@ $ snaplet database --help
 snaplet database [action]
 
 Commands:
-  snaplet database create [database-name]  create an instant database from a snapshot         [aliases: c]
-  snaplet database delete [database-name]  delete an instant database                         [aliases: d]
-  snaplet database list                    list instant databases                             [aliases: ls]
-  snaplet database url [database-name]     show an instant database url                       [aliases: u]
-  snaplet database cache [snapshot]        cache a snapshot into the instant database server  [aliases: ca]
+  snaplet database create [database-name]  create a preview database from a snapshot         [aliases: c]
+  snaplet database delete [database-name]  delete a preview database                         [aliases: d]
+  snaplet database list                    list preview databases                             [aliases: ls]
+  snaplet database url [database-name]     show a preview database url                       [aliases: u]
+  snaplet database cache [snapshot]        cache a snapshot into the preview database server  [aliases: ca]
 ```
 
 For the following commands, we will use the convenient alias `db` in place of `database`.
@@ -37,15 +37,15 @@ To create a database from a snapshot, run `snaplet db create`:
 
 ```bash
 # highlight-next-line
-$ snaplet db create instant_db_tutorial
+$ snaplet db create preview_db_tutorial
 # You will be asked to pick a snapshot if you don't provide one using the --snapshot or --latest option
 ✔ Snapshot › v1-cassidy-underpass-interface 483 kB  4 days ago
-# If you are using the instant database feature for the first time you will have the infrastructure provisioned
-✔ Instant database server provisioned [24s]
-# The snapshot is restored to the instant database
-✔ Database instant_db_tutorial created from snapshot v1-cassidy-underpass-interface [12s]
+# If you are using the preview database feature for the first time you will have the infrastructure provisioned
+✔ Preview database server provisioned [24s]
+# The snapshot is restored to the preview database
+✔ Database preview_db_tutorial created from snapshot v1-cassidy-underpass-interface [12s]
 # You can now use your database!
-You can connect to your database at: postgresql://postgres:*********@snaplet-<orgId>-<projectId>.fly.dev:5432/instant_db_tutorial
+You can connect to your database at: postgresql://postgres:*********@snaplet-<orgId>-<projectId>.fly.dev:5432/preview_db_tutorial
 ```
 
 If you don't want to provide an explicit name for the database, you can use the `--git` option. Your database will be named after your current branch name:
@@ -69,7 +69,7 @@ To list all databases, run `snaplet db list`:
 $ snaplet db list
 DATABASES
 NAME                   SIZE     SNAPSHOT
-instant_db_tutorial    14 MB    v1-cassidy-underpass-interface
+preview_db_tutorial    14 MB    v1-cassidy-underpass-interface
 snappy_feature_meow    14 MB    v1-cassidy-underpass-interface
 ```
 
@@ -81,8 +81,8 @@ To delete a database, run `snaplet db delete`:
 
 ```bash
 # highlight-next-line
-$ snaplet db delete instant_db_tutorial
-✔ Deleted database instant_db_tutorial
+$ snaplet db delete preview_db_tutorial
+✔ Deleted database preview_db_tutorial
 ```
 
 ## Displaying a database url
@@ -100,14 +100,14 @@ This command is especially helpful in CI/CD or preview environments: `DATABASE_U
 ## Caching a snapshot into the database server
 
 Waiting for a snapshot to be restored can be long, especially if your snapshot is big.
-To avoid this problem, you can cache snapshots into the database server for truly instant databases creation!
+To avoid this problem, you can cache snapshots into the database server for truly preview databases creation!
 
 To cache a snapshot into the database server, run `snaplet db cache`:
 
 ```bash
 # highlight-next-line
 $ snaplet db cache v1-cassidy-underpass-interface
-✔ Snapshot v1-cassidy-underpass-interface cached into instant database server [12s]
+✔ Snapshot v1-cassidy-underpass-interface cached into preview database server [12s]
 
 # highlight-next-line
 $ snaplet db create is_it_fast_enough --snapshot v1-cassidy-underpass-interface
@@ -136,5 +136,5 @@ To delete a cached snapshot, run `snaplet db cache --clear`:
 ```bash
 # highlight-next-line
 $ snaplet db cache v1-cassidy-underpass-interface --clear
-Snapshot v1-cassidy-underpass-interface removed from the instant database server cache
+Snapshot v1-cassidy-underpass-interface removed from the preview database server cache
 ```

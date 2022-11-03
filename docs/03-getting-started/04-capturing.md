@@ -2,7 +2,7 @@
 
 Now that you've reviewed your `.snaplet/transform.ts` file and are satisfied with the transformations, Snaplet will capture a snapshot of your _local development database_. As we mentioned, this may be a slightly contrived scenario, as you and the rest of your team may want to code against a snapshot of your production or staging database instead. 
 
-Stick with us though, as the steps for capturing a snapshot of production (or any other database) are the same, the only difference being changing the connection string via a `SNAPLET_DATABASE_URL` environmental variable. 
+Stick with us though, as the steps for capturing a snapshot of production (or any other database) are the same, the only difference being changing the connection string via a `SNAPLET_DATABASE_URL` environment variable. 
 
 At the end of this guide we'll go over different ways of capturing your production database in a self-hosted environment, or as a Snaplet Cloud Project.
 
