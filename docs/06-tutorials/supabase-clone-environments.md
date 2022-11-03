@@ -87,12 +87,10 @@ If you don’t already have a developer database setup on Supabase, you’ll nee
 You're now ready to restore your production snapshot into your Supabase development project.
 
 1. Navigate to your project directory
-2. Run `snaplet config setup` – you will be prompted to enter your database credentials. These are the database credentials of your **data target.** This could be your staging or development database
+2. Run `snaplet config setup` – you will be prompted to enter your database credentials. These are the database credentials of your **data target.** This could be your staging or development database. Note that you'll need to use the `postgres` user for your development project (this is the default for the connection string supabase provides at `Organization > Project > Database > Connection Pooling > Connection string)
 3. Run `snaplet project setup` - you will be presented a list of options, these are databases that are connected to your Snaplet account
 4. Select a data source from the list
 5. Run `snaplet snapshot restore`
-
-Note that you need to be using the `postgres` user for your development environment. This will already be the case if you copied the connection string from `Organization > Project > Database > Connection Pooling > Connection string` for your development project.
 
 
 <div style={{textAlign: 'center'}}>
