@@ -25,7 +25,7 @@ You can follow along in the video below as our founder, Peter Pistorius takes yo
 2. **A development Supabase project's connection string:** Same steps as above, but a different project/environment
 3. **A read-only role** in Production (recommended):
 
-> To create a read-only role across all schemas you can checkout our [docs](/guides/postgresql#create-a-read-only-role). Note that you'll need to run the commands shown in that guide using [`psql`](https://www.postgresql.org/docs/current/app-psql.html) locally (`psql <connection-string>`), not using the SQL Editor in Supabase's UI.
+> To create a read-only role across all schemas you can checkout our [docs](/guides/postgresql#create-a-read-only-role). Note that you'll need to run the commands using [`psql`](https://www.postgresql.org/docs/current/app-psql.html) locally (`psql <connection-string>`), not using the SQL Editor in Supabase's UI.
 
 ### Step 1: Connect your data source
 The first thing you’ll want to do is navigate to [https://www.snaplet.dev/](https://www.snaplet.dev/) and sign up for a new account (it’s free). Once you have successfully signed up for a new account, you’ll begin the onboarding process...
