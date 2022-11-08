@@ -77,6 +77,3 @@ In your database there could be tables that don't have a relationship to the spe
 ### Excluding tables from subset
 
 To exclude specific tables from the snapshot see [exclude](docs/04-references/data-operations/03-exclude.md) documentation.
-
-## See below video for a demonstration of the subsetting process(Outdated):
-<iframe src="https://www.loom.com/embed/920a6e1dcea84485b47be16062c968e6" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; modestbranding; showinfo=0" allowfullscreen width="100%" height="400px"></iframe>
