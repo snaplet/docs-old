@@ -58,7 +58,8 @@ Example `subsetting.json` file:
     },
      {
       "table": "public.User",
-      "where": "\"User\".\"lastName\" == Lee"
+       "percent": 10,
+      "where": "\"User\".\"lastName\" = 'Lee'"
     },
   ],
   "keep_disconnected_tables": true
