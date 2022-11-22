@@ -7,9 +7,104 @@ This is a preview feature. We would love your feedback!
 :::
 
 
-Most of the time you will only need a portion of the data in your database. Snapet let's you capture a subset of your data. This will reduce your snapshot's size and in turn reduce the time spent uploading and downloading snapshots.
+Most of the time you will only need a portion of the data in your database. Snaplet let's you capture a subset of your data. This will reduce your snapshot's size and in turn reduce the time spent uploading and downloading snapshots.
 
-You can run `snaplet subset config` which will guide you through the process of capturing a subset of your database. During the first step you can choose which tables to exclude from the snapshot. Then you will decide which table will be the starting point of your subset and how many rows to capture. You can also write a "where" clause to limit the rows being captured. This will create a config file (`.snaplet/subsetting.json`) which you can modify afterwards.
+## Getting started
+
+To reduce the size of your next snapshot, add the subset object to your transform.ts file and export it.
+See below an example of a transform.ts file with a basic subset config:
+
+```ts
+...
+
+export const config: Transform = () => {
+  ...
+}
+
+export const subset = {
+  enabled: true,
+  version: "2", // the latest version
+  targets: [
+    {
+      table: "public.User",
+      percent: 5
+    },
+  ],
+  keepDisconnectedTables: true
+}
+
+```
+In above example we are reducing the size of the User table to 5% of the original size. The keepDisconnectedTables option will keep all tables that dont have a relationship with the User table.
+## Reference
+
+### Enabled (enabled: boolean)
+When set to true, subsetting will occur during `snaplet snapshot capture`
+
+### Targets (tagrets: array)
+The first target in targets are the starting point of subsetting. The entries will be selected with the restrictions defined by the `percent`(or `rowLimit`), `where` and `orderBy` properties. We then traverse over all the tables related to this target table and select all the rows that are connected to the target table. This process is repeated for each target table.
+Atleast one target must be defined.
+
+Each target requires:
+* A `table` name 
+* One or more of the following subsetting properties:
+  * `percent` 
+  * `rowLimit` 
+  * `where` 
+
+Optionally, you can also define an `orderBy` property to sort the rows before subsetting.
+
+```ts
+...
+
+export const config: Transform = () => {
+  ...
+}
+
+export const subset = {
+  enabled: true,
+  version: "2", // version 2 is the latest version
+  targets: [
+    {
+      table: "public.User",
+      orderBy: `"createdAt" desc`,
+      percent: 5
+    },
+    {
+      table: "public.Project",
+      where: `"Project"."id" = 'xyz'`
+    }
+  ],
+  keepDisconnectedTables: true
+}
+
+```
+
+### Keep Disconnected Tables (keepDisconnectedTables: boolean)
+
+When set to true, all the tables that are not connected to the tables defined in targets will be included in the snapshot. When set to false, all the tables that are not connected to the target tables will be excluded from the snapshot.
+
+<!-- ### Foreign keys (foreignKeys: array, optional)
+
+We use the foreign keys to traverse the databse when creating a subet. We use all non-nullable foreign keys and detect nullable forgein keys that will not cause a circular reference. The nullable forgein keys can be manually override with the `forgeinKeys` property.
+
+The foreignKeys property is an array of objects with the following properties:
+* `table` - the table name
+* `column` - the column name
+* `targetTable` - the target table name
+* `targetColumn` - the target column name
+
+Here is an example of a transform.ts file with a subset config that uses the foreignKeys property:
+
+```ts
+
+
+
+``` -->
+
+
+
+---
+# Previous version (version 1):
 
 Here is a basic example of the `subsetting.json` file:
 
