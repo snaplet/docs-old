@@ -55,7 +55,7 @@ The first table defined in `targets` is the starting point of subsetting. Subset
 Subset traverses tables related to the `target` table and selects all the rows that are connected to the `target` table via foreign key relationship. This process is repeated for each `target` table. At least one `target` must be defined.
 
 Each `target` requires:
-* A table name 
+* A `table` name 
 * One or more of the following subsetting properties:
   * `percent` (percent of rows captured: number)  
   * `rowLimit` (limit on the number of rows captured: number)
