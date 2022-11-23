@@ -34,8 +34,13 @@ export const subset = {
 }
 
 ```
-In above example we are reducing the size of the User table to 5% of the original size. The keepDisconnectedTables option will keep all tables that dont have a direct or indriect relationship with the User table in the new snapshot thet is captured.
+In above example we are reducing the size of the User table to 5% of the original size. The keepDisconnectedTables option will keep all tables that dont have a direct or indirect relationship with the User table in the new snapshot thet is captured.
 
+:::note Precision
+
+Note that the precent/rowLimit specified in the subset config wont be exact. The actual percentage/row count of the data depends on the relationships between the tables.
+
+:::
 
 ### Enabled (enabled: boolean)
 When set to true, subsetting will occur during `snaplet snapshot capture`
