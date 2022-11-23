@@ -34,7 +34,7 @@ export const subset = {
 }
 
 ```
-In above example we are reducing the size of the User table to 5% of the original size. The keepDisconnectedTables option will keep all tables that dont have a direct or indriect relationship with the User table.
+In above example we are reducing the size of the User table to 5% of the original size. The keepDisconnectedTables option will keep all tables that dont have a direct or indriect relationship with the User table in the new snapshot thet is captured.
 
 
 ### Enabled (enabled: boolean)
