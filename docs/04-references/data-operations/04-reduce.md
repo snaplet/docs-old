@@ -34,7 +34,7 @@ export const subset = {
 }
 
 ```
-In above example we are reducing the size of the User table to 5% of the original size. The keepDisconnectedTables option will keep all tables that dont have a relationship with the User table.
+In above example we are reducing the size of the User table to 5% of the original size. The keepDisconnectedTables option will keep all tables that dont have a direct or indriect relationship with the User table.
 ## Reference
 
 ### Enabled (enabled: boolean)
@@ -53,6 +53,8 @@ Each target requires:
 
 Optionally, you can also define an `orderBy` property to sort the rows before subsetting.
 
+Here is an example of a config with multiple targets:
+
 ```ts
 ...
 
@@ -62,7 +64,7 @@ export const config: Transform = () => {
 
 export const subset = {
   enabled: true,
-  version: "2", // version 2 is the latest version
+  version: "2",
   targets: [
     {
       table: "public.User",
@@ -81,9 +83,16 @@ export const subset = {
 
 ### Keep Disconnected Tables (keepDisconnectedTables: boolean)
 
-When set to true, all the tables that are not connected to the tables defined in targets will be included in the snapshot. When set to false, all the tables that are not connected to the target tables will be excluded from the snapshot.
+When set to true, all the tables that are not connected (via forgein key relationships) to the tables defined in targets will be included in the snapshot. When set to false, all the tables that are not connected to the target tables will be excluded from the snapshot.
 
-<!-- ### Foreign keys (foreignKeys: array, optional)
+### Excluding tables from subset
+
+To exclude specific tables from the snapshot see [exclude](docs/04-references/data-operations/03-exclude.md) documentation.
+
+
+<!-- 
+Subset version 2 dont have the customs forgeinKeys option yet. (Issue: https://linear.app/snaplet/issue/S-288/subset-version-2-custom-forgeinkeys-in-config)
+### Foreign keys (foreignKeys: array, optional)
 
 We use the foreign keys to traverse the databse when creating a subet. We use all non-nullable foreign keys and detect nullable forgein keys that will not cause a circular reference. The nullable forgein keys can be manually override with the `forgeinKeys` property.
 
@@ -170,6 +179,3 @@ Things get more complicated with the next target. Say each Organization has an a
 
 In your database there could be tables that don't have a relationship to the specified initial_targets. One can choose to either keep(`keep_disconnected_tables: true`) them in the snapshot or exclude them(`keep_disconnected_tables: false`) from the snapshot. 
 
-### Excluding tables from subset
-
-To exclude specific tables from the snapshot see [exclude](docs/04-references/data-operations/03-exclude.md) documentation.
