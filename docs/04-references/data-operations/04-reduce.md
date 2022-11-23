@@ -34,11 +34,13 @@ export const subset = {
 }
 
 ```
-In above example we are reducing the size of the User table to 5% of the original size. The keepDisconnectedTables option will keep all tables that dont have a direct or indirect relationship with the User table in the new snapshot thet is captured.
+When we run `snaplet snapshot capture` with the above example config the following will happen. We will be reducing the size of the User table to roughly 5% of the original size. We will then get all the tables that are connected to the User table and add the related subset of rows to the new snapshot. There will now be tables that are not included in this new snapshot because they are not connected to the User tables via foreign keys. The [keepDisconnectedTables](#keep-disconnected-tables-keepdisconnectedtables-boolean) option can be set to true to add these disconnected tables (with all it's rows) to the new snapshot.
+
+Multiple targets can be added to the subset config. See [Targets](#targets-tagrets-array) for more information.
 
 :::note Precision
 
-Note that the precent/rowLimit specified in the subset config wont be exact. The actual percentage/row count of the data depends on the relationships between the tables.
+Note that the `precent`/`rowLimit` specified in the subset config wont be exact. The actual row count of the data is affected by the relationships between the tables.
 
 :::
 
@@ -88,7 +90,7 @@ export const subset = {
 
 ### Keep Disconnected Tables (keepDisconnectedTables: boolean)
 
-When set to true, all the tables that are not connected (via forgein key relationships) to the tables defined in targets will be included in the snapshot. When set to false, all the tables that are not connected to the target tables will be excluded from the snapshot.
+When set to true, all the tables (with all its data) that are not connected (via forgein key relationships) to the tables defined in targets will be included in the snapshot. When set to false, all the tables that are not connected to the target tables will be excluded from the snapshot.
 
 ### Excluding tables from subset
 
