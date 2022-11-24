@@ -21,15 +21,25 @@ $ snaplet database --help
 
 snaplet database [action]
 
+manage preview databases
+
 Commands:
-  snaplet database create [database-name]  create a preview database from a snapshot         [aliases: c]
-  snaplet database delete [database-name]  delete a preview database                         [aliases: d]
-  snaplet database list                    list preview databases                             [aliases: ls]
-  snaplet database url [database-name]     show a preview database url                       [aliases: u]
-  snaplet database cache [snapshot]        cache a snapshot into the preview database server  [aliases: ca]
+  snaplet database cache [snapshot]                   cache a snapshot into the preview database server  [aliases: ca]
+  snaplet database create [database-name] [snapshot]  create a preview database from a snapshot  [aliases: c]
+  snaplet database destroy                            destroy the database server  [aliases: ds]
+  snaplet database drop [database-name]               drop a preview database  [aliases: delete, d]
+  snaplet database list                               list preview databases  [aliases: ls]
+  snaplet database setup                              create a preview database server  [aliases: s]
+  snaplet database url [database-name]                show a preview database url  [aliases: u]
 ```
 
 For the following commands, we will use the convenient alias `db` in place of `database`.
+
+## Creating a database server
+
+The first step is to create a database server in the region of your choice.
+
+Run `snaplet db setup`
 
 ## Creating a database
 
@@ -40,12 +50,10 @@ To create a database from a snapshot, run `snaplet db create`:
 $ snaplet db create preview_db_tutorial
 # You will be asked to pick a snapshot if you don't provide one using the --snapshot or --latest option
 ✔ Snapshot › v1-cassidy-underpass-interface 483 kB  4 days ago
-# If you are using the preview database feature for the first time you will have the infrastructure provisioned
-✔ Preview database server provisioned [24s]
 # The snapshot is restored to the preview database
 ✔ Database preview_db_tutorial created from snapshot v1-cassidy-underpass-interface [12s]
 # You can now use your database!
-You can connect to your database at: postgresql://postgres:*********@snaplet-<orgId>-<projectId>.fly.dev:5432/preview_db_tutorial
+You can connect to your database at: postgresql://postgres:*********@<ipv4>:5432/preview_db_tutorial
 ```
 
 If you don't want to provide an explicit name for the database, you can use the `--git` option. Your database will be named after your current branch name:
@@ -75,14 +83,14 @@ snappy_feature_meow    14 MB    v1-cassidy-underpass-interface
 
 You can see the database size and from which snapshot each database was created.
 
-## Deleting a database
+## Dropping a database
 
-To delete a database, run `snaplet db delete`:
+To drop a database, run `snaplet db drop`:
 
 ```bash
 # highlight-next-line
-$ snaplet db delete preview_db_tutorial
-✔ Deleted database preview_db_tutorial
+$ snaplet db drop preview_db_tutorial
+✔ Dropped database preview_db_tutorial
 ```
 
 ## Displaying a database url
@@ -129,12 +137,18 @@ NAME                              SIZE
 v1-cassidy-underpass-interface    14 MB
 ```
 
-## Deleting a cached snapshot from the database server
+## Clearing a cached snapshot from the database server
 
-To delete a cached snapshot, run `snaplet db cache --clear`:
+To clear a cached snapshot, run `snaplet db cache --clear`:
 
 ```bash
 # highlight-next-line
 $ snaplet db cache v1-cassidy-underpass-interface --clear
 Snapshot v1-cassidy-underpass-interface removed from the preview database server cache
 ```
+
+## Destroying a the database server
+
+If you want to restart from scratch, you can run the `snaplet db destroy` command.
+
+It will delete the database server with all its preview databases.
