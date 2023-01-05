@@ -109,7 +109,7 @@ Note that the `precent` / `rowLimit` specified in the subset config may not be e
 
 :::note Limitations
 
-Note that currently during subsetting we are keeping all the forgein keys in memory. This means that the more forgein keys you have in your subset, the more memory will be consumed by subsetting. The currently the CLI is limited to 2GB or 4GB of RAM depending on your system. We are working on a solution for this. We plan on having a solution before end of March 2023. 
+When subsetting we calculate which rows to copy and keep a reference to them in memory. This means that there is a limit to the number of rows that we can store: The more rows you have in your subset, the more memory will be consumed. Currently the CLI is limited to 2GB. This is temporary issue which will be resolved in Q1 2023.
 
 Until then:
 - If you are using UUID's as primary keys (foreign keys) you have a row limit of roughly 1 million rows (or one large table of 12 million rows) on a 2GB system. 
