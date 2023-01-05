@@ -107,6 +107,19 @@ Note that the `precent` / `rowLimit` specified in the subset config may not be e
 
 :::
 
+:::note Limitations
+
+When subsetting we calculate which rows to copy and keep a reference to them in memory. This means that there is a limit to the number of rows that we can store: The more rows you have in your subset, the more memory will be consumed. Currently the CLI is limited to 2GB. This is temporary issue which will be resolved in Q1 2023.
+
+Until then:
+- If you are using UUID's as primary keys (foreign keys) you have a row limit of roughly 1 million rows (or one large table of 12 million rows) on a 2GB system. 
+- If you are using integers (int/bigint) as primary keys you can have roughly 4 million rows (or one large table of 48 million rows) on a 2GB system.
+
+Lots of assumptions are made here. This will vary drastically on your spesific database design. Chat to us on [Discord](https://app.snaplet.dev/chat) and we will help you figure out what your limit is.
+
+If you see this error: `FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory ` you have reached your limit. Try and make your subset smaller by reducing the `percent` or `rowLimit` or by setting `keepDisconnectedTables` to false.
+
+:::
 
 <!-- 
 Subset version 2 dont have the customs forgeinKeys option yet. (Issue: https://linear.app/snaplet/issue/S-288/subset-version-2-custom-forgeinkeys-in-config)
