@@ -103,7 +103,7 @@ Could not drop schema "auth", Snaplet will try to truncate all tables and relate
 
 Supabase databases include a few schemas that aren't owned by the `postgres` user, for example: `auth`, `graphql`, `realtime` and `storage`. Snaplet will still try capture data for tables under these schemas if it has permissions to read data from them. The warnings just mean that when Snaplet tried restore these schemas, it was not able to drop first the schemas that were there prior to the restore (since the user is not the owner of these), and consequently that it was not able to create any structure for them (since that structure still exists). Snaplet will still make sure to clear all data for tables in these schemas, and to restore data for each of these tables to what is in the snapshot. In other words, these warnings do not mean that the restore failed, but rather to show you what Snaplet tried to do.
 
-If you aren't actually needing the data for some of these schemas, you can stop these warnings by excluding the schema from the captured snapshots. You can read more on how to do this in our [_data operations_ docs](https://docs.snaplet.dev/getting-started/data-operations/#exclude-schemas):
+If you aren't actually needing the data for some of these schemas, you can stop these warnings by excluding the schema from the captured snapshots. You can read more on how to do this in our [over here in our docs](https://docs.snaplet.dev/references/data-operations/exclude):
 
 ![Example of excluding a schema](/img/snaplet-supabase-schema-exclude.png)
 
