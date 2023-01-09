@@ -77,7 +77,7 @@ Databases also often have schemas that are used for operations that are isolated
 ```typescript
 // .snaplet/schemasConfig.json
 {
-  public: false;
+  public: false
 }
 ```
 
