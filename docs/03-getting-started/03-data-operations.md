@@ -81,17 +81,6 @@ Databases also often have schemas that are used for operations that are isolated
 }
 ```
 
-If you're using Snaplet Cloud ([app.snaplet.dev](https://app.snaplet.dev/)), you can exclude these schemas as follows:
-
-- In the UI, navigate to the project you want to configure this for
-- Click `Data Editor`
-- Click the `Schema Operations` tab
-- Click `Exclude` for the schema you want to exclude
-- Click `Review & Save`
-- If you're happy with the previewed changes, click `Save`
-
-![Example of excluding a schema](/img/snaplet-supabase-schema-exclude.png)
-
 ## Reduce (Subset)
 
 When creating a representative snapshot of your database to code against, you will typically need to capture only a small portion of the data in that database. Snaplet lets you capture a subset of your data when creating a snapshot, which reduces your snapshot's size and by extension, the time spent uploading and downloading snapshots. This is especially useful if you're connecting directly to a production or staging database that is many GBs in size. For the purpose of this getting started guide, we won't be subsetting your snapshot, but you can read more about subsetting your database snapshots [here](/references/data-operations/reduce).

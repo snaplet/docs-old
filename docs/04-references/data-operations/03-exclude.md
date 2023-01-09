@@ -15,3 +15,14 @@ export const config = () => {
   };
 };
 ```
+
+If you're using Snaplet Cloud ([app.snaplet.dev](https://app.snaplet.dev/)), you can exclude these schemas as follows:
+
+- In the UI, navigate to the project you want to configure this for
+- Click `Data Editor`
+- Click the `Schema Operations` tab
+- Click `Exclude` for the schema you want to exclude
+- Click `Review & Save`
+- If you're happy with the previewed changes, click `Save`
+
+![Example of excluding a schema](/img/snaplet-supabase-schema-exclude.png)
