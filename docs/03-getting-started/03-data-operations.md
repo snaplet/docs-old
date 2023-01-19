@@ -14,7 +14,7 @@ In this guide we're going to focus on transforming and excluding data.
 
 ## Transforming data
 
-In the previous step Snaplet generated a `.snaplet/transform.ts` file, where it identified columns that may contain personally identifiable information (PII), and associated a JavaScript function to those columns so that the values in the snasphot are anonymized.
+In the previous step Snaplet generated a `.snaplet/transform.ts` file, where it identified columns that may contain personally identifiable information (PII), and associated a JavaScript function to those columns so that the values in the snapshot are anonymized.
 
 The JavaScript functions are mapped to the structure of your database.
 As an example, if you have a `User` table with an `email` column you can transform the original value to a new one with the following:
@@ -37,6 +37,10 @@ export const config = () => {
 
 The function assigned to `public.User` receives the existing row values in the `row` variable.
 Here we used the `id` value to create a new email address value: `"user_1@example.org", "user_2@example.org", etc...`
+
+### Choosing the transform mode
+
+For any columns that you haven't given in your config, Snaplet will instead copy over the values for those columns as is (without transforming them). But what if you wanted to make sure you weren't accidentally passing through any sensitive production data? You can instead tell Snaplet to automatically transform values for columns you haven't given in your config, or alternatively to tell you about any columns you haven't given in your config. You can read more about this in our [transformations reference](/references/data-operations/transform).
 
 ### Better fake values with Copycat
 
@@ -77,7 +81,7 @@ Databases also often have schemas that are used for operations that are isolated
 ```typescript
 // .snaplet/schemasConfig.json
 {
-  public: false
+  public: false;
 }
 ```
 
