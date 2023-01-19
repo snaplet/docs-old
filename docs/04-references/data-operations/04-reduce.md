@@ -78,7 +78,7 @@ export const subset = {
   targets: [
     {
       table: "public.User",
-      orderBy: `"createdAt" desc`,
+      orderBy: `"User"."createdAt" desc`,
       percent: 5
     },
     {
