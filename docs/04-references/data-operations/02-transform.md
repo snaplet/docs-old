@@ -313,7 +313,7 @@ Snaplet relies on [`copycat.scramble`](https://github.com/snaplet/copycat#copyca
 
 #### Limitations of `auto` transform mode
 
-#### Application logic
+##### Application logic
 
 Auto-transform mode is able to transform your database data into data that is still valid according to what your database is expecting, but it may not always be what your application's logic is expecting.
 
@@ -321,7 +321,7 @@ For example, imagine an application for previewing source code. Let's say this a
 
 Our goal is for auto-transform mode to automatically transform as much of your database data as possible, but it is likely that you'll still need to tell us how to transform some of your fields.
 
-#### Not all types are supported yet
+##### Not all types are supported yet
 
 While we aim to be able to support auto-transforming as many data types as we can, there are types that we're still working on adding support for. These include:
 
@@ -332,7 +332,7 @@ While we aim to be able to support auto-transforming as many data types as we ca
 - User-defined types
 - Bit-string types
 
-#### Performance
+##### Performance
 
 We're still working on optimising auto-transform to be fast enough to be useful on large datasets and datasets with large values in them. For this same reason, we also currently truncate text values at 1000 characters before transforming them.
 
