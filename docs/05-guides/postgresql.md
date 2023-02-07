@@ -29,7 +29,8 @@ import CodeBlock from '@theme/CodeBlock';
     <CodeBlock language="sql">
     {`SELECT version();
 -- Create a "snaplet_readonly" user and associate the "pg_read_all_data" role.
-CREATE USER snaplet_readonly WITH PASSWORD 'a very good password';
+-- We give the user BYPASSRLS privileges in order to introspect the db structure.
+CREATE USER snaplet_readonly WITH PASSWORD 'a very good password' BYPASSRLS;
 GRANT pg_read_all_data TO snaplet_readonly;
 `}
     </CodeBlock>
