@@ -11,11 +11,14 @@ Snaplet has a global configuration file (for authentication state), and a local 
 
 ## Environmental variables
 
-| Name                        | Description                                                       |
-| :-------------------------- | :---------------------------------------------------------------- |
-| `SNAPLET_ACCESS_TOKEN`      | Access token to authentication as Snaplet Project (Cloud hosting) |
-| `SNAPLET_PROJECT_ID`        | Run CLI commands against Snaplet Project (Cloud hosting)          |
-| `SNAPLET_DATABASE_URL`      | The connection string used to capture and restore snapshots       |
-| `SNAPLET_CWD`               | The current working directory                                     |
-| `SNAPLET_DISABLE_TELEMETRY` | Snaplet no phone home                                             |
+| Name                          | Description                                                       |
+| :---------------------------- | :---------------------------------------------------------------- |
+| `SNAPLET_ACCESS_TOKEN`        | Access token to authentication as Snaplet Project (Cloud hosting) |
+| `SNAPLET_PROJECT_ID`          | Run CLI commands against Snaplet Project (Cloud hosting)          |
+| `SNAPLET_SOURCE_DATABASE_URL` | The connection string used to introspect and capture snapshots    |
+| `SNAPLET_TARGET_DATABASE_URL` | The connection string used to restore snapshots                   |
+| `SNAPLET_CWD`                 | The current working directory                                     |
+| `SNAPLET_DISABLE_TELEMETRY`   | Snaplet no phone home                                             |
+
+Note that the variable `SNAPLET_DATABASE_URL` is deprecated in favor of `SNAPLET_SOURCE_DATABASE_URL` and `SNAPLET_TARGET_DATABASE_URL`.
 
