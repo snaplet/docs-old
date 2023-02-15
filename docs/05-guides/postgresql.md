@@ -67,7 +67,7 @@ GRANT snaplet_read_all_data TO snaplet_readonly;
 
 ## Grant IP address access
 
-Snaplet uses `54.93.75.84`, `3.64.37.135` and `18.158.21.101` to connect to your database. It's a good idea to restrict all traffic to PostgresQL, and only grant access where it's absolutely required.
+Snaplet uses `3.67.57.100`, `3.68.126.236` and `35.158.93.49` to connect to your database. It's a good idea to restrict all traffic to PostgresQL, and only grant access where it's absolutely required.
 
 ## Self-Signed Certificates
 
