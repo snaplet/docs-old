@@ -29,11 +29,11 @@ jobs:
   snaplet-restore-snapshot:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install Snaplet CLI
         run: curl -sL https://app.snaplet.dev/get-cli/ | bash
       - name: Restore Snapshot
-        run: snaplet snapshot create -y
+        run: snaplet snapshot restore --new
         env:
           SNAPLET_DATABASE_URL: ${{ secrets.SNAPLET_DATA_TARGET_DB_URL }}
           SNAPLET_ACCESS_TOKEN: ${{ secrets.SNAPLET_ACCESS_TOKEN }}
