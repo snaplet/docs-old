@@ -437,21 +437,21 @@ snaplet snapshot restore [snapshot-name|snapshot-path]
 **Command Args**
 
 | Name          | Description   | Type |
-| ------------- | ------------- | ---- |
+| ------------- | ------------- | ---- | ------ |
 | snapshot-name | snapshot-path |      | string |
 
 **Command Flags**
 
-| Name          | Alias     | Description                                                    | Type    | Deprecated | Default |
-| ------------- | --------- | -------------------------------------------------------------- | ------- | :--------: | ------- |
-| --schema-only |           | Skip data, only restore schema                                 | boolean |            | false   |
-| --data-only   |           | Restore data only (keep the current schema and indexes)        | boolean |            | false   |
-| --tags        |           | Filter snapshots by tags                                       | array   |            |         |
-| --latest      |           | Restore the latest snapshot                                    | boolean |            | false   |
-| --yes         | -y        | Performs a restore without a confirmation message              | boolean |            | false   |
-| --db          | --db-name |                                                                | string  |     ✅      |         |
-| --new         |           |                                                                | boolean |     ✅      | false   |
-| --tables      |           | Specify which tables to restore data for (used with data-only) | string  |     ✅      |         |
+| Name          | Alias | Description                                                               | Type    | Deprecated | Default |
+| ------------- | ----- | ------------------------------------------------------------------------- | ------- | :--------: | ------- |
+| --data        |       | Restore data on the database (skip with --no-data)                        | boolean |            | true    |
+| --schema      |       | Restore schema on the database (skip with --no-schema)                    | boolean |            | true    |
+| --reset       |       | Drop destination database before restoring schemas (skip with --no-reset) | boolean |            | true    |
+| --tags        |       | Filter snapshots by tags                                                  | array   |            |         |
+| --latest      |       | Restore the latest snapshot                                               | boolean |            | false   |
+| --yes         | -y    | Performs a restore without a confirmation message                         | boolean |            | false   |
+| --schema-only |       | Skip data, only restore schema                                            | boolean |     ✅     | false   |
+| --data-only   |       | Restore data only (keep the current schema and indexes)                   | boolean |     ✅     | false   |
 
 ### **share**
 
@@ -466,7 +466,7 @@ snaplet snapshot share [snapshot-name|snapshot-path]
 **Command Args**
 
 | Name          | Description   | Type |
-| ------------- | ------------- | ---- |
+| ------------- | ------------- | ---- | ------ |
 | snapshot-name | snapshot-path |      | string |
 
 **Command Flags**

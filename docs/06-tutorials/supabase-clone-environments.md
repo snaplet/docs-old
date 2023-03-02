@@ -90,7 +90,11 @@ You're now ready to restore your production snapshot into your Supabase developm
 2. Run `snaplet config setup` – you will be prompted to enter your database credentials. These are the database credentials of your **data target.** This could be your staging or development database. Note that you need to be using the `postgres` user for your development environment. This will already be the case if you copied the connection string from `Organization > Project > Database > Connection Pooling > Connection string` for your development project.
 3. Run `snaplet project setup` - you will be presented a list of options, these are databases that are connected to your Snaplet account
 4. Select a data source from the list
-5. Run `snaplet snapshot restore`
+5. Run `snaplet snapshot restore --no-reset`
+
+> **Note on `--no-reset`:** This will skip the “reset” step of the restore command. So no existing schemas will be dropped. Learn more about data operations [here](/getting-started/restoring#opting-out)
+
+### Troubleshooting
 
 #### A note about warnings
 
