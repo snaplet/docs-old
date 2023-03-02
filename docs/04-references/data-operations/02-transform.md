@@ -72,7 +72,7 @@ Copycat is open-source and has templates for names, addresses, phone numbers and
 
 ## Getting started
 
-We believe that a good developer experience is when developer's are in flow, so it's our goal to "work where you work" by providing programatic primitives for transforming the data in your database, and integrating those with your development worflow.
+We believe that a good developer experience is when developers are in flow, so it's our goal to "work where you work" by providing programatic primitives for transforming the data in your database, and integrating those with your development worflow.
 
 <div style={{textAlign: 'center'}}>
 
@@ -82,7 +82,7 @@ We believe that a good developer experience is when developer's are in flow, so 
 
 To transform the data in your database Snaplet needs two things:
 
-1. A connection URL to the database that you want to transform (This can be your development database).
+1. A connection URL to the database that you want to transform (this can be your development or staging database).
 2. A `.snaplet/transform.ts` file.
 
 ### Setup: Generating transformation files
@@ -115,9 +115,9 @@ A user account is _not required_, you only need a user account if you want to sh
 
 The transformations you define in your config tell Snaplet how to transform your database data for the corresponding columns, but you might've noticed that Snaplet doesn't require you to specify each and every column, table and schema that is in your database. What Snaplet does for any values for columns that have not been given in the config depends on the _transform mode_:
 
-- **`unsafe`** (default): The data for columns not specified in the config is simply copied over as is without transformation
-- **`strict`**: Fail the capture if any columns, tables or schemas have not been specified in the config
-- **`auto'`**: Automatically transform the data for any columns, tables or schemas that have not been specified in the config
+- **`unsafe`** (default): The data for columns not specified in the config is simply copied over as is without transformation.
+- **`strict`**: Fail the capture if any columns, tables or schemas have not been specified in the config.
+- **`auto`**: Automatically transform the data for any columns, tables or schemas that have not been specified in the config.
 
 ### Changing the mode
 
