@@ -105,6 +105,25 @@ If you want to learn more about Snaplet, you can explore our docs. If you have a
 
 That’s it! You’re all done, and should have restored a version of your Supabase production database with transformed data into your target database. You can now safely code against production-realistic data.
 
+## Supabase local development
+
+Supabase allows you [develop locally](https://supabase.com/docs/guides/cli/local-development) through their CLI, you can easily restore any snapshot created in Snaplet to your local instance, just by running:
+
+```bash
+# Login in to the Supabase CLI
+snaplet login
+
+# Initialize Supabase to set up the configuration for developing your project locally:
+snaplet init
+
+# With docker installed and running start up your supabase services locally
+snaplet start
+
+# Grab the local database url and insert into the ./snaplet/config.json file
+# Restore to the target database url
+snaplet ss r --no-reset
+```
+
 ## Troubleshooting
 
 ### Warnings after restoring
