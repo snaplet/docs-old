@@ -1,8 +1,8 @@
 ---
-slug: /
+slug: /security
 ---
 
-# Security at Snaplet#
+# Security at Snaplet
 
 _At Snaplet, we take security seriously and are committed to protecting our customers' data and privacy - it’s our very reason for being! This page provides an overview of our security program and the measures we have in place to safeguard customer data._
 

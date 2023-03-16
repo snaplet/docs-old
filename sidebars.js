@@ -127,5 +127,18 @@ module.exports = {
         },
       ],
     },
+    {
+      type: "category",
+      label: "Other bits",
+      collapsible: true,
+      collapsed: true,
+      items: [
+        {
+          type: "doc",
+          id: "security",
+          label: "Security",
+        },
+      ],
+    },
   ],
 };
