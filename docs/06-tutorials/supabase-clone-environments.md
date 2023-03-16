@@ -27,7 +27,7 @@ Environment parity sounds like a dream come true. In this guide, we’re going t
 
 > **Highly Recommended:** Create a read-only role for your connection string. For more info on how to create a read-only role across all schemas, you can check out [our docs](/guides/postgresql#create-a-read-only-role).
 
-### Step 1: Connect your source database
+### Step 1: Connect your source database (Production Database)
 
 The first thing you’ll want to do is navigate to https://www.snaplet.dev/ and sign up for a new account (it’s free). Once you have successfully signed up for a new account, you’ll begin the onboarding process...
 
@@ -48,7 +48,7 @@ Once you have gone through those steps, a new snapshot process will start and yo
 
 <img src="/screenshots/onboarding_capture.png" alt="Snaplet onboarding capturing your database" style={{ border: "1px solid #e5e7eb" }} />
 
-### Step 3: Create a target database on Supabase
+### Step 3: Create a target database on Supabase (Development Database)
 
 Your target database is where you want Snaplet to restore the captured snapshot of your production project. This would most likely be either your staging or developer Supabase project.
 
