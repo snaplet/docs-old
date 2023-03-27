@@ -17,7 +17,15 @@ Let's go!
 
 Start by installing the Snaplet CLI. To install the CLI from the command line, run:
 
-```bash
+If you're JavaScript in your project, along with a package manager, you can install it into your dependencies:
+
+```
+npm install snaplet
+```
+
+Otherwise, use our bash script:
+
+```terminal
 curl -sL https://app.snaplet.dev/get-cli/ | bash
 ```
 
