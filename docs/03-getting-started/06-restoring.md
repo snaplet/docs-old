@@ -45,5 +45,5 @@ That's it! In a few minutes you captured, transformed, shared and restored a sna
 Running the restore command will go through 3 key steps. The command includes opt-out flags that will allow you to exclude any one of these steps (listed in order of operation below):
 
 1. **Reset (`—-reset`):** Drop the **target database** (skip this step with the `--no-reset` flag).
-2. **Schema (`—-schema`):** Restore the schemas on the **target database** (skip this step with the `--no-reset` flag).
+2. **Schema (`—-schema`):** Restore the schemas on the **target database** (skip this step with the `--no-schema` flag).
 3. **Data (`—-data`):** Restore the data on the **target database** (skip this step with the `--no-data` flag).
