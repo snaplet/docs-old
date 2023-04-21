@@ -11,7 +11,7 @@ If you don't want to run two commands, you can automatically seed the database w
 
 ```bash
 "prisma": {
-  "seed": "snaplet restore --data-only --no-backup"
+  "seed": "snaplet snapshot restore --data-only --latest --yes"
 }
 ```
 
