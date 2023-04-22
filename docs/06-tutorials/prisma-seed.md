@@ -11,7 +11,7 @@ If you don't want to run two commands, you can automatically seed the database w
 
 ```bash
 "prisma": {
-  "seed": "yarn snaplet snapshot restore -y"
+  "seed": "snaplet snapshot restore -y"
 }
 ```
 
