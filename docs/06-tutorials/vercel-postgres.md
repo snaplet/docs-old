@@ -26,13 +26,14 @@ We will focus on using the cloud tool provided by Snaplet. This is a great optio
 
 The Snaplet onboarding process is faily automatic, follow the prompts and wait for your first snapshot.
 
-<div style="position: relative; padding-bottom: 56.69291338582677%; height: 0;"><iframe src="https://www.loom.com/embed/26f6aae49d8b425fb31358664d17e8a6" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style={{"position":"relative","paddingBottom":"64.98194945848375%","height":"0"}}><iframe src="https://www.loom.com/embed/26f6aae49d8b425fb31358664d17e8a6" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style={{"position":"absolute","top":"0","left":"0","width":"100%","height":"100%"}}></iframe></div>
+
 
 ## Create a Vercel Postgres database
 
 Head on over to your Vercel dashboard, select the "Storage" tab, and follow the prompts to create a Postgres database.
 
-<div style="position: relative; padding-bottom: 64.98194945848375%; height: 0;"><iframe src="https://www.loom.com/embed/86b290abdaaf444d85c592dce24ae6ce" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style={{"position":"relative","paddingBottom":"64.98194945848375%","height":"0"}}><iframe src="https://www.loom.com/embed/86b290abdaaf444d85c592dce24ae6ce" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style={{"position":"absolute","top":"0","left":"0","width":"100%","height":"100%"}}></iframe></div>
 
 ## Install and configure Snaplet CLI
 
@@ -49,7 +50,7 @@ Next, you'll need to associate your CLI to your Snaplet account, and select the 
 npx snaplet setup
 ```
 
-<div style="position: relative; padding-bottom: 64.98194945848375%; height: 0;"><iframe src="https://www.loom.com/embed/c7210f5c54b84d028d14a6c15183e20f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div style={{"position":"relative","paddingBottom":"64.98194945848375%","height":"0"}}><iframe src="https://www.loom.com/embed/c7210f5c54b84d028d14a6c15183e20f" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style={{"position":"absolute","top":"0","left":"0","width":"100%","height":"100%"}}></iframe></div>
 
 ## Restore the snapshots into Vercel
 
@@ -59,8 +60,7 @@ Now that you have captured a snapshot using Snaplet and created a Vercel Postgre
 npx snaplet snapshot restore
 ```
 
-<div style="position: relative; padding-bottom: 64.98194945848375%; height: 0;"><iframe src="https://www.loom.com/embed/786ed55ea98c4124baeedc88191cead9" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
+<div style={{"position":"relative","paddingBottom":"64.98194945848375%","height":"0"}}><iframe src="https://www.loom.com/embed/786ed55ea98c4124baeedc88191cead9" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style={{"position":"absolute","top":"0","left":"0","width":"100%","height":"100%"}}></iframe></div>
 
 ## Conclusion
 
