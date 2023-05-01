@@ -116,6 +116,11 @@ module.exports = {
       items: [
         {
           type: "doc",
+          id: "tutorials/vercel-postgres",
+          label: "Vercel Postgres",
+        },
+        {
+          type: "doc",
           id: "tutorials/github-actions",
           label: "GitHub Actions & snapshots",
         },
@@ -123,7 +128,7 @@ module.exports = {
         {
           type: "doc",
           id: "tutorials/supabase-clone-environments",
-          label: "Supabase Clone Environments",
+          label: "Supabase",
         },
       ],
     },
