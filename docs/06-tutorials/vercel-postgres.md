@@ -60,3 +60,10 @@ npx snaplet snapshot restore
 ```
 
 <div style="position: relative; padding-bottom: 64.98194945848375%; height: 0;"><iframe src="https://www.loom.com/embed/786ed55ea98c4124baeedc88191cead9" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+
+## Conclusion
+
+In conclusion, Snaplet is a powerful tool that can help you move your PostgreSQL data between environments and speed up your development process. By capturing a snapshot of your production database and transforming it using TypeScript, you can work with realistic data without compromising sensitive information. And by restoring the snapshot into Vercel Postgres, you can benefit from a fully managed, high-performance database service that scales with your application.
+
+We hope that this guide has been helpful and that you are now ready to use Snaplet to streamline your database management process. If you have any questions or feedback, please don't hesitate to reach out to us. Thanks for reading!
