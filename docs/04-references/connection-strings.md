@@ -1,18 +1,21 @@
 # Connection strings
 
-> Also know as Connection URIs
+> Also known as Connection URLs
 
-To connect to your database the CLI requires database credentials in the form of a connection string. The connection string specifies parameters such as the protocol, username, password, hostname, port, database name and finally a [bunch of parameter keywords](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING) that allow adjustment of various aspects of the connection, like SSL, timeouts, etc.
+To connect to your database the CLI requires database credentials in the form of a connection string. A PostgreSQL connection url specifies the following parameters:
 
-Here's an example connection string:
+- **username** (the username used to connect the database)
+- **password** (the password used in the "user" parameter)
+- **hostname** (the IP address or domain name of the machine where the server is running)
+- **port** (port number on which the server is listening on)
+- **database** (name of the database to connect to)
+
+This connection string will also include a collection of parameter keywords (optional) that allow adjustments of various aspects of the url (e.g. SSL, timeouts, etc)
+
+**Here's an example connection string:**
+
 ```
 postgresql://username:password@hostname:5432/database_name
 ```
 
-## Encoding
-
-The parameters of a connection string **must be percent encoded**, that means that the value `"p@ssword"` needs to be encoded as `"p%40ssword"`. This can be done via the `encodeURIComponent` function in your browser.
-
-```
-// TODO: Create a widget that helps people encode the parameters.
-```
+If you having trouble configuring your connection string, you can refer to this [short guide](https://www.prisma.io/dataguide/postgresql/short-guides/connection-uris) put together by the Prisma team.
