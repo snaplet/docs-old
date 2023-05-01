@@ -13,6 +13,12 @@ Need data to code against? You're in the right place!
 ### 1. Install `snaplet` CLI:
 
 ```bash
+npm install --dev snaplet
+```
+
+If you're not using a NodeJS package manager, like in CI, then you can install it directly using:
+
+```bash
 curl -sL https://app.snaplet.dev/get-cli/ | bash
 ```
 
