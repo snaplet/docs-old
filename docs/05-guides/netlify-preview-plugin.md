@@ -1,3 +1,4 @@
+# Netlify Preview Plugin
 # How to use Snaplet to get isolated Preview Databases for Netlify Preview Deployments
 [Netlify's](https://www.netlify.com/) Preview Deployments are a great way to preview changes and verify that your code is working as intended in a live environment. Unfortunately, one limitation is that all your preview environments typically run against a single shared database; generally a staging environment. As this is a shared environment and not isolated, changes to the structure or data of this database may create conflicts for other preview environments using the same database.
 
