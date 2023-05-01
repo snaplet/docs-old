@@ -4,7 +4,7 @@
 
 To connect to your database the CLI requires database credentials in the form of a connection string. A PostgreSQL connection url specifies the following parameters:
 
-- **username** (the username used to connect the database)
+- **username** (the username used to connect to the database)
 - **password** (the password used in the "user" parameter)
 - **hostname** (the IP address or domain name of the machine where the server is running)
 - **port** (port number on which the server is listening on)
