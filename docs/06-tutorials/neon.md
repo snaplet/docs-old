@@ -1,6 +1,6 @@
-# Neon Integration Guide
+# Neon
 
-This guide will help you use Snaplet to create and subsequently restore a safe, anonymized snapshot of your production data into your Neon database. 
+This guide will help you use Snaplet to create and subsequently restore a safe, anonymized snapshot of your production data into your Neon database.
 
 
 ## Prerequisites
@@ -45,7 +45,7 @@ Because you’re not restoring a snapshot to a local database, Snaplet will prom
 
 ### Step 4: Change development database to your Neon database (existing CLI users)
 
-If you’ve already installed the Snaplet CLI and configured Snaplet to restore snapshots to a different development database, you can change this easily by either editing the `config.json` file for your current working directory, or using the `SNAPLET_TARGET_DATABASE_URL` environment variable when running the `snaplet snapshot restore` command: 
+If you’ve already installed the Snaplet CLI and configured Snaplet to restore snapshots to a different development database, you can change this easily by either editing the `.snaplet/config.json` file for your current working directory, or using the `SNAPLET_TARGET_DATABASE_URL` environment variable when running the `snaplet snapshot restore` command: 
 
 ```terminal
 SNAPLET_TARGET_DATABASE_URL=postgresql://username:password@hostname:5432/database_name snaplet ss restore
