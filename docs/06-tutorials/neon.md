@@ -14,7 +14,7 @@ This guide will help you use Snaplet to create and subsequently restore a safe, 
 ### Step 1: Have a snapshot ready
 Ensure you have an active snapshot of your production database - it's easiest to check this from inside Snaplet Cloud. You can create a new snapshot if your previous snapshot has been deleted, or is out of date. 
 
-![Snaplet snapshot ready to go](https://github.com/snaplet/docs/blob/main/static/screenshots/neon/00-snaplet-snapshot.png "Snaplet snapshot ready to go")
+![Snaplet snapshot ready to go](/screenshots/neon/00-snaplet-snapshot.png "Snaplet snapshot ready to go")
 
 If you haven’t previously created a snapshot at all, follow our [Getting Started](https://docs.snaplet.dev/getting-started/start-here) guide. Alternatively, you can follow along in the video guide below.
 
@@ -26,11 +26,11 @@ If you haven’t previously created a snapshot at all, follow our [Getting Start
 You’ll need the Snaplet CLI to be installed and setup to restore your snapshot to Neon. If you haven’t installed the Snaplet CLI, our [Getting Started](https://docs.snaplet.dev/getting-started/start-here) guide and our [Configuration](https://docs.snaplet.dev/getting-started/configuration) guide will take you through the process. 
 
 At the point where you’re prompted to provide a target database URL, instead of using a local development database URL, provide your Neon database connection string:
-![Snaplet CLI config - providing the Neon database string](https://github.com/snaplet/docs/blob/main/static/screenshots/neon/01-snaplet-cli.png "Snaplet CLI config - providing the Neon database string")
+![Snaplet CLI config - providing the Neon database string](/screenshots/neon/01-snaplet-cli.png "Snaplet CLI config - providing the Neon database string")
 
 
 The connection string to your Neon database can be found on your Neon database dashboard:
-![Neon connection string](https://github.com/snaplet/docs/blob/main/static/screenshots/neon/02-neon-conn.png "Neon connection string")
+![Neon connection string](/screenshots/neon/02-neon-conn.png "Neon connection string")
 
 If you have installed and used the Snaplet CLI previously, jump ahead to step 4. 
 
@@ -40,7 +40,7 @@ From within the Snaplet CLI, use the `snaplet snapshot restore` command to resto
 
 Because you’re not restoring a snapshot to a local database, Snaplet will prompt you to confirm the overwrite, as this will result in your Neon database being overwritten with the schema and data from your snapshot. Press ‘Y’ to confirm and proceed.
 
-![Confirmation when restoring your snapshot to Neon](https://github.com/snaplet/docs/blob/main/static/screenshots/neon/03-restore-setup.png "Restore confirmation prompt")
+![Confirmation when restoring your snapshot to Neon](/screenshots/neon/03-restore-setup.png "Restore confirmation prompt")
 
 
 ### Step 4: Change development database to your Neon database (existing CLI users)
