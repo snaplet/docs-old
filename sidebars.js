@@ -121,7 +121,7 @@ module.exports = {
         },
         {
           type: "doc",
-          id: "tutorials/Neon",
+          id: "tutorials/neon",
           label: "Neon",
         },
         {
