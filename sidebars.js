@@ -121,15 +121,20 @@ module.exports = {
         },
         {
           type: "doc",
+          id: "tutorials/neon",
+          label: "Neon",
+        },
+        {
+          type: "doc",
           id: "tutorials/github-actions",
           label: "GitHub Actions & snapshots",
         },
-        { type: "doc", id: "tutorials/prisma-seed", label: "Prisma Seed" },
         {
           type: "doc",
           id: "tutorials/supabase-clone-environments",
           label: "Supabase",
         },
+        { type: "doc", id: "tutorials/prisma-seed", label: "Prisma Seed" }
       ],
     },
     {

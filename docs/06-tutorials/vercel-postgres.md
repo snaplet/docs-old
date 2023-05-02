@@ -4,11 +4,11 @@ Snaplet is a powerful tool for capturing a sample of your PostgreSQL database an
 
 One of the key benefits of Snaplet is that it is fully customizable using TypeScript. You can write TypeScript code to manipulate the data in the snapshot, such as filtering, aggregating, or anonymizing it. This makes Snaplet a flexible and versatile tool that can adapt to your specific needs.
 
-In this article, we will show you how to use Snaplet to capture a snapshot of your production database, and how to restore it in Vercel Postgres. Vercel Postgres is a fully managed PostgreSQL database service that offers high performance, scalability, and security. By combining Snaplet and Vercel Postgres, you can easily move your data between environments and accelerate your development process.
+In this tutorial, we will show you how to use Snaplet to capture a snapshot of your production database, and how to restore it in Vercel Postgres. Vercel Postgres is a fully managed PostgreSQL database service that offers high performance, scalability, and security. By combining Snaplet and Vercel Postgres, you can easily move your data between environments and accelerate your development process.
 
 ## Overview
 
-In this article, we will show you how to capture a snapshot of your PostgreSQL database using Snaplet, and how to restore it in Vercel Postgres. The process involves four main steps:
+In this tutorial, we will show you how to capture a snapshot of your PostgreSQL database using Snaplet, and how to restore it in Vercel Postgres. The process involves four main steps:
 
     1. Capture a snapshot via Snaplet.
     2. Create a Vercel Postgres database.
