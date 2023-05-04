@@ -1,13 +1,18 @@
 # Configuration
 
-Run `snaplet config setup` in the directory with your source code. This command creates a `.snaplet` directory and the configuration files used by the CLI.
-These configuration files should be added to your repository so that your team will use the defaults you've entered here.
+Once you’ve installed the Snaplet CLI, you’ll need to configure Snaplet for your project. 
 
-You'll need the **connection string to the local development database that your code operates against.** The role should be a `SUPERUSER` because Snaplet uses this connection string to restore snaphots.
+1. Run `snaplet config setup` in the directory containing your project’s source code.
+    1. This command creates a `.snaplet` directory and the configuration files used by the CLI.
+    2. Add these files (`.snaplet/config.json`, `.snaplet/structure.d.ts`, `.snaplet/transform.ts` and `.snaplet/id_rsa`) to your project’s code repository. This will ensure your team uses the values you've specified.
+2. This command will also prompt you to provide your **target database credentials** in the form of a connection string.
 
-Run `snaplet config setup`:
+_💡 Note: Your **target database** is where snapshots are restored to by Snaplet - it’s typically your local development database that your code operates against. Your **source database** is what we capture a snapshot from - typically your production database._
 
-```bash
+If you intend to code against your local database, use those credentials when prompted for your target database credentials. If you intend to restore this snapshot to an external database that’s acting as your development database, for instance, a Vercel or Neon database, use the connection string from that provider here when prompted. 
+
+
+```bash 
 $ cd path/to/project-404/
 # highlight-next-line
 $ snaplet config setup
@@ -25,9 +30,15 @@ that adjust the settings of the CLI
 > Wrote ".snaplet/structure.d.ts"
 > Wrote ".snaplet/transform.ts"
 > Wrote ".snaplet/id_rsa"
+
 ```
 
-Snaplet has now introspected your database and generated:
 
-1. A `transform.ts` file with suggested functions for transforming personally identifiable information detected within your database.
-2. A type definition file `structure.d.ts` based on the structure of your database which allows design-time type safety.
+
+We have guides specifically for [Vercel](/tutorials/vercel-postgres) and [Neon](/tutorials/neon) integrations if you need more information.
+
+If you’re having connection string issues, read more about connection strings and encoding [here](/references/connection-strings/).
+
+With your configuration set up, you're ready to start restore your first snapshot using the Snaplet CLI! Let's [restore that snapshot](/getting-started/restoring) now. 
+
+If you get stuck, you can always get help on [Discord](https://app.snaplet.dev/chat).
