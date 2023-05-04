@@ -1,5 +1,5 @@
 # Start here
-Welcome to Snaplet! To help you get started quickly, we'll guide you through a sample workflow using the Snaplet Web App (what we call Snaplet Cloud) and the Snaplet CLI. Using these two tools will allow you to capture, transform, and restore a snapshot of your source database into a target development database.
+Welcome to Snaplet! To help you get started quickly, we'll guide you through a sample workflow using the Snaplet Cloud and the Snaplet CLI. Using these two tools will allow you to capture, transform, and restore a snapshot of your source database into a target development database.
 
 💡 _As a reminder, Snaplet gives you production-accurate PostgreSQL data and preview databases that you can code against. It does this by capturing a 'snapshot' of a source database, subsetting it to make smaller and easier to work with, and transforming any sensitive data._
 
