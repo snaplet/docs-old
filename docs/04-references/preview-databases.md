@@ -29,7 +29,7 @@ To create a preview database from within Snaplet Cloud, you'll need to have capt
 The first preview database may take a moment to create, depending on the size of your snapshot. Once done, you'll be able to copy the connection string for the database to import into your preferred database client.  
 
 <div style={{textAlign: 'center'}}>
-    <img align="center" width="480" src="static/screenshots/preview-db/preview-database-02.png" alt="Copy connection string" />
+    <img align="center" width="480" src="/static/screenshots/preview-db/preview-database-02.png" alt="Copy connection string" />
 </div>
 
 
