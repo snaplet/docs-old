@@ -19,6 +19,7 @@ module.exports = {
           id: "getting-started/configuration",
           label: "Configuration",
         },
+        { type: "doc", id: "getting-started/restoring", label: "Restoring" },
         {
           type: "doc",
           id: "getting-started/data-operations",
@@ -26,7 +27,6 @@ module.exports = {
         },
         { type: "doc", id: "getting-started/capturing", label: "Capturing" },
         { type: "doc", id: "getting-started/sharing", label: "Sharing" },
-        { type: "doc", id: "getting-started/restoring", label: "Restoring" },
         {
           type: "doc",
           id: "getting-started/what-is-next",
@@ -62,7 +62,7 @@ module.exports = {
             {
               type: "doc",
               id: "references/data-operations/reduce",
-              label: "Subset (Reduce) 🐥",
+              label: "Sample (Reduce) 🐥",
             },
             {
               type: "doc",
