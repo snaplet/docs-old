@@ -14,6 +14,7 @@ Let's dive in!
 
 ![Give me rubs... So that I can scratch you!](/img/snaplet-playing.svg)
 </div>
+
 ## Getting Started with Snaplet Cloud
 
 1. Sign up for Snaplet: head over to **[https://app.snaplet.dev/](https://app.snaplet.dev/signup)** and create a free Snaplet Cloud account.
