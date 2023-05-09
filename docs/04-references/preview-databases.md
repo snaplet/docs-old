@@ -23,7 +23,7 @@ Each Snaplet Project receives a PostgreSQL server instance where multiple previe
 To create a preview database from within Snaplet Cloud, you'll need to have captured a snapshot from your source database - refer to the [Getting Started](/getting-started/start-here/) guide if you need help. From the Snaplet dashboard, click on your snapshot, and then select the 'Previews' tab. From here, simply click the 'Create new preview database' button. 
 
 <div style={{textAlign: 'center'}}>
-    <img align="center" width="480" src="static/screenshots/preview-db/preview-database-01.png" alt="Create a new preview database" />
+    <img align="center" width="480" src="/static/screenshots/preview-db/preview-database-01.png" alt="Create a new preview database" />
 </div>
 
 The first preview database may take a moment to create, depending on the size of your snapshot. Once done, you'll be able to copy the connection string for the database to import into your preferred database client.  
