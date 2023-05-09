@@ -14,7 +14,7 @@ For example, if you're currently in the process of evaluating Snaplet, being abl
 
 As such, Snaplet supports the creation of instant preview databases from snapshots, which allows users to view, code against, or run pull-request previews against a preview serverless PostgreSQL database. 
 
-These preview databases can be created from within the [Snaplet Cloud](/references/preview-databases#creating-a-preview-database-on-snaplet-cloud) dashboard, or the [Snaplet CLI](/references/preview-databases#creating-a-preview-database-using-snaplet-cli-(deprecated)).
+These preview databases can be created from within the [Snaplet Cloud](/references/preview-databases#creating-a-preview-database-on-snaplet-cloud) dashboard, or the [Snaplet CLI](/references/preview-databases#creating-a-preview-database-using-snaplet-cli-deprecated).
 
 Each Snaplet Project receives a PostgresQL server instance where multiple preview databases can be created. 
 
