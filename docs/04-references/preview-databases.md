@@ -38,120 +38,69 @@ Currently, preview databases created from within the Snaplet CLI use a legacy da
 
 :::
 
-## Creating a database server
+## Creating a preview database using Snaplet CLI
 
-The first step is to create a database server in the region of your choice.
+:::note Info
 
-Run `snaplet db setup`
+Snaplet CLI preview databases are created on a different service to preview databases created from within the Snaplet Cloud application. We're in the process of harmonizing preview databases onto a single provider.
 
-## Creating a database
+:::
 
-To create a database from a snapshot, run `snaplet db create`:
-
-```bash
-# highlight-next-line
-$ snaplet db create preview_db_tutorial
-# You will be asked to pick a snapshot if you don't provide one using the --snapshot or --latest option
-✔ Snapshot › v1-cassidy-underpass-interface 483 kB  4 days ago
-# The snapshot is restored to the preview database
-✔ Database preview_db_tutorial created from snapshot v1-cassidy-underpass-interface [12s]
-# You can now use your database!
-You can connect to your database at: postgresql://postgres:*********@<ipv4>:5432/preview_db_tutorial
-```
-
-If you don't want to provide an explicit name for the database, you can use the `--git` option. Your database will be named after your current branch name:
+The database server is hosted on a [Fly Machine](https://fly.io/docs/reference/machines/) with 1 shared CPU, 1GB of RAM and 10GB of persistent volume.
 
 ```bash
 # highlight-next-line
-$ snaplet db create --git --latest
-# Assuming that we are on the branch "snappy/feature-meow"
-✔ Database snappy_feature_meow created from snapshot v1-cassidy-underpass-interface [11s]
-You can connect to your database at: postgresql://postgres:*********@snaplet-<orgId>-<projectId>.fly.dev:5432/snappy_feature_meow
+$ snaplet preview-database --help
+
+snaplet preview-database [action]
+
+manage preview databases
+
+Commands:
+  snaplet preview-database create [snapshot]          create a preview database from a snapshot  [aliases: c]
+  snaplet preview-database url [name]                 get a connection URL for a specified preview database [aliases: u]
+  snaplet preview-database list [snapshot]            shows all preview databases created from a specific snapshot [aliases: ls]
+  snaplet preview-database drop [name]                drops a specified preview database [aliases: d]
 ```
 
-The `--git` option is available for database creation, deletion and displaying the database url.
+For the following commands, we will use the convenient alias `db` in place of `database`.
 
-## Listing databases
+## `create [snapshot]`
 
-To list all databases, run `snaplet db list`:
+The create subcommand generates a new preview database using a specified snapshot:
+
+**Examples**
 
 ```bash
-# highlight-next-line
-$ snaplet db list
-DATABASES
-NAME                   SIZE     SNAPSHOT
-preview_db_tutorial    14 MB    v1-cassidy-underpass-interface
-snappy_feature_meow    14 MB    v1-cassidy-underpass-interface
+# To create a new preview database from a specific snapshot, run:
+snaplet preview-database create preview_db_tutorial
 ```
 
-You can see the database size and from which snapshot each database was created.
+## `url [name]`
 
-## Dropping a database
+This command retrieves the connection URL for a specified preview database. The name parameter is optional and if not provided, the most recent preview database will be used.
 
-To drop a database, run `snaplet db drop`:
+**Examples**
 
 ```bash
-# highlight-next-line
-$ snaplet db drop preview_db_tutorial
-✔ Dropped database preview_db_tutorial
+# To get the connection URL for a specific preview database, run:
+snaplet preview-database url preview_db_tutorial
 ```
 
-## Displaying a database url
+## `list [snapshot]`
 
-To display a database url, run `snaplet db url`:
+The list subcommand shows all preview databases created from a specific snapshot:
 
 ```bash
-# highlight-next-line
-$ snaplet db url snappy_feature_meow
-postgresql://postgres:*********@snaplet-<orgId>-<projectId>.fly.dev:5432/snappy_feature_meow
+# To list all preview databases that have been created from a specific snapshot, run:
+snaplet preview-database list preview_db_tutorial
 ```
 
-This command is especially helpful in CI/CD or preview environments: `DATABASE_URL=$(snaplet db url --git) yarn prisma migrate deploy`
+## `drop [name]`
 
-## Caching a snapshot into the database server
-
-Waiting for a snapshot to be restored can be long, especially if your snapshot is big.
-To avoid this problem, you can cache snapshots into the database server for truly preview databases creation!
-
-To cache a snapshot into the database server, run `snaplet db cache`:
+This command drops a specified preview database. The name parameter is required and specifies the name of the preview database to drop.
 
 ```bash
-# highlight-next-line
-$ snaplet db cache v1-cassidy-underpass-interface
-✔ Snapshot v1-cassidy-underpass-interface cached into preview database server [12s]
-
-# highlight-next-line
-$ snaplet db create is_it_fast_enough --snapshot v1-cassidy-underpass-interface
-✔ Database is_it_fast_enough created from cached snapshot v1-cassidy-underpass-interface [389ms] # Notice the time here!
-You can connect to your database at: postgresql://postgres:*********@snaplet-<orgId>-<projectId>.fly.dev:5432/is_it_fast_enough
+snaplet preview-database drop preview_db_tutorial
 ```
 
-The cached snapshots will appear in the `snaplet db list` command:
-
-```bash
-# highlight-next-line
-$ snaplet db list
-DATABASES
-NAME                   SIZE     SNAPSHOT
-is_it_fast_enough      14 MB    v1-cassidy-underpass-interface
-
-CACHED SNAPSHOTS
-NAME                              SIZE
-v1-cassidy-underpass-interface    14 MB
-```
-
-## Clearing a cached snapshot from the database server
-
-To clear a cached snapshot, run `snaplet db cache --clear`:
-
-```bash
-# highlight-next-line
-$ snaplet db cache v1-cassidy-underpass-interface --clear
-Snapshot v1-cassidy-underpass-interface removed from the preview database server cache
-```
-
-## Destroying a the database server
-
-If you want to restart from scratch, you can run the `snaplet db destroy` command.
-
-It will delete the database server with all its preview databases.
