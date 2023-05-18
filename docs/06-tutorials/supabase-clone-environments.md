@@ -111,13 +111,13 @@ Supabase allows you [develop locally](https://supabase.com/docs/guides/cli/local
 
 ```bash
 # Login in to the Supabase CLI
-snaplet login
+supabase login
 
 # Initialize Supabase to set up the configuration for developing your project locally:
-snaplet init
+supabase init
 
 # With docker installed and running start up your supabase services locally
-snaplet start
+supabase start
 
 # Grab the local database url and insert into the ./snaplet/config.json file
 # Restore to the target database url
