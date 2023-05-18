@@ -100,7 +100,7 @@ module.exports = {
       label: "Guides",
       collapsible: false,
       items: [
-        { type: "doc", id: "guides/tunnelbase", label: "Tunnelbase / snaplet dev"},
+        { type: "doc", id: "guides/tunnelbase", label: "Local Development Branching Workflow"},
         { type: "doc", id: "guides/self-hosting", label: "Self-hosting" },
         { type: "doc", id: "guides/postgresql", label: "PostgreSQL" },
         {
