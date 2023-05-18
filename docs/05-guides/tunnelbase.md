@@ -1,20 +1,20 @@
-# Branch Proxy / `snaplet dev`
+# Tunnelbase / `snaplet dev`
 
 ## Introduction
 
 The `snaplet dev` command allows you to easily create and work with isolated, network-accessible, up-to-date snapshots of production accurate data for each branch in your code repository. This enables you to test and develop against a consistent and representative database state without one local branch affecting another.
 
 The benefits of coding against a branch of your database are:
-    1. Mutations in one database do not affect another. 
-    2. The branch is in the cloud, so you're able to seamlessly code against the same database as your team.
-    3. Branches are updated on when scheduled snapshots are captured, so you're always coding against production accurate data.
+1. Mutations in one database do not affect another. 
+2. The branch is in the cloud, so you're able to seamlessly code against the same database as your team.
+3. Branches are updated on when scheduled snapshots are captured, so you're always coding against production accurate data.
 
 ## Prerequisites
 
 Before using the `snaplet dev` command, ensure that you have the following prerequisites in place:
 
-    1. A Snaplet Project.
-    2. Your code repository has Snaplet configured.
+1. A Snaplet Project.
+2. Your code repository has Snaplet configured.
 
 ## Setting up the Preview Database Proxy
 
