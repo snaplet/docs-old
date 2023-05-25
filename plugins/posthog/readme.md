@@ -1,0 +1,1 @@
+context(justinvdm, 25 May 2023): This is mostly a copy of the official posthog docusaurus plugin: https://github.com/PostHog/posthog-docusaurus. We needed to be able to provide a `loaded()` callback, which is not currently possible through this plugin.

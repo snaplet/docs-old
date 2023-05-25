@@ -1,3 +1,5 @@
+const path = require('path');
+
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
@@ -12,7 +14,20 @@ module.exports = {
   favicon: 'img/favicon.png',
   organizationName: 'snaplet', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
-  plugins: ['docusaurus-plugin-segment'],
+  plugins: [
+    'docusaurus-plugin-segment',
+    [
+      path.resolve(__dirname, './plugins/posthog/index.js'),
+      {
+        apiKey: 'phc_F2nspobfCOFDskuwSN7syqKyz8aAzRTw2MEsRvQSB5G',
+        appUrl: 'https://app.posthog.com',
+        enableInDevelopment: false,
+        loaded: function (posthog) {
+          posthog.register({ source: 'docs' });
+        }.toString(),
+      },
+    ],
+  ],
   themeConfig: {
     algolia: {
       appId: 'PPVJZD9QQI',
@@ -98,8 +113,7 @@ module.exports = {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl:
-            'https://github.com/snaplet/docs/tree/main',
+          editUrl: 'https://github.com/snaplet/docs/tree/main',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -107,5 +121,4 @@ module.exports = {
       },
     ],
   ],
-  scripts: [{ src: 'https://plausible.io/js/script.js', defer: true, 'data-domain': 'snaplet.dev' }],
 };
