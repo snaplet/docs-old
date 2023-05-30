@@ -24,7 +24,7 @@ Environment parity sounds like a dream come true. In this guide, we’re going t
 
 1. **A production Supabase project’s connection string:** This can be found in Supabase via Organization > All Projects > Your Project > Project Settings > Connection String. We’ll refer to this in the guide as your “source database” - where your data comes from.
 
-<img src="/screenshots/supabase_connection_string.png" alt="Snaplet onboarding select team name" style={{ border: "1px solid #e5e7eb" }} />
+<img src="/screenshots/supabase_connection_string.webp" alt="Snaplet onboarding select team name" style={{ border: "1px solid #e5e7eb" }} />
 
 2. **A development Supabase project’s connection string:** Same steps as above, but a different project/environment. We’ll refer to this in the guide as your “target database” - where we’re restoring the snapshot of the source database to. If you haven’t got this set up yet, we’ll take you through the process of setting this up.
 
@@ -34,7 +34,7 @@ Environment parity sounds like a dream come true. In this guide, we’re going t
 
 The first thing you’ll want to do is navigate to https://www.snaplet.dev/ and sign up for a new account (it’s free). Once you have successfully signed up for a new account, you’ll begin the onboarding process...
 
-<img src="/screenshots/onboarding_start.png" alt="Snaplet onboarding select team name" style={{ border: "1px solid #e5e7eb" }} />
+<img src="/screenshots/onboarding_start.webp" alt="Snaplet onboarding select team name" style={{ border: "1px solid #e5e7eb" }} />
 
 On the “Connect database” step add your Supabase production database (using your read-only role). This is the source database we defined above.
 
@@ -49,7 +49,7 @@ Once that is done, continue to the next steps:
 
 Once you have gone through those steps, a new snapshot process will start and you will now be on the “capture step.” Wait for it to finish - this is the snapshot you will restore into your **target database.**
 
-<img src="/screenshots/onboarding_capture.png" alt="Snaplet onboarding capturing your database" style={{ border: "1px solid #e5e7eb" }} />
+<img src="/screenshots/onboarding_capture.webp" alt="Snaplet onboarding capturing your database" style={{ border: "1px solid #e5e7eb" }} />
 
 ### Step 3: Create a target database on Supabase (Development Database)
 
