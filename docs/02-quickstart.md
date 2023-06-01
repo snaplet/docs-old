@@ -6,7 +6,7 @@ Need data to code against? You're in the right place!
 
 <div style={{textAlign: 'center'}}>
 
-![Onboarding starting screen](/screenshots/onboarding_start.png)
+![Onboarding starting screen](/screenshots/onboarding_start.webp)
 
 </div>
 
