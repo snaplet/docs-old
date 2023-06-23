@@ -1,8 +1,8 @@
-# PostgresQL
+# PostgreSQL
 
 ## Create a read-only role
 
-Snaplet connects to your PostgresQL database in order to create snapshots. We recommend that you give us read-only access to your database, and that you restrict connection to a specific set of IP addresses.
+Snaplet connects to your PostgreSQL database in order to create snapshots. We recommend that you give us read-only access to your database, and that you restrict connection to a specific set of IP addresses.
 
 <div style={{textAlign: 'center'}}>
 
@@ -12,7 +12,7 @@ Snaplet connects to your PostgresQL database in order to create snapshots. We re
 
 Connect to your database and run the following SQL statements. These creates a `snaplet_readonly` user with the password `a very good password` and gives them the `snaplet_read_all_data` role.
 
-PostgresQL v14 includes a `pg_read_all_data` role. Run `SELECT version()` in PostgresQL to determine your version.
+PostgreSQL v14 includes a `pg_read_all_data` role. Run `SELECT version()` in PostgreSQL to determine your version.
 
 :::warning
 
@@ -25,7 +25,7 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
 <Tabs>
-  <TabItem value="apple" label="PostgresQL v14" default>
+  <TabItem value="apple" label="PostgreSQL v14" default>
     <CodeBlock language="sql">
     {`SELECT version();
 -- Create a "snaplet_readonly" user and associate the "pg_read_all_data" role.
@@ -35,7 +35,7 @@ GRANT pg_read_all_data TO snaplet_readonly;
 `}
     </CodeBlock>
   </TabItem>
-  <TabItem value="orange" label="PostgresQL v13 and below">
+  <TabItem value="orange" label="PostgreSQL v13 and below">
     <CodeBlock language="sql">
       {`SELECT version();
 -- Create a "snaplet_read_all_data" role, find all the user generated schemas, 
@@ -67,7 +67,7 @@ GRANT snaplet_read_all_data TO snaplet_readonly;
 
 ## Grant IP address access
 
-Snaplet uses `3.67.57.100`, `3.68.126.236` and `35.158.181.77` to connect to your database. It's a good idea to restrict all traffic to PostgresQL, and only grant access where it's absolutely required.
+Snaplet uses `3.67.57.100`, `3.68.126.236` and `35.158.181.77` to connect to your database. It's a good idea to restrict all traffic to PostgreSQL, and only grant access where it's absolutely required.
 
 ## Self-Signed Certificates
 
