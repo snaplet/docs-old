@@ -117,6 +117,11 @@ module.exports = {
       items: [
         {
           type: "doc",
+          id: "tutorials/aws-rds",
+          label: "AWS RDS",
+        },
+        {
+          type: "doc",
           id: "tutorials/vercel-postgres",
           label: "Vercel Postgres",
         },
