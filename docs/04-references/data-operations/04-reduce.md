@@ -82,7 +82,7 @@ When set to true, all tables (with all data) that are not connected via foreign 
 
 ### Enabled (enabled: boolean) (default=true)
 
-When set to true, sampling will occur during `snaplet snapshot capture`. Allow you to turn off the sampling with one single parameter.
+When set to true, sampling will occur during `snaplet snapshot capture`. This allows you to turn off the sampling with one single parameter.
 
 ### Follow Nullable Relations (followNullableRelations: boolean) (default=true)
 
