@@ -86,7 +86,7 @@ When set to true, sampling will occur during `snaplet snapshot capture`. This al
 
 ### Follow Nullable Relations (followNullableRelations: boolean) (default=true)
 
-When set to true, Snaplet sampleing will follow nullable relations. This means that if a table has a nullable foreign key, Snaplet will include the related rows in the snapshot. If set to false, those foreign key relations will be marked as null. Useful if the algorithm overfetches data.
+When set to true, Snaplet sampling will follow nullable relations. This means that if a table has a nullable foreign key, Snaplet will include the related rows in the snapshot. If set to false, those foreign key relations will be marked as null. Useful if the algorithm overfetches data.
 
 ### Max cycles loop (maxCyclesLoop: number) (default=10)
 
