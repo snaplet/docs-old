@@ -90,7 +90,7 @@ When set to true, Snaplet sampling will follow nullable relations. This means th
 
 ### Max cycles loop (maxCyclesLoop: number) (default=10)
 
-This parameter tell the sampling algorithm how many time he's allowed to fetch "optional" data in the same table (cycles loop). This is useful to avoid infinite loop in case of circular relation.
+This parameter tells the sampling algorithm how many times it's allowed to fetch "optional" data in the same table (cycles loop). This is useful to avoid an infinite loop in case of a circular relation.
 This is particularly useful in case of overfetching to early exit the fetching process after some point.
 
 :::note A recommendation
