@@ -4,18 +4,17 @@ Snaplet supports transforming the data in your database before capturing it as a
 
 Defining these data transformations is done via JavaScript callbacks. This "Transformation Function" is associated to the structure of your database. As an example if you have a `Users` table that contains an `email` column you would create the following:
 
-```ts
-// .snaplet/transform.ts
-import { copycat } from '@snaplet/copycat';
-import type { Transform } from './structure';
-
-export const config: Transform = () => ({
-  public: {
-    Users() {
-      return {
-        // highlight-next-line
-        email: 'my-new-email@example.org',
-      };
+```typescript
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  transform: {
+    public: {
+      User: () => {
+        return {
+          // highlight-next-line
+          email: 'my-new-email@example.org',
+        };
+      },
     },
   },
 });
@@ -27,18 +26,20 @@ That's where [`@snaplet/copycat`](https://github.com/snaplet/copycat) comes in! 
 
 Example:
 
-```ts
-// .snaplet/transform.ts
-import { copycat } from '@snaplet/copycat';
-import type { Transform } from './structure';
 
-export const config: Transform = () => ({
-  public: {
-    Users({ row }) {
-      return {
-        // highlight-next-line
-        email: copycat.email(row.email), // zakary.block356@gmail.com
-      };
+```typescript
+// highlight-next-line
+import { copycat } from "@snaplet/copycat";
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  transform: {
+    public: {
+      User: ({ row }) => {
+        return {
+          // highlight-next-line
+          email: copycat.email(row.email), // zakary.block356@gmail.com
+        };
+      },
     },
   },
 });
@@ -46,23 +47,24 @@ export const config: Transform = () => ({
 
 Each Transformation Function receives a `row` object that contains the original row's values, this allows you to perform conditional transformations, mutate a JSON object, or create deterministic faker values.
 
-```js
-// .snaplet/transform.ts
-import { copycat } from '@snaplet/copycat';
-import type { Transform } from './structure';
 
-export const config: Transform = () => ({
-  public: {
-    Users({ row }) {
-      // Transform our user's data, not our developer's data.
-      // highlight-next-line
-      if (row.role !== 'SUPERUSER') {
-        return {
-          name: copcat.fullName(row.name),
-          email: copycat.email(row.email),
-          password: copycat.password(row.password),
-        };
-      }
+```typescript
+import { copycat } from "@snaplet/copycat";
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  transform: {
+    public: {
+      User: ({ row }) => {
+        // Transform our user's data, not our developer's data.
+        // highlight-next-line
+        if (row.role !== 'SUPERUSER') {
+          return {
+            name: copcat.fullName(row.name),
+            email: copycat.email(row.email),
+            password: copycat.password(row.password),
+          };
+        }
+      },
     },
   },
 });
@@ -83,27 +85,40 @@ We believe that a good developer experience is when developers are in flow, so i
 To transform the data in your database Snaplet needs two things:
 
 1. A connection URL to the database that you want to transform (this can be your development or staging database).
-2. A `.snaplet/transform.ts` file.
+2. A `snaplet.config.ts` file.
 
 ### Setup: Generating transformation files
 
 Run `snaplet config setup` at the root of your codebase (in your git repo), so that the configuration and transformations files are shared with the rest of your team.
 
 ```bash
-✔ Connection string … postgresql://localhost/snaplet_development
-✔ Database connection: Testing...
-✔ Project file config.json: Creating...
-✔ Database connection: Testing...
-✔ Database structure: Instrospecting...
-✔ Project file transformations.d.ts: Creating...
-✔ Project file transformations.js: Creating...
+No configuration found
+✔ Create "/Users/avallete/Documents/Programming/Snaplet/docs/.snaplet/config.json"? … yes
+✔ Target database connection string … postgresql://postgres@localhost:5432/postgres
+📡 Connected to database with "postgresql://postgres@localhost:5432/postgres"
+Introspecting database...
+📡 Connected to database with "postgresql://postgres@localhost:5432/postgres"
+Generated transform type definitions: snaplet.d.ts
+⠋ Transform: Detecting PII fields...Smart shape prediciton failed
+ℹ Transform: Generate transform config...
+Generated transform config: snaplet.config.ts
+Generated private key: /Users/avallete/Documents/Programming/Snaplet/docs/.snaplet/id_rsa
+Added publicKey to project config: id_rsa
+Created .snaplet/snaplet.d.ts
+Created snaplet.config.ts
+
+😽 Snaplet has introspected your database structure and generated
+suggested transformations for your data in snaplet.config.ts
+Please review them.
+
+Updated ".gitignore"
 ```
 
 The first thing Snaplet needs is a **connection string to your database**, we use this to **introspect your database** and make **transformation suggestions** for columns that could contain personally identifiable information.
 
-Regenerate these files with `snaplet config generate --type=typedef,transformations`
+Regenerate these files with `snaplet config generate --type=typedefs --type=transform`
 
-You can add the `.snaplet/transformations.d.ts` and `.snaplet/snapshots` to your `.gitignore` configuration.
+You can add the `.snaplet/snaplet.d.ts` and `.snaplet/snapshots` to your `.gitignore` configuration.
 
 :::tip
 
@@ -121,21 +136,18 @@ The transformations you define in your config tell Snaplet how to transform your
 
 ### Changing the mode
 
-For Snaplet Cloud, you can choose the transform mode within your config by specifying `mode` under `$options`:
+For Snaplet Cloud, you can choose the transform mode within your config by specifying `$mode` under `transform`:
 
-```js
-// .snaplet/transform.ts
-import { copycat } from '@snaplet/copycat';
-import type { Transform } from './structure';
-
-export const config: Transform = () => ({
-  $options: {
-    mode: 'auto',
+```typescript
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  transform: {
+    $mode: "auto",
   },
 });
 ```
 
-If you're capturing your snapshots locally with `snaplet snapshot capture`, you can also choose the transform mode using your config (located at `.snaplet/transform.ts`) the same way as above. Alternatively, you can use the `--transform-mode` CLI option:
+If you're capturing your snapshots locally with `snaplet snapshot capture`, you can also choose the transform mode using your config (located at `snaplet.config.ts`) the same way as above. Alternatively, you can use the `--transform-mode` CLI option:
 
 ```
 snaplet snapshot capture --transform-mode=auto
@@ -161,14 +173,15 @@ Lets say you have a `User` table with the columns `id`, `name` and `email`, with
 
 Then lets say your config looked like this:
 
-```ts
-export const config = () => ({
-  $options: {
-    mode: 'unsafe',
-  },
-  public: {
-    User: ({ row }) => {
-      email: 'user_' + row.id + '@example.org',
+```typescript
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  transform: {
+    $mode: "unsafe",
+    public: {
+      User: ({ row }) => {
+        email: 'user_' + row.id + '@example.org',
+      },
     },
   },
 });
@@ -198,14 +211,15 @@ Using the same example as above, lets say you have a `User` table with the colum
 
 Then lets keep the config the same, except now choose `strict` mode:
 
-```ts
-export const config = () => ({
-  $options: {
-    mode: 'strict',
-  },
-  public: {
-    User: ({ row }) => {
-      email: 'user_' + row.id + '@example.org',
+```typescript
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  transform: {
+    $mode: "strict",
+    public: {
+      User: ({ row }) => {
+        email: 'user_' + row.id + '@example.org',
+      },
     },
   },
 });
@@ -222,15 +236,16 @@ You'll notice that Snaplet said nothing about `id`: In `strict` mode, Snaplet wi
 
 To allow a snapshot to be created, lets add a `name` column to the config:
 
-```ts
-export const config = () => ({
-  $options: {
-    mode: 'strict',
-  },
-  public: {
-    User: ({ row }) => {
-      email: 'user_' + row.id + '@example.org',
-      name: `User ${row.id}
+```typescript
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  transform: {
+    $mode: "strict",
+    public: {
+      User: ({ row }) => {
+        email: 'user_' + row.id + '@example.org',
+        name: `User ${row.id}
+      },
     },
   },
 });
@@ -260,18 +275,21 @@ Using the same example as above, lets say you have a `User` table with the colum
 
 Then lets keep the config the same, except now choose `auto` mode:
 
-```ts
-export const config = () => ({
-  $options: {
-    mode: 'auto',
-  },
-  public: {
-    User: ({ row }) => {
-      email: 'user_' + row.id + '@example.org',
+
+```typescript
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  transform: {
+    $mode: "auto",
+    public: {
+      User: ({ row }) => {
+        email: 'user_' + row.id + '@example.org',
+      },
     },
   },
 });
 ```
+
 
 In this case, a transformation was given in the config for `email`, but not for `name` or `id`. The chosen mode is `auto` mode, so Snaplet will use the transformation given for `email`, but transform data for `name` automatically. Data for `id` will be copied over as is - in `auto` mode, Snaplet does not do any transformations of its own to primary or foreign key columns.
 
@@ -286,13 +304,15 @@ The resulting data in the snapshot will look something like this:
 
 You could even provide no transformations at all for the columns in `User`:
 
-```ts
-export const config = () => ({
-  $options: {
-    mode: 'auto',
+```typescript
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  transform: {
+    $mode: "unsafe"
   },
 });
 ```
+
 
 In which case, resulting data in the snapshot will look something like this:
 
@@ -348,23 +368,23 @@ For example, lets say you had an `address` column with the type `varchar(16)`. S
 
 In these cases, [`copycat.scramble`](https://github.com/snaplet/copycat#copycatscramblestring-options) might be more helpful for you: it transforms each character in the string, but preserves the string's length. Since the original value is less than the character limit, the transformed result will also be.
 
-```ts
-// .snaplet/transform.ts
+```typescript
 import { copycat } from '@snaplet/copycat';
-import type { Transform } from './structure';
-
-export const config: Transform = () => ({
-  public: {
-    Users({ row }) {
-      return {
-        // highlight-next-line
-        address: copycat.scramble(row.address, {
-          preserve: [',', ' '],
-        }), // '741 Hazle Forks, Carmel 8164, Dominica' => 'tqynqduk@qjlrftv.fig'
-      };
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  transform: {
+    public: {
+      Users({ row }) {
+        return {
+          // highlight-next-line
+          address: copycat.scramble(row.address, {
+            preserve: [',', ' '],
+          }), // '741 Hazle Forks, Carmel 8164, Dominica' => 'tqynqduk@qjlrftv.fig'
+        };
+      },
     },
   },
 });
 ```
 
-Snaplet will also account for character limits this way when generating an example `transform.ts` config for you: if Snaplet sees a column containing PII that has a character limit, the example `transform.ts` config we generate for you will instead make use of [`copycat.scramble`](https://github.com/snaplet/copycat#copycatscramblestring-options) for that column.
+Snaplet will also account for character limits this way when generating an example `snaplet.config.ts` config for you: if Snaplet sees a column containing PII that has a character limit, the example `snaplet.config.ts` config we generate for you will instead make use of [`copycat.scramble`](https://github.com/snaplet/copycat#copycatscramblestring-options) for that column.
