@@ -60,7 +60,7 @@ Having predictable, deterministic values is helpful when coding or testing, as y
 
 Databases often have tables that contain loads of machine generated data, like logs, that aren't really necessary or helpful during development.
 Since the code doesn't operate against this data, it can be safely excluded.
-To do so you can tell the `select` field that you want to only capture the `"structure"` prevent Snaplet from copying data.
+To do so you can tell the `select` field that you want to only capture the `"structure"` to prevent Snaplet from copying the data.
 Snaplet will still create the table's structure but skip the data, speeding up both snapshot capture and restoration.
 
 ```typescript
