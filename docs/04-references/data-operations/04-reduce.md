@@ -95,18 +95,18 @@ This is particularly useful in case of overfetching to early exit the fetching p
 
 :::note A recommendation
 
-When setting up snaplet for the first time, we recommend setting this parameter to 0 and gradually
-increment it until the sample of data you fetch trough relationship is enough for your use case.
+When setting up Snaplet for the first time, we recommend setting this parameter to 0 and to gradually
+increment it until the sample of data you fetch trough a relationship is enough for your use case.
 
 :::
 
 ### Max Children Per Node (maxChildrenPerNode: number) (default=unlimited)
-This parameter tell the sampling algorithm how many optional data he's allowed to retrieve at a time.
-This can be useful in the case of 1 single rows being linked to one millions rows in another table.
+This parameter tells the sampling algorithm how many optional data it's allowed to retrieve at a time.
+This can be useful in the case of 1 single row being linked to one millions rows in another table.
 In that case, setting a limit of 1000 will allow the algorithm to fetch only the first 1000 related rows from this relation.
 
 ### Eager (eager: boolean) (default=false)
-This parameter tell the sampling algorithm to perform "both way relations fetching".
+This parameter tells the sampling algorithm to perform bi-directional relationship fetching.
 
 Let's take an example:
 
@@ -125,7 +125,7 @@ user: 1, 2, 3, 4, 5         ->     team: 1, role: 'user', 'user', 'user', 'admin
 user: 6, 7, 8               ->     team: NULL
 ```
 
-Let say we gather from the following target: `{table: 'public.user', where: 'user.id IN (1, 8)'}`
+Let's say we use the following target: `{table: 'public.user', where: 'user.id IN (1, 8)'}`
 In "lazy" mode, we will only fetch `user: (1, 8) and team (1)` then stop. As there is no need to fetch more
 data to satify this relationship constraint.
 However, if your app logic require each team to have at least one user with the role 'admin' in it, then it might be a problem.

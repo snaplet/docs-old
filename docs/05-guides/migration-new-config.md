@@ -6,29 +6,29 @@ In version `0.50.0` we changed the way the configuration is defined. This change
 to help you adopt the new configuration.
 
 :::warning
-The "old" configuration will be removed and no longer working in version `0.60.0` of snaplet. We recommend you to migrate your configuration as soon as possible.
+The "old" configuration will be removed and no longer working in version `0.60.0` of Snaplet. We recommend you to migrate your configuration as soon as possible.
 :::
 
 ### What's changed?
 
-The new configuration now offer a fully typed experience. This means that you will get type errors if you make a mistake in your configuration. It also means that you will get
+The new configuration now offers a fully typed experience. This means that you will get type errors if you make a mistake in your configuration. It also means that you will get
 intellisense in your IDE when writing your configuration.
 
-This new configuration also deprecate some of the old configuration options. We will cover those in this guide.
+This new configuration also deprecates some of the old configuration options. We will cover those in this guide.
 
 ### Automatic cloud migration
-For our cloud users, we created a migration tool that will attempt to automatically migrate your configuration to the new format. It's available on your project under the `Data Editor` tab.
+For our cloud users, we created a migration tool that will attempt to automatically migrate your configuration to the new format. It's available in your project under the `Data Editor` tab.
 
 ![Automatic migration web ui](/img/cloud-upgrade-config-screenshot.webp)
 
-However, it might have some issues depending of the complexity of your current configuration. We recommend you to read this guide and manually migrate your configuration if you encounter any issue with his usage.
+However, it might have some issues depending on the complexity of your current configuration. We recommend you to read this guide and manually migrate your configuration if you encounter any issues with the tool.
 
 ### On local machine
-Previously the configurations were splited into several files. Now, everything is grouped in the same file. This means that you will need to move your configuration to the new file.
+Previously, the configuration was split into several files. Now, everything is grouped in the same file. This means that you will need to move your configuration to the new file.
 
-Previously you would had files like this `.snaplet/transform.ts`, `.snaplet/schema.json`, `.snaplet/structure.d.ts`.
+Previously, you would have files such as `.snaplet/transform.ts`, `.snaplet/schema.json`, `.snaplet/structure.d.ts`.
 
-Now you will have only one file for the configuration at the root of your project `snaplet.config.ts`. And one file for the types definition at `.snaplet/snaplet.d.ts`.
+Now, you will have only one file `snaplet.config.ts` for all your configuration in the root of your project, and one file `.snaplet/snaplet.d.ts` for the type definitions.
 
 ### (deprecated) Runtime object definition
 
@@ -48,11 +48,11 @@ return structure.$schemas.reduce((acc, schema) => ({
 export default transform
 ```
 
-This won't work anymore. You will need to define your configuration in a static way. This means that you can't use variables or functions to define your configuration. This is because to provide type-safety we need to know the configuration at compile time. We think it's a good trade-off to have a better developer experience.
+This won't work anymore. You will need to define your configuration in a static way. This means that you can't use variables or functions to define your configuration. This is because in order to provide type-safety, we need to know the configuration at compile time. We think it's a good trade-off to have a better developer experience.
 
 ### (migrated) Schema exclusion
 
-On the previous configuration the "exclusion" of the schemas and tables was done by setting the value to `false`. In another file. Now, everything is grouped in the same file.
+In the previous configuration the exclusion of schemas and tables was done by setting the value to `false` in another file. Now, everything is grouped in the same file.
 Let's take an example to see what it means.
 
 Before, you would have files like this:
@@ -99,12 +99,12 @@ export default defineConfig({
 ```
 
 
-As you can see we introduced a new `$default` parameter which allow you to choose if you rather "include" or "exclude" mutiples tables under a schema per default. This was a long requested feature and we are happy to finally introduce it.
+As you can see, we introduced a new `$default` parameter which allows you to choose if you'd rather "include" or "exclude" mutiples tables under a schema by default. This was a long requested feature and we are happy to finally introduce it.
 
 For more details, see [exclude](docs/04-references/data-operations/03-exclude.md)
 
 ### (migrated) Subset
-The subset feature is now available under the "sample" property on the configuration. Nothing change much in it except that the types definition for it are much more precise allowing you to know in advance what you can do with it.
+The subset feature is now available under the "sample" property on the configuration. It remains mostly the same, except that the type definitions for it are much more precise, which allows you to know in advance what you can do with it.
 
 For example this configuration:
 
@@ -143,4 +143,4 @@ export default defineConfig({
 });
 ```
 
-If you encounter any issue during your migration, please contact us on our discord server we'll be happy to assist you [Discord](https://app.snaplet.dev/chat).
+If you encounter any issue during your migration, please contact us on our [Discord server](https://app.snaplet.dev/chat). We'll be happy to assist you .

@@ -111,7 +111,7 @@ module.exports = {
         {
           type: "doc",
           id: "guides/migration-new-config",
-          label: "Migration new config",
+          label: "Migration to new config",
         },
       ],
     },
