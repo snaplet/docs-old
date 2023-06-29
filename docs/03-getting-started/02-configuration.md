@@ -34,7 +34,7 @@ that adjust the settings of the CLI
 
 :::note Typescript support
 
-For the `snaplet.config.ts` to have his full autocompletion capabilities, you need to turn on two typescript compiler options in the `tsconfig.json` of your project:
+For the `snaplet.config.ts` file to have its full autocompletion capabilities, you need to turn on two typescript compiler options in the `tsconfig.json` of your project:
     
     ```json
     {
