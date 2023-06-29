@@ -19,7 +19,7 @@ This new configuration also deprecate some of the old configuration options. We 
 ### Automatic cloud migration
 For our cloud users, we created a migration tool that will attempt to automatically migrate your configuration to the new format. It's available on your project under the `Data Editor` tab.
 
-// TODO: add a screenshot of the webui interface
+![Automatic migration web ui](/img/cloud-upgrade-config-screenshot.webp)
 
 However, it might have some issues depending of the complexity of your current configuration. We recommend you to read this guide and manually migrate your configuration if you encounter any issue with his usage.
 
