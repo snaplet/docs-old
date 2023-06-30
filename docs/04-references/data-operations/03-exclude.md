@@ -6,23 +6,22 @@ Associating a `false` value to a table will prevent Snaplet from copying data.
 Snaplet will still create the table's structure but skip the data.
 
 ```typescript
-// .snaplet/transform.ts
-export const config = () => {
-  return {
-    public: {
-      AuditLog: false,
-    },
-  };
-};
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  select: {
+    public: false
+  },
+});
 ```
 
-If you're using Snaplet Cloud ([app.snaplet.dev](https://app.snaplet.dev/)), you can exclude these schemas as follows:
-
-- In the UI, navigate to the project you want to configure this for
-- Click `Data Editor`
-- Click the `Schema Operations` tab
-- Click `Exclude` for the schema you want to exclude
-- Click `Review & Save`
-- If you're happy with the previewed changes, click `Save`
-
-![Example of excluding a schema](/img/snaplet-supabase-schema-exclude.png)
+You can also exclude specific tables from the capture process:
+```typescript
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  select: {
+    public: {
+      EventLogs: false,
+    },
+  },
+});
+```

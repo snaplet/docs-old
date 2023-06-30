@@ -4,7 +4,7 @@ Once you’ve installed the Snaplet CLI, you’ll need to configure Snaplet for 
 
 1. Run `snaplet config setup` in the directory containing your project’s source code.
     1. This command creates a `.snaplet` directory and the configuration files used by the CLI.
-    2. Add these files (`.snaplet/config.json`, `.snaplet/structure.d.ts`, `.snaplet/transform.ts` and `.snaplet/id_rsa`) to your project’s code repository. This will ensure your team uses the values you've specified.
+    2. Add these files (`.snaplet/config.json`, `.snaplet/snaplet.d.ts`, `.snaplet/id_rsa`, and `snaplet.config.ts`) to your project’s code repository. This will ensure your team uses the values you've specified.
 2. This command will also prompt you to provide your **target database credentials** in the form of a connection string.
 
 _💡 Note: Your **target database** is where snapshots are restored to by Snaplet - it’s typically your local development database that your code operates against. Your **source database** is what we capture a snapshot from - typically your production database._
@@ -27,11 +27,25 @@ that adjust the settings of the CLI
 
 > Introspecting database...
 > Wrote ".snaplet/config.json"
-> Wrote ".snaplet/structure.d.ts"
-> Wrote ".snaplet/transform.ts"
+> Wrote ".snaplet/snaplet.d.ts"
 > Wrote ".snaplet/id_rsa"
-
 ```
+
+
+:::note Typescript support
+
+For the `snaplet.config.ts` file to have its full autocompletion capabilities, you need to turn on two typescript compiler options in the `tsconfig.json` of your project:
+    
+    ```json
+    {
+        "compilerOptions": {
+            "strict": true,
+            "noImplicitAny": true
+        }
+    }
+    ```
+
+:::
 
 
 

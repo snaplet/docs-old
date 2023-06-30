@@ -108,6 +108,11 @@ module.exports = {
           id: "guides/netlify-preview-plugin",
           label: "Netlify preview plugin",
         },
+        {
+          type: "doc",
+          id: "guides/migration-new-config",
+          label: "Migration to new config",
+        },
       ],
     },
     {

@@ -14,15 +14,15 @@ In this guide we're going to focus on transforming and excluding data.
 
 ## Transforming data
 
-In the previous step Snaplet generated a `.snaplet/transform.ts` file, where it identified columns that may contain personally identifiable information (PII), and associated a JavaScript function to those columns so that the values in the snapshot are anonymized.
+In the previous step Snaplet generated a `snaplet.config.ts` file, where it identified columns that may contain personally identifiable information (PII), and associated a JavaScript function to those columns so that the values in the snapshot are anonymized.
 
 The JavaScript functions are mapped to the structure of your database.
 As an example, if you have a `User` table with an `email` column you can transform the original value to a new one with the following:
 
 ```typescript
-// .snaplet/transform.ts
-export const config = () => {
-  return {
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  transform: {
     public: {
       User: ({ row }) => {
         return {
@@ -31,8 +31,8 @@ export const config = () => {
         };
       },
     },
-  };
-};
+  },
+});
 ```
 
 The function assigned to `public.User` receives the existing row values in the `row` variable.
@@ -60,29 +60,58 @@ Having predictable, deterministic values is helpful when coding or testing, as y
 
 Databases often have tables that contain loads of machine generated data, like logs, that aren't really necessary or helpful during development.
 Since the code doesn't operate against this data, it can be safely excluded.
-Associating a `false` value to a table will prevent Snaplet from copying data.
+To do so you can tell the `select` field that you want to only capture the `"structure"` to prevent Snaplet from copying the data.
 Snaplet will still create the table's structure but skip the data, speeding up both snapshot capture and restoration.
 
 ```typescript
-// .snaplet/transform.ts
-export const config = () => {
-  return {
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  select: {
     public: {
-      AuditLog: false,
+      AuditLog: "structure",
     },
-  };
-};
+  },
+});
+```
+
+To exclude multiples tables and include only the ones you desire from a specific schema, you can leverage the `$default` parameter.
+```typescript
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  select: {
+    public: {
+      // Will only capture the "structure" of all tables inside the public schema.
+      $default: "structure",
+      // Except for the table "User" where the data will be captured as well
+      User: true,
+    },
+  },
+});
 ```
 
 ## Exclude Schemas
 
-Databases also often have schemas that are used for operations that are isolated from one another. There will be cases where you want to ignore a schema when capturing a snapshot. Associating a false value to a schema in your `.snaplet/schemasConfig.json` file will prevent Snaplet from copying data.
+Databases also often have schemas that are used for operations that are isolated from one another. There will be cases where you want to ignore a schema when capturing a snapshot. Associating a false value to a schema in your `snaplet.config.ts` file will prevent Snaplet from copying data.
 
 ```typescript
-// .snaplet/schemasConfig.json
-{
-  public: false;
-}
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  select: {
+    public: false
+  },
+});
+```
+
+You can also exclude specific tables from the capture process:
+```typescript
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  select: {
+    public: {
+      EventLogs: false,
+    },
+  },
+});
 ```
 
 ## Reduce (Subset)
@@ -91,7 +120,7 @@ When creating a representative snapshot of your database to code against, you wi
 
 ## Debug transformations with "live preview"
 
-Using JavaScript functions to tranform your data gives you an incredible amount of flexibility, but that flexibility may come at the cost of introducing unintentional bugs. Snaplet provides a _live preview environment_ via the `snaplet proxy` command to debug transformations. When you boot up the Snaplet proxy it connects to your database, reads the `transform.ts` file and waits for a client connection. Then, you can connect to the proxy with your SQL tool, and validate your transformations in real time. This allows you to test and change your JavaScript transformations in real-time without any changes to the original database.
+Using JavaScript functions to tranform your data gives you an incredible amount of flexibility, but that flexibility may come at the cost of introducing unintentional bugs. Snaplet provides a _live preview environment_ via the `snaplet proxy` command to debug transformations. When you boot up the Snaplet proxy it connects to your database, reads the `snaplet.config.ts` file and waits for a client connection. Then, you can connect to the proxy with your SQL tool, and validate your transformations in real time. This allows you to test and change your JavaScript transformations in real-time without any changes to the original database.
 
 ## Other data operations...
 

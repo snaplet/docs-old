@@ -6,30 +6,26 @@ Snaplet can be configured to capture a subset of data during the snapshot proces
 
 ## Getting started
 
-To reduce the size of your next snapshot and get a small, representative sample of your database, export the `subset` object to your `transform.ts file`.
+To reduce the size of your next snapshot and get a small, representative sample of your database, use the `sample` object to your `snapshot.config.ts` file.
 
-An example of a `transform.ts` file with a basic `subset` config:
+An example of a `snapshot.config.ts` file with a basic `sample` config:
 
-```ts
-...
 
-export const config: Transform = () => {
-  ...
-}
-
-export const subset = {
-  enabled: true,
-  version: "3", // the latest version
-  targets: [
-    {
-      table: "public.User",
-      percent: 5
-    },
-  ],
-  keepDisconnectedTables: true
-}
-
+```typescript
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  sample: {
+    targets: [
+      {
+        table: "public.User",
+        percent: 5
+      },
+    ],
+    keepDisconnectedTables: true,
+  },
+});
 ```
+
 When `snaplet snapshot capture` is run against the above example config the following will happen:
 * The `User` table is sampled to roughly 5% of its original size.
 * Related rows in related tables connected to the `User` table via foreign key relationships are included in the new snapshot.
@@ -58,37 +54,84 @@ Optionally, you can also define an `orderBy` property to sort the rows before sa
 
 Here is an example of a config with multiple targets:
 
-```ts
-...
 
-export const config: Transform = () => {
-  ...
-}
-
-export const subset = {
-  enabled: true,
-  version: "2",
-  targets: [
-    {
-      table: "public.User",
-      orderBy: `"User"."createdAt" desc`,
-      percent: 5
-    },
-    {
-      table: "public.Project",
-      where: `"Project"."id" = 'xyz'`
-    }
-  ],
-  keepDisconnectedTables: true
-}
-
+```typescript
+import { defineConfig } from "snaplet";
+export default defineConfig({
+  sample: {
+    targets: [
+      {
+        table: "public.User",
+        orderBy: `"User"."createdAt" desc`,
+        percent: 5
+      },
+      {
+        table: "public.Project",
+        where: `"Project"."id" = 'xyz'`
+      }
+    ],
+  },
+});
 ```
 
 In this example a snapshot would be created with 5% of the rows in the User table (and all linked tables), as well as ensuring that any rows in the Project table where the Project ID matches 'xyz' are included.
 
-### Keep Disconnected Tables (keepDisconnectedTables: boolean)
+### Keep Disconnected Tables (keepDisconnectedTables: boolean) (default=false)
 
 When set to true, all tables (with all data) that are not connected via foreign key relationships to the tables defined in `targets` will be included in the snapshot. When set to false, all the tables not connected to the `target` tables via foreign key relationships will be excluded from the snapshot.
+
+### Enabled (enabled: boolean) (default=true)
+
+When set to true, sampling will occur during `snaplet snapshot capture`. This allows you to turn off the sampling with one single parameter.
+
+### Follow Nullable Relations (followNullableRelations: boolean) (default=true)
+
+When set to true, Snaplet sampling will follow nullable relations. This means that if a table has a nullable foreign key, Snaplet will include the related rows in the snapshot. If set to false, those foreign key relations will be marked as null. Useful if the algorithm overfetches data.
+
+### Max cycles loop (maxCyclesLoop: number) (default=10)
+
+This parameter tells the sampling algorithm how many times it's allowed to fetch "optional" data in the same table (cycles loop). This is useful to avoid an infinite loop in case of a circular relation.
+This is particularly useful in case of overfetching to early exit the fetching process after some point.
+
+:::note A recommendation
+
+When setting up Snaplet for the first time, we recommend setting this parameter to 0 and to gradually
+increment it until the sample of data you fetch trough a relationship is enough for your use case.
+
+:::
+
+### Max Children Per Node (maxChildrenPerNode: number) (default=unlimited)
+This parameter tells the sampling algorithm how many optional data it's allowed to retrieve at a time.
+This can be useful in the case of 1 single row being linked to one millions rows in another table.
+In that case, setting a limit of 1000 will allow the algorithm to fetch only the first 1000 related rows from this relation.
+
+### Eager (eager: boolean) (default=false)
+This parameter tells the sampling algorithm to perform bi-directional relationship fetching.
+
+Let's take an example:
+
+Let's say you have the following database schema:
+```
++-----------+                     +-----------+
+|   user    | ------------------->|   team    |
++-----------+                     +-----------+
+| id (PK)   |                     | id (PK)   |
+| name      |                     | name      |
+| team_id   | <------------------ |           |
+| role      |                     |           |
++-----------+                     +-----------+
+With the following data:
+user: 1, 2, 3, 4, 5         ->     team: 1, role: 'user', 'user', 'user', 'admin', 'moderator'
+user: 6, 7, 8               ->     team: NULL
+```
+
+Let's say we use the following target: `{table: 'public.user', where: 'user.id IN (1, 8)'}`
+In "lazy" mode, we will only fetch `user: (1, 8) and team (1)` then stop. As there is no need to fetch more
+data to satify this relationship constraint.
+However, if your app logic require each team to have at least one user with the role 'admin' in it, then it might be a problem.
+
+In that case, turning the `eager` parameter to true will allow the algorithm to fetch the missing data.
+Resulting in the follwing data being fetched: `user: (1,2,3,4,5,8) and team (1)`
 
 ### Excluding tables from sample
 
@@ -96,20 +139,6 @@ To exclude specific tables from the snapshot see [exclude](docs/04-references/da
 
 :::note A note on sample precision
 
-Note that the `precent` / `rowLimit` specified in the sample config may not be exact. The actual row count of the data is affected by the relationships between the tables. As such, a 5% sample specified against a specific table may ultimately include slightly more than 5% of the actual database.
-
-:::
-
-:::note Limitations
-
-When sampling we calculate which rows to copy and keep a reference to them in memory. This means that there is a limit to the number of rows that we can store: The more rows you have in your sample, the more memory will be consumed. Currently the CLI is limited to 2GB. This is temporary issue which will be resolved in Q1 2023.
-
-Until then:
-- If you are using UUID's as primary keys (foreign keys) you have a row limit of roughly 1 million rows (or one large table of 12 million rows) on a 2GB system. 
-- If you are using integers (int/bigint) as primary keys you can have roughly 4 million rows (or one large table of 48 million rows) on a 2GB system.
-
-Lots of assumptions are made here. This will vary drastically on your spesific database design. Chat to us on [Discord](https://app.snaplet.dev/chat) and we will help you figure out what your limit is.
-
-If you see this error: `FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory ` you have reached your limit. Try and make your sample smaller by reducing the `percent` or `rowLimit` or by setting `keepDisconnectedTables` to false.
+Note that the `precent` / `rowLimit` specified in the sample config may not be exact. The actual row count of the data is affected by the relationships between the tables. As such, a 5% sample specified against a specific table may ultimately include more than 5% of the actual database.
 
 :::
