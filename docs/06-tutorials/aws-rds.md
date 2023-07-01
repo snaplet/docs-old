@@ -25,7 +25,7 @@ To allow access to your AWS RDS PostgreSQL database, you need to configure the a
 
 ## Step 2: Add a read-only role
 
-Add a read-only role by following our [PostgreSQL guide here.](guides/postgresql#create-a-read-only-role)
+Add a read-only role by following our [PostgreSQL guide here.](/guides/postgresql#create-a-read-only-role)
 
 
 ## Conclusion
