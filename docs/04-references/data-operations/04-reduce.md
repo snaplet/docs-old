@@ -1,4 +1,4 @@
-# Subset (subset) data
+# Subset data
 
 Capturing a snapshot of a large database in its entirety can be lengthy, and ultimately unncessary, as only a representative subset of the data is typically needed to code against. 
 
