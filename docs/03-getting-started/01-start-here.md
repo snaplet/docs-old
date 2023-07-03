@@ -1,5 +1,5 @@
 # Start here
-Welcome to Snaplet! To help you get started quickly, we'll guide you through a sample workflow using the Snaplet Cloud and the Snaplet CLI. Using these two tools will allow you to capture, transform, and restore a snapshot of your source database into a target development database.
+Welcome to Snaplet! To help you get started quickly, we'll guide you through a subset workflow using the Snaplet Cloud and the Snaplet CLI. Using these two tools will allow you to capture, transform, and restore a snapshot of your source database into a target development database.
 
 💡 _As a reminder, Snaplet gives you production-accurate PostgreSQL data and preview databases that you can code against. It does this by capturing a 'snapshot' of a source database, subsetting it to make smaller and easier to work with, and transforming any sensitive data._
 
@@ -18,7 +18,7 @@ Let's dive in!
 ## Getting Started with Snaplet Cloud
 
 1. Sign up for Snaplet: head over to **[https://app.snaplet.dev/](https://app.snaplet.dev/signup)** and create a free Snaplet Cloud account.
-2. Once your account is created, follow the onboarding steps. If you’re evaluating Snaplet, or just don't want to use your own database just yet, select and use the provided demo database instead. Opt to subset it to create a sample of the data, opt to transform the values, and proceed to capture the snapshot. If you need help with the onboarding, you can watch this [video](https://www.loom.com/share/26f6aae49d8b425fb31358664d17e8a6) to understand more.
+2. Once your account is created, follow the onboarding steps. If you’re evaluating Snaplet, or just don't want to use your own database just yet, select and use the provided demo database instead. Opt to subset it to create a subset of the data, opt to transform the values, and proceed to capture the snapshot. If you need help with the onboarding, you can watch this [video](https://www.loom.com/share/26f6aae49d8b425fb31358664d17e8a6) to understand more.
 3. Well done! Once the onboarding is completed, you’ve should have a snapshot of the original database. You’ll can preview your snapshot in the data explorer in Snaplet Cloud, verifying that your snapshot has correctly captured.  
 4. To code against this snapshot, you’ll need to restore it to your target database (typically your local environment), and for that, you'll need the Snaplet CLI. Follow the instructions in the "Installing the  CLI" section below to install the Snaplet CLI, and then setup and config the CLI.
 5. Once you’ve installed and configured the Snaplet CLI, you can use it to restore that snapshot into a development database. Follow the instructions in on the [Restoring a snapshot](getting-started/restoring) page to do so.  

@@ -104,7 +104,7 @@ As you can see, we introduced a new `$default` parameter which allows you to cho
 For more details, see [exclude](docs/04-references/data-operations/03-exclude.md)
 
 ### (migrated) Subset
-The subset feature is now available under the "sample" property on the configuration. It remains mostly the same, except that the type definitions for it are much more precise, which allows you to know in advance what you can do with it.
+The subset feature is now available under the "subset" property on the configuration. It remains mostly the same, except that the type definitions for it are much more precise, which allows you to know in advance what you can do with it.
 
 For example this configuration:
 
@@ -129,7 +129,7 @@ Will now translate to:
 ```ts
 import { defineConfig } from "snaplet";
 export default defineConfig({
-  sample: {
+  subset: {
     targets: [
       {
         table: "public.User",

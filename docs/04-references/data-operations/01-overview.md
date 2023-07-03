@@ -10,7 +10,7 @@ Snaplet has four operations for manipulating the data in a snapshot:
 
 - **Transform:** Make existing data suitable for development by transforming the original value into a new one
 - **Exclude:** Remove data in specific tables
-- **Sample (Subset):** Capture a sample of data whilst keeping referential integrity intact
+- **Subset (Subset):** Capture a subset of data whilst keeping referential integrity intact
 - **Generate:** Seed values when you don't have any data
 
 These operations are defined as code via config files and JavaScript functions.
