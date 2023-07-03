@@ -18,7 +18,7 @@ The two most common approaches to getting production-accurate data is to generat
 
 </div>
 
-Both of these approaches have drawbacks. Seed scripts are tedious to write and maintain, are often inaccurate, and generally offer a tiny, non-representative sampling of  data. Copying from production happens outside of established development workflows, is slow and cumbersome because you have to copy all the data, and almost certainly contains personal information about your users.
+Both of these approaches have drawbacks. Seed scripts are tedious to write and maintain, are often inaccurate, and generally offer a tiny, non-representative subsetting of  data. Copying from production happens outside of established development workflows, is slow and cumbersome because you have to copy all the data, and almost certainly contains personal information about your users.
 
 ## The solution
 

@@ -1,6 +1,6 @@
 # Vercel Postgres
 
-Snaplet is a powerful tool for capturing a sample of your PostgreSQL database and transforming the data using TypeScript. With Snaplet, you can easily create a snapshot of your production data and restore it in a development or staging environment, without compromising sensitive information. This allows you to work with realistic data and test your applications in a safe and controlled manner.
+Snaplet is a powerful tool for capturing a subset of your PostgreSQL database and transforming the data using TypeScript. With Snaplet, you can easily create a snapshot of your production data and restore it in a development or staging environment, without compromising sensitive information. This allows you to work with realistic data and test your applications in a safe and controlled manner.
 
 One of the key benefits of Snaplet is that it is fully customizable using TypeScript. You can write TypeScript code to manipulate the data in the snapshot, such as filtering, aggregating, or anonymizing it. This makes Snaplet a flexible and versatile tool that can adapt to your specific needs.
 

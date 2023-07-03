@@ -62,7 +62,7 @@ module.exports = {
             {
               type: "doc",
               id: "references/data-operations/reduce",
-              label: "Sample (Reduce) 🐥",
+              label: "Subset (Reduce) 🐥",
             },
             {
               type: "doc",
