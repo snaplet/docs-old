@@ -45,7 +45,7 @@ Wrote restore.log
 ## You're done!
 That's it! In a few minutes you captured, transformed, shared and restored a snapshot. 
 
-What's next? If you haven't already, connect Snaplet to your own database. You can [self-host](/guides/self-hosting) Snaplet in your onw trusted infrastructure as well. 
+What's next? If you haven't already, connect Snaplet to your own database. You can [self-host](/guides/self-hosting) Snaplet in your own trusted infrastructure as well. 
 
 You can also restore your snapshot to your database with more granularity, choosing to not drop the database, or to not restore the schemas or data.
 
