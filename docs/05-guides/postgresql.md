@@ -32,6 +32,7 @@ import CodeBlock from '@theme/CodeBlock';
 -- We give the user BYPASSRLS privileges in order to introspect the db structure.
 CREATE USER snaplet_readonly WITH PASSWORD 'a very good password' BYPASSRLS;
 GRANT pg_read_all_data TO snaplet_readonly;
+ALTER ROLE snaplet_readonly SET statement_timeout = 0;
 `}
     </CodeBlock>
   </TabItem>
@@ -59,6 +60,7 @@ $do$;
 -- We give the user BYPASSRLS privileges in order to introspect the db structure.
 CREATE USER snaplet_readonly WITH PASSWORD 'a very good password' BYPASSRLS;
 GRANT snaplet_read_all_data TO snaplet_readonly;
+ALTER ROLE snaplet_readonly SET statement_timeout = 0;
 `}
     </CodeBlock>
   </TabItem>
