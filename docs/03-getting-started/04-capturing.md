@@ -34,35 +34,31 @@ The snapshot contains the schema, some metadata, and the data in CSV format (tra
 
 Your snapshot has all the right ingredients your team members need to restore your database to their environment, so everyone on the team can code against the same data!
 
-## Common issues
+## Common Issues
 
-In order for snaplet to capture your database in a consistent way, we open a long running transaction for all the time
-of the capture. This allows us to ensure that relationship between datas will be consistent and can be restored the database.
+To ensure Snaplet captures your database in a consistent manner, we initiate a long-running transaction for the entire duration of the capture. This allows us to maintain consistent relationships between datasets and ensures we can restore the database accurately.
 
-Depedings of your database settings, this might cause you some issues, some common ones are:
+Depending on your database settings, you may encounter some issues. Here are some common ones:
 
-### Statement timeout error
+### Statement Timeout Error
 
-Some database provider (like Supabase) might setup some default timeout values for statements to avoid long running queries from blocking your DB.
-This can enter in conflict with the capture and cause the following error: `canceling statement due to statement timeout`.
+Some database providers (like Supabase) may set default timeout values for statements to prevent long-running queries from blocking your database. This can conflict with the capture process and result in the following error: `canceling statement due to statement timeout`.
 
-In that case, the recommended fix is to allow longer running statements for the duration of the capture, this can be done
-by setting the `statement_timeout` to a higher value or infinity on the database via `SET statement_timeout = 0;`.
+To fix this, we recommend allowing longer running statements during the capture process. This can be achieved by setting the `statement_timeout` to a higher value or infinity in the database via the command `SET statement_timeout = 0;`.
 
-You can also set an infinite timeout only for the `snaplet` user role if you created a dedicated one like recommended [here](/guides/postgresql#create-a-read-only-role) by running the following command:
+If you've created a dedicated role for Snaplet, as recommended [here](/guides/postgresql#create-a-read-only-role), you can set an infinite timeout specifically for the `snaplet` user role with the following command:
 
 ```sql
 ALTER ROLE snaplet_readonly SET statement_timeout = 0;
 ```
 
-### Lag behind on read replica
+### Lag on Read Replica
 
-Due to the long running transaction behaviour, if run on a read replica, snaplet may induce a lag on the replica.
-This is because the replica will have to wait for the transaction to be commited before being able to apply the changes.
+Due to the long-running transaction, if Snaplet is run on a read replica, it may cause the replica to lag. This is because the replica has to wait for the transaction to be committed before it can apply changes.
 
-We recommend running the capture on the primary instance to avoid this issue.
+We recommend running the capture on the primary instance to prevent this issue.
 
-If you really need to run the capture on a read replica, we recommend the following settings to avoid the replica lag:
+If you absolutely need to run the capture on a read replica, we recommend the following settings to minimize replica lag:
 
 ```sql
 max_standby_archive_delay = -1        # max delay before canceling queries
@@ -70,4 +66,4 @@ max_standby_streaming_delay = -1      # max delay before canceling queries -1 al
 hot_standby_feedback = on             # send info from standby to prevent
 ```
 
-Note that this will increase "table bloat" and WAL on the primary instance as the data will need to live somewhere during the capture. You might also setup a dedicated read replica on which the lag behind is not an issue point snaplet to it.
+Please note that these settings may increase "table bloat" and Write-Ahead Logging (WAL) on the primary instance, as the data will need to be stored somewhere during the capture. You could also set up a dedicated read replica for Snaplet where lag is not a concern.
