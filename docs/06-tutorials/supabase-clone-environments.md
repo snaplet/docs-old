@@ -22,7 +22,7 @@ Environment parity sounds like a dream come true. In this guide, we’re going t
 
 ### Things you'll need before you begin:
 
-1. **A production Supabase project’s connection string:** This can be found in Supabase via Organization > All Projects > Your Project > Project Settings > Connection String. We’ll refer to this in the guide as your “source database” - where your data comes from.
+1. **A production Supabase project’s connection string:** This can be found in Supabase via Organization > All Projects > Your Project > Project Settings > Connection Pooling > Connection String. We’ll refer to this in the guide as your “source database” - where your data comes from.
 
 <img src="/screenshots/supabase_connection_string.webp" alt="Snaplet onboarding select team name" style={{ border: "1px solid #e5e7eb" }} />
 
@@ -69,7 +69,7 @@ If you don’t already have a developer database setup on Supabase, you’ll nee
 
 ### Step 4: Install the Snaplet CLI
 
-1. Open your terminal and run `curl -sL https://app.snaplet.dev/get-cli/ | bash`
+1. Open your terminal and run `npm i -g snaplet`
 2. Run `snaplet auth login`
 3. Navigate to `https://app.snaplet.dev/access-token/cli` to get your access token.
 4. Paste the access token in the terminal.
