@@ -22,7 +22,7 @@ Environment parity sounds like a dream come true. In this guide, we’re going t
 
 ### Things you'll need before you begin:
 
-1. **A production Supabase project’s connection string:** This can be found in Supabase via Organization > All Projects > Your Project > Project Settings > Connection String. We’ll refer to this in the guide as your “source database” - where your data comes from.
+1. **A production Supabase project’s connection string:** This can be found in Supabase via Organization > All Projects > Your Project > Project Settings > Connection Pooling > Connection String. We’ll refer to this in the guide as your “source database” - where your data comes from.
 
 <img src="/screenshots/supabase_connection_string.webp" alt="Snaplet onboarding select team name" style={{ border: "1px solid #e5e7eb" }} />
 
