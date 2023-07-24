@@ -27,9 +27,9 @@ export default defineConfig({
 ```
 
 When `snaplet snapshot capture` is run against the above example config the following will happen:
-* The `User` table is subsetd to roughly 5% of its original size.
+* The `User` table is subsetted to roughly 5% of its original size.
 * Related rows in related tables connected to the `User` table via foreign key relationships are included in the new snapshot.
-* As `keepDisconnectedTables` is set to `true`, any tables not connected to the `User` table via foreign key relationships will be included in the new snapshot, and **won't** be subsetd.  
+* As `keepDisconnectedTables` is set to `true`, any tables not connected to the `User` table via foreign key relationships will be included in the new snapshot, and **won't** be subsetted.
 
 ## Configuring subsetting
 
