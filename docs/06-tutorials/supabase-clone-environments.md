@@ -69,7 +69,7 @@ If you don’t already have a developer database setup on Supabase, you’ll nee
 
 ### Step 4: Install the Snaplet CLI
 
-1. Open your terminal and run `npm i -g snaplet`
+1. Open your terminal and run `curl -sL https://app.snaplet.dev/get-cli/ | bash`
 2. Run `snaplet auth login`
 3. Navigate to `https://app.snaplet.dev/access-token/cli` to get your access token.
 4. Paste the access token in the terminal.
