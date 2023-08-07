@@ -36,9 +36,9 @@ The first thing you’ll want to do is navigate to https://www.snaplet.dev/ an
 
 <img src="/screenshots/onboarding_start.webp" alt="Snaplet onboarding select team name" style={{ border: "1px solid #e5e7eb" }} />
 
-On the “Connect database” step add your Supabase production database (using your read-only role). This is the source database we defined above.
+On the “Connect database” step click on "Connect Supabase" to connect your supabase account to snaplet. This will allow you to get your source database information.
 
-<img src="/screenshots/checking_creds.png" alt="Snaplet onboarding connect your database" style={{ border: "1px solid #e5e7eb" }} />
+<img src="/screenshots/connect_to_supabase.webp" alt="Snaplet onboarding connect your database" style={{ border: "1px solid #e5e7eb" }} />
 
 ### Step 2: Create a snapshot
 
