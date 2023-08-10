@@ -73,7 +73,7 @@ export default defineConfig({
 
 > We drew significant inspiration from our friends at [Prisma](https://www.prisma.io/). If you're familiar with Prisma, using the Snaplet Data Client will feel incredibly intuitive and seamless.
 
-To generate the data and see the corresponding SQL statements run:
+To see the SQL statements produced by your plan, run:
 
 ```bash
 snaplet generate --sql
