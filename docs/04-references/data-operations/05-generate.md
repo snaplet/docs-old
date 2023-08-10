@@ -94,3 +94,11 @@ INSERT INTO public."Comment" ("postId", "userId", content, id, "writtenAt") VALU
 ('a492d66d-ca83-5bc0-a2eb-4f590e2797de', '01aa20af-4249-54af-b2fc-7aae61afe764', 'Kekome kohachi', 'd7ee6e70-07ae-5ba7-9e6a-8c0d4d56ba05', '1981-06-26T17:45:37.000Z'),
 ('a492d66d-ca83-5bc0-a2eb-4f590e2797de', '3a7b5218-ee17-5592-b13b-d8f54130dda7', 'Kaishirae somema', 'f9a3f461-f31b-5e15-bcdb-2aa53622b635', '2002-07-03T06:42:44.000Z');
 ```
+
+### Architecture and concepts
+
+When generating data with the Snaplet Data Client, you are manipulating **plans**. A plan is a description of the data that you want to generate.
+
+When a plan is executed, its internal **store** is populated with the generated data. A store is a simple in-memory map of your models containing arrays of generated values.
+
+At the end of the process, the values contained in the store are turned into SQL statements.
