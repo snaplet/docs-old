@@ -20,25 +20,15 @@ Environment parity sounds like a dream come true. In this guide, we’re going t
 
 </div>
 
-### Things you'll need before you begin:
-
-1. **A production Supabase project’s connection string:** This can be found in Supabase via Organization > All Projects > Your Project > Project Settings > Connection Pooling > Connection String. We’ll refer to this in the guide as your “source database” - where your data comes from.
-
-<img src="/screenshots/supabase_connection_string.webp" alt="Snaplet onboarding select team name" style={{ border: "1px solid #e5e7eb" }} />
-
-2. **A development Supabase project’s connection string:** Same steps as above, but a different project/environment. We’ll refer to this in the guide as your “target database” - where we’re restoring the snapshot of the source database to. If you haven’t got this set up yet, we’ll take you through the process of setting this up.
-
-> **Highly Recommended:** Create a read-only role for your connection string. For more info on how to create a read-only role across all schemas, you can check out [our docs](/guides/postgresql#create-a-read-only-role).
-
 ### Step 1: Connect your source database (Production Database)
 
 The first thing you’ll want to do is navigate to https://www.snaplet.dev/ and sign up for a new account (it’s free). Once you have successfully signed up for a new account, you’ll begin the onboarding process...
 
 <img src="/screenshots/onboarding_start.webp" alt="Snaplet onboarding select team name" style={{ border: "1px solid #e5e7eb" }} />
 
-On the “Connect database” step add your Supabase production database (using your read-only role). This is the source database we defined above.
+On the “Connect database” step click on "Connect Supabase" to connect your supabase account to snaplet. Proceed through all the steps of authorizing your Supabase organization, selecting a Supabase project and giving us the password associated to the project.
 
-<img src="/screenshots/checking_creds.png" alt="Snaplet onboarding connect your database" style={{ border: "1px solid #e5e7eb" }} />
+<img src="/screenshots/connect_to_supabase.webp" alt="Snaplet onboarding connect your database" style={{ border: "1px solid #e5e7eb" }} />
 
 ### Step 2: Create a snapshot
 
