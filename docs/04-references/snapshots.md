@@ -75,30 +75,52 @@ To generate a public and private key pair, run `snaplet config setup`.
 
 The public key can be safely shared with Snaplet Cloud Project (`snaplet config push`) team members; when Snaplet Cloud captures on your behalf we'll encrypt using the public key, and your team will keep the private key.
 
-### Data-only restores
+### Only restore the data, keep the database structure
 
 ```bash
-snaplet snapshot restore --data-only
+snaplet snapshot restore --no-reset --no-schema
 ```
 
-Running the `snaplet snapshot restore` command with the `--data-only` flag ensures that you keep your current database structure and only the data is restored.
+Running the `snaplet snapshot restore` command with the `--no-reset --no-schema` flags ensures that you keep your current database structure and only the data is restored. (For more info on granular control over restore [here](/getting-started/restoring#more-granular-control-over-restorations).)
 
 ### Restore specific tables only
 
 ```bash
-snaplet snapshot restore --data-only --tables
+snaplet snapshot restore --no-reset --no-schema --tables=my_table
 ```
 
-Running the `snaplet snapshot restore` command with the `--data-only` flag, combined with the `--tables` parameter, gives you finer control over which data is restored. This feature is handy for those instances where you want to refresh your data in specific tables only, without affecting anything else you might have changed. Refreshing just some tables can also be a lot faster compared to the entire database!
+Running the `snaplet snapshot restore` command with the `--no-reset --no-schema` flags, combined with the `--tables` parameter, gives you finer control over which data is restored. This feature is handy for those instances where you want to refresh your data in specific tables only, without affecting anything else you might have changed. Refreshing just some tables can also be a lot faster compared to the entire database!
 
 _Here’s an example:_
 
-`snaplet snapshot restore --data-only --tables=public.user,city`
+`snaplet snapshot restore --no-reset --no-schema --tables=public.user,account.city`
 
-In the example above, both the user and city table in the public schema would be refreshed, and nothing else.
+In the example above, both the user in the public schema and city table in the account schema would be refreshed, and nothing else.
 
-Note that, the default schema is assumed to be public, so you don’t need to specify a schema for tables that exist in public (i.e: `snaplet snapshot restore --data-only --tables=city`)
+Note that, the default schema is assumed to be public, so you don’t need to specify a schema for tables that exist in public (i.e: `snaplet snapshot restore --no-reset --no-schema --tables=user`)
 
+:::note Note
+We have deprecated the `--data-only` flag for the more explicit and granular `--no-reset` and `--no-schema` flags
+:::
+
+### Exclude tables during restore
+```bash
+snaplet snapshot restore --exclude-tables=my_table
+```
+
+Running the `snaplet snapshot restore` command with the `--exclude-tables` can be used to exclude certain tables from being restored to your database.
+Let's look at an example use case. Say you captured a snapshot with all the tables in the database, which includes a table that keeps track of migrations (for Prisma the table is called `_prisma_migrations`). You might want to restore all the tables except the current migrations table because you added new migrations. For this use case you can restore with:
+
+```bash
+snaplet snapshot restore --no-schema --no-reset --exclude-tables=_prisma_migrations
+```
+
+We use `--no-schema --no-reset` flags because we want to keep the current database (See [control over restorations](/getting-started/restoring#more-granular-control-over-restorations) for more info.) We also use `--exclude-tables=_prisma_migrations` because we do not want to restore the data in the  `_prisma_migrations` table from the snapshot into our target database.
+
+
+:::note Note
+Currently you cannot add both the `--tables` and `--exclude-tables` flags in the same restore command.
+:::
 ---
 
 ## Sharing of snapshots
