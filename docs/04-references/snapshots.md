@@ -99,6 +99,10 @@ In the example above, both the user in the public schema and city table in the a
 
 Note that, the default schema is assumed to be public, so you don’t need to specify a schema for tables that exist in public (i.e: `snaplet snapshot restore --no-reset --no-schema --tables=user`)
 
+:::note Note
+We have deprecated the `--data-only` flag for the more explicit and granular `--no-reset` and `--no-schema` flags
+:::
+
 ### Exclude tables during restore
 ```bash
 snaplet snapshot restore --exclude-tables=my_table
@@ -114,7 +118,9 @@ snaplet snapshot restore --no-schema --no-reset --exclude-tables=_prisma_migrati
 We use `--no-schema --no-reset` flags because we want to keep the current database (See [control over restorations](/getting-started/restoring#more-granular-control-over-restorations) for more info.) We also use `--exclude-tables=_prisma_migrations` because we do not want to restore the data in the  `_prisma_migrations` table from the snapshot into our target database.
 
 
-Note that currently you cannot add both the `--tables` and `--exclude-tables` in the same restore command.
+:::note Note
+Currently you cannot add both the `--tables` and `--exclude-tables` flags in the same restore command.
+:::
 ---
 
 ## Sharing of snapshots
