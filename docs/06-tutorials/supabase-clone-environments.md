@@ -8,11 +8,11 @@ This guide will help you get a development Supabase environmnent setup using Sna
 
 ## Clone Supabase production data, without sensitive information, to a development environment
 
-We're massive fans of supabase because it makes it so easy to start a project with a dedicated PostgreSQL database. However having a development environment that is populated with data that is close to your production data, still requires some set up.
+We're massive fans of supabase because it makes it so easy to start a project with a dedicated PostgreSQL database. However, achieving a development environment populated with data closely resembling producation, still requires some set up.
 
-That's why we here! Snaplet makes populating your local development environments with data and keeping that data consistant with production, incredibly simple. The consistency accross environments is rooted in a philosophy we believe in here at Snaplet [Environment parity](https://www.oreilly.com/content/environment-parity-for-rapidly-deployed-cloud-native-apps/).
+That's why we here! Snaplet makes populating your local development environments with data and keeping that data consistant with production, incredibly simple. This consistency accross environments is rooted in a philosophy we believe in here at Snaplet [Environment parity](https://www.oreilly.com/content/environment-parity-for-rapidly-deployed-cloud-native-apps/).
 
-In this guide, were going to show you how you exactly do that with your data in Supabase! End-to-end, it shouldn't take more than 15 minutes and doing so will allow you to code against an accurate development environment that you can sync with production.
+This guide will walk you through the exact steps to achieve this with your data in Supabase!. End-end, it shouldn't take more than 15 minutes and doing so will allow you to code against an accurate development environment that you can sync with production.
 
 <div style={{textAlign: 'center'}}>
 
@@ -43,7 +43,7 @@ Once you have gone through those steps, a new snapshot process will start and yo
 
 ### Step 3: Set up your Supabase local development stack
 
-Below is a summary of commands you will have to run in your terminal, to get Supabase set up on your local machine. For more detailed guide you can also follow the guide in the Supabase docs, [here](https://supabase.com/docs/guides/cli/local-development).
+Below is a summary of commands you will have to run in your terminal to get Supabase set up on your local machine. For a more detailed steps you can visit the Supabase docs [here](https://supabase.com/docs/guides/cli/local-development).
 
 ```bash
 # log in to the Supabase CLI
@@ -133,9 +133,10 @@ If you aren't actually needing the data for some of these schemas, you can stop 
 
 ### Restoring in to a Supabase project
 
-When restoring to Supabase project hosted in cloud, you will run into issues restoring a snapshot in to that project. This is because the restore command will drop all the schemas and tables in your target database and attempt to restore those schemas in subsequent steps.
+When restoring to Supabase project hosted in cloud, you will run into issues restoring a snapshot in to that project. This is because
+when restoring Snaplet drops the whole database, before restoring any schemas and tables again. Where your project will break is where Snaplet is unable to restore a schema that Supabase requires a super user role to perform write operations.
 
-The limitation is that Supabase requires a super user role to restore some schemas. Due to this limitation restoring will break your Supabase setup. To get around this, run the `restore` command with the `--no-reset` flag, e.g:
+To get around this, run the `restore` command with the `--no-reset` flag, e.g:
 
 ```bash
 snaplet snapshot restore --no-reset
