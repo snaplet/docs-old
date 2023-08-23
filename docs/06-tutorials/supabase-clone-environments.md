@@ -92,7 +92,9 @@ You're now ready to restore your production snapshot into your Supabase developm
 
 With all the above steps complete, we can now restore!
 
-1. Run `snaplet snapshot restore` in your project path.
+1. Run `snaplet snapshot restore --no-reset` in your project path.
+
+> **Note on `--no-reset`**: This will skip the “reset” step of the restore command. So no existing schemas will be dropped. Learn more about data operations here
 
 <div style={{textAlign: 'center'}}>
 
