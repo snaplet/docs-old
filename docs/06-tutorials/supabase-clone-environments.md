@@ -108,7 +108,7 @@ If you want to learn more about Snaplet, you can explore our docs. If you have a
 
 That’s it! You’re all done, and should have restored a version of your Supabase production database with transformed data into your target database. You can now safely code against production-realistic data.
 
-You can use the `generate` command to seed your local dev setup. Read this [guide](https://supabase.com/docs/guides/cli/seeding-your-database) for more information.
+> We have added a new [`generate`](/references/data-operations/generate) command that will make it easier to seed your database. If you want give it a try with your Supabase local dev setup, we recommmand reading this [guide](https://supabase.com/docs/guides/cli/seeding-your-database) in the Supabase docs.
 
 ## Troubleshooting
 
@@ -135,8 +135,7 @@ If you aren't actually needing the data for some of these schemas, you can stop 
 
 ### Restoring in to a Supabase project
 
-When restoring to Supabase project hosted in cloud, you will run into issues restoring a snapshot in to that project. This is because
-when restoring Snaplet drops the whole database, before restoring any schemas and tables again. Where your project will break is where Snaplet is unable to restore a schema that Supabase requires a super user role to perform write operations.
+You may run into problems restoring to a Supabase project hosted in the cloud. This is because this command will first drop your database, before restoring any schemas and tables, which results in your project being in a broken state. The reason for this is because Snaplet was unable to restore schemas that Supabase requires a super user role to perform write operations for.
 
 To get around this, run the `restore` command with the `--no-reset` flag, e.g:
 
