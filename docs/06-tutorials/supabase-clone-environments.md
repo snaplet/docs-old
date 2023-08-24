@@ -56,7 +56,7 @@ supabase init
 supabase start
 ```
 
-Running `supabase start` will output your Supabase credentials, copy the **DB_URL** field, we will use it in your snaplet configuration file (the next step).
+Running `supabase start` will output your Supabase credentials, copy the **DB_URL** field, as we will use it in your snaplet configuration file (step 5).
 
 ```
 Started supabase local development setup.
@@ -83,7 +83,7 @@ You're now ready to restore your production snapshot into your Supabase developm
 1. Navigate to your project directory
 2. Run `snaplet config setup`
 
-   1. You will be shown a warning to write create `.snaplet/config` in your project directory. Select yes (y) to create the file.
+   1. You will be shown a warning to write `.snaplet/config` in your project directory. Select yes (y) to create the file.
    2. Then you will be asked for a **target database connection string.** . Paste in the **DB URL** you copied in step 3.
 
 3. Run `snaplet project setup` - you will be presented with a list of projects, these are databases that are connected to your Snaplet account. Choose the project that contains the snapshot you created in step 2.
