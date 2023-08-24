@@ -133,7 +133,7 @@ If you aren't actually needing the data for some of these schemas, you can stop 
 
 ---
 
-### Restoring in to a Supabase project
+### Restoring into a Supabase project
 
 You may run into problems restoring to a Supabase project hosted in the cloud. This is because the snaplet restore command will drop your database first, before restoring any schemas and tables, which results in your project being in a broken state. The reason for this is that Snaplet was unable to restore schemas that Supabase requires a super user role to perform write operations.
 
