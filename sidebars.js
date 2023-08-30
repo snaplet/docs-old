@@ -102,6 +102,7 @@ module.exports = {
       items: [
         { type: "doc", id: "guides/tunnelbase", label: "Local Development Branching Workflow" },
         { type: "doc", id: "guides/self-hosting", label: "Self-hosting" },
+        {type: "doc", id: "guides/visual-studio-code-extension", label: "Visual Studio Code Extension"},
         { type: "doc", id: "guides/postgresql", label: "PostgreSQL" },
         {
           type: "doc",
