@@ -7,7 +7,7 @@ The `snaplet dev` command allows you to easily create and work with isolated, ne
 The benefits of coding against a branch of your database are:
 1. Mutations in one database do not affect another. 
 2. The branch is in the cloud, so you're able to seamlessly code against the same database as your team.
-3. Branches are updated on when scheduled snapshots are captured, so you're always coding against production accurate data.
+3. Branches are updated when scheduled snapshots are captured, so you're always coding against production-accurate data.
 
 ## Prerequisites
 
