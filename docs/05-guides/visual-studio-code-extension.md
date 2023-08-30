@@ -10,8 +10,8 @@ This automates the process of branching your database when you branch your code,
 
 ## **Prerequisites**
 
-- Visual Studio Code installed
-- An active Snaplet account (this can be a free account)
+- [Visual Studio Code](https://code.visualstudio.com/) installed.
+- [An active Snaplet account](https://app.snaplet.dev/) (this can be a free account).
 
 ## **Step-by-Step Installation and Configuration**
 
@@ -62,4 +62,4 @@ Launch Visual Studio Code on your computer.
 
 You're all done. Your Snaplet VSCE is now configured, and your local database will automatically branch when you switch branches in your code.
 
-As always, if you have any issues, come join us on Discord for real-time support.
+As always, if you have any issues, come join us on [Discord](https://app.snaplet.dev/chat) for real-time support.
