@@ -57,8 +57,9 @@ Launch Visual Studio Code on your computer.
 
 ### **Step 5: Configure Your Development Environment**
 
-1. Go to your active project workspace.
-2. Change your local development database environment variable to point to **`postgresql://snaplet@localhost:2345/snaplet`**.
+1. Tag your snapshots with `main` from within Snaplet Cloud. *NB: Snapshots must have the `main` tag in order to have a preview database automatically created for the extension.*  
+2. Go to your active project workspace.
+3. Change your local development database environment variable to point to **`postgresql://snaplet@localhost:2345/snaplet`**.
 
 You're all done. Your Snaplet VSCE is now configured, and your local database will automatically branch when you switch branches in your code.
 
