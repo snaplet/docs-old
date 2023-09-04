@@ -115,7 +115,7 @@ $(npm bin)/snaplet generate
 snaplet generate
 ```
 
-At this point, the generated data probably won't match what your application needs all too well. You'll need to tell snaplet how to generate data by adding to the generate `plan` in the `snaplet.config.ts` file. The next section covers how you would do this.
+As the config is at the moment, the generated data probably won't match what your application needs all too well. You'll need to tell snaplet how to generate data by adding to the generate `plan` in the `snaplet.config.ts` file. The next section covers how you would do this.
 
 ### Configure
 
