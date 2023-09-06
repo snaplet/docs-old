@@ -56,7 +56,7 @@ supabase init
 supabase start
 ```
 
-Running `supabase start`, your Supabase credentials, copy the **DB_URL** field, we will use it in your snaplet configuration file (the next step).
+Running `supabase start` will output your Supabase credentials, copy the **DB_URL** field, as we will use it in your snaplet configuration file (step 5).
 
 ```
 Started supabase local development setup.
@@ -83,7 +83,7 @@ You're now ready to restore your production snapshot into your Supabase developm
 1. Navigate to your project directory
 2. Run `snaplet config setup`
 
-   1. You will be shown a warning to write create `.snaplet/config` in your project directory. Select yes (y) to create the file.
+   1. You will be shown a warning to write `.snaplet/config` in your project directory. Select yes (y) to create the file.
    2. Then you will be asked for a **target database connection string.** . Paste in the **DB URL** you copied in step 3.
 
 3. Run `snaplet project setup` - you will be presented with a list of projects, these are databases that are connected to your Snaplet account. Choose the project that contains the snapshot you created in step 2.
@@ -94,7 +94,7 @@ With all the above steps complete, we can now restore!
 
 1. Run `snaplet snapshot restore --no-reset` in your project path.
 
-> **Note on `--no-reset`**: This will skip the “reset” step of the restore command. So no existing schemas will be dropped. Learn more about data operations here
+> **Note on `--no-reset`**: This will skip the “reset” step of the restore command. So no existing schemas will be dropped. Learn more about data operations [here](https://docs.snaplet.dev/getting-started/restoring#more-granular-control-over-restorations)
 
 <div style={{textAlign: 'center'}}>
 
@@ -133,9 +133,9 @@ If you aren't actually needing the data for some of these schemas, you can stop 
 
 ---
 
-### Restoring in to a Supabase project
+### Restoring into a Supabase project
 
-You may run into problems restoring to a Supabase project hosted in the cloud. This is because this command will first drop your database, before restoring any schemas and tables, which results in your project being in a broken state. The reason for this is because Snaplet was unable to restore schemas that Supabase requires a super user role to perform write operations for.
+You may run into problems restoring to a Supabase project hosted in the cloud. This is because the snaplet restore command will drop your database first, before restoring any schemas and tables, which results in your project being in a broken state. The reason for this is that Snaplet was unable to restore schemas that Supabase requires a super user role to perform write operations.
 
 To get around this, run the `restore` command with the `--no-reset` flag, e.g:
 
