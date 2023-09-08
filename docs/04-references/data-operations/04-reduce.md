@@ -13,6 +13,7 @@ An example of a `snapshot.config.ts` file with a basic `subset` config:
 
 ```typescript
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   subset: {
     targets: [
@@ -57,6 +58,7 @@ Here is an example of a config with multiple targets:
 
 ```typescript
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   subset: {
     targets: [
@@ -88,7 +90,7 @@ When set to true, subsetting will occur during `snaplet snapshot capture`. This 
 
 When set to true, Snaplet subsetting will follow nullable relations. This means that if a table has a nullable foreign key, Snaplet will include the related rows in the snapshot. If set to false, those foreign key relations will be marked as null. Useful if the algorithm overfetches data.
 
-### Max cycles loop (maxCyclesLoop: number) (default=10)
+### Max cycles loop (maxCyclesLoop: number) (default=1)
 
 This parameter tells the subsetting algorithm how many times it's allowed to fetch "optional" data in the same table (cycles loop). This is useful to avoid an infinite loop in case of a circular relation.
 This is particularly useful in case of overfetching to early exit the fetching process after some point.
