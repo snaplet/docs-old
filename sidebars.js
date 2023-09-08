@@ -69,6 +69,11 @@ module.exports = {
               id: "references/data-operations/generate",
               label: "Generate 🐥",
             },
+            {
+              type: "doc",
+              id: "references/data-operations/introspect",
+              label: "Introspect 🐥",
+            }
           ],
         },
         { type: "doc", id: "references/snapshots", label: "Snapshots" },
