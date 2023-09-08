@@ -24,7 +24,7 @@ To configure this, use the virtualForeignKeys configuration option. Below is an 
 import { defineConfig } from "snaplet";
 
 export default defineConfig({
-  introspection: {
+  introspect: {
     virtualForeignKeys: [
       // Define a simple foreign key relationship between two tables
       {
