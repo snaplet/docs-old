@@ -21,6 +21,7 @@ As an example, if you have a `User` table with an `email` column you can transfo
 
 ```typescript
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   transform: {
     public: {
@@ -65,6 +66,7 @@ Snaplet will still create the table's structure but skip the data, speeding up b
 
 ```typescript
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   select: {
     public: {
@@ -77,6 +79,7 @@ export default defineConfig({
 To exclude multiples tables and include only the ones you desire from a specific schema, you can leverage the `$default` parameter.
 ```typescript
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   select: {
     public: {
@@ -95,6 +98,7 @@ Databases also often have schemas that are used for operations that are isolated
 
 ```typescript
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   select: {
     public: false
@@ -105,6 +109,7 @@ export default defineConfig({
 You can also exclude specific tables from the capture process:
 ```typescript
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   select: {
     public: {

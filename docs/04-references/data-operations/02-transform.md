@@ -6,6 +6,7 @@ Defining these data transformations is done via JavaScript callbacks. This "Tran
 
 ```typescript
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   transform: {
     public: {
@@ -31,6 +32,7 @@ Example:
 // highlight-next-line
 import { copycat } from "@snaplet/copycat";
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   transform: {
     public: {
@@ -51,6 +53,7 @@ Each Transformation Function receives a `row` object that contains the original 
 ```typescript
 import { copycat } from "@snaplet/copycat";
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   transform: {
     public: {
@@ -140,6 +143,7 @@ For Snaplet Cloud, you can choose the transform mode within your config by speci
 
 ```typescript
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   transform: {
     $mode: "auto",
@@ -175,6 +179,7 @@ Then lets say your config looked like this:
 
 ```typescript
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   transform: {
     $mode: "unsafe",
@@ -213,6 +218,7 @@ Then lets keep the config the same, except now choose `strict` mode:
 
 ```typescript
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   transform: {
     $mode: "strict",
@@ -238,6 +244,7 @@ To allow a snapshot to be created, lets add a `name` column to the config:
 
 ```typescript
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   transform: {
     $mode: "strict",
@@ -278,6 +285,7 @@ Then lets keep the config the same, except now choose `auto` mode:
 
 ```typescript
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   transform: {
     $mode: "auto",
@@ -306,6 +314,7 @@ You could even provide no transformations at all for the columns in `User`:
 
 ```typescript
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   transform: {
     $mode: "unsafe"
@@ -371,6 +380,7 @@ In these cases, [`copycat.scramble`](https://github.com/snaplet/copycat#copycats
 ```typescript
 import { copycat } from '@snaplet/copycat';
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   transform: {
     public: {

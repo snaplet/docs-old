@@ -84,6 +84,7 @@ Now, you will move this configuration to the same file under the "select" proper
 
 ```ts
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   select: {
     // Exclude the private schema from the capture
@@ -128,6 +129,7 @@ Will now translate to:
 
 ```ts
 import { defineConfig } from "snaplet";
+
 export default defineConfig({
   subset: {
     targets: [
