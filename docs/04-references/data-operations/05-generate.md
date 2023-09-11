@@ -55,7 +55,7 @@ If you using npm for your project and would like to add snaplet as a project dep
 
 ```bash
 npm install --dev snaplet
-$(npm bin)/snaplet setup
+npx snaplet setup
 ```
 
 Otherwise, if you'd like to install a standalone snaplet binary:
@@ -102,14 +102,11 @@ export default defineConfig({
 At this point, you're ready to run your first `snaplet generate`!
 
 ```bash
-# if you are using snaplet with npx
+# if you are using snaplet with npx or npm
 npx snaplet generate
 
 # if you are using snaplet with yarn
 yarn snaplet generate
-
-# if you are using snaplet with npm
-$(npm bin)/snaplet generate
 
 # if you are using the standalone snaplet binary
 snaplet generate
