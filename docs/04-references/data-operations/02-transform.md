@@ -317,7 +317,7 @@ import { defineConfig } from "snaplet";
 
 export default defineConfig({
   transform: {
-    $mode: "unsafe"
+    $mode: "auto"
   },
 });
 ```
