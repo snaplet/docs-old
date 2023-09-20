@@ -325,16 +325,6 @@ snaplet project setup [project-id]
 | --------- | ----------- | ------ |
 | projectId |             | string |
 
-## **proxy**
-
-The `snaplet proxy` command is used to start a database proxy.
-
-**Usage**
-
-```bash
-snaplet proxy
-```
-
 ## **seed**
 
 The `snaplet seed` command is used to populates an empty database with generated data.
