@@ -1,6 +1,6 @@
 # Configuration
 
-Once you’ve installed the Snaplet CLI, you’ll need to configure Snaplet for your project. 
+Once you’ve [installed the Snaplet CLI](/getting-started/start-here#installing-the-cli), you’ll need to configure Snaplet for your project. 
 
 1. Run `snaplet config setup` in the directory containing your project’s source code.
     1. This command creates a `.snaplet` directory and the configuration files used by the CLI.

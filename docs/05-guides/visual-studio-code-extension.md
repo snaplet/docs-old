@@ -53,7 +53,7 @@ This automates the process of branching your database when you branch your code,
     
 6. Your Snaplet VS Code extension is now associated with your Snaplet account, and installed. You just need to update your local development database environment to point to the Snaplet proxy.
 
-    ![All done!](/img/vsce-02.webp)
+    ![All done!](/img/vsce-06.webp)
 
 ### **Step 5: Tag Your Snapshots With `main`**
 1. The Snaplet extension looks for snapshots tagged with `main`, so ensure that your latest snapshot is tagged with `main`. You can tag your snapshots from within Snaplet Cloud by selecting a snapshot from the Snapshot list. 
