@@ -44,7 +44,7 @@ snaplet config generate
 
 | Name      | Alias | Type    | Choices                      | Default  |
 | --------- | ----- | ------- | ---------------------------- | -------- |
-| --type    | -t    | string  | typedefs,transform,keys,seed | typedefs |
+| --type    | -t    | string  | typedefs,transform,keys | typedefs |
 | --dry-run |       | boolean |                              | false    |
 
 ### **list**
@@ -325,22 +325,6 @@ snaplet project setup [project-id]
 | --------- | ----------- | ------ |
 | projectId |             | string |
 
-## **seed**
-
-The `snaplet seed` command is used to populates an empty database with generated data.
-
-**Usage**
-
-```bash
-snaplet seed
-```
-
-**Command Flags**
-
-| Name              | Alias | Description                                   | Type    | Default |
-| ----------------- | ----- | --------------------------------------------- | ------- | ------- |
-| --interactive     | -i    | show interactive prompts to customise seeding | boolean | false   |
-| --entriesPerTable | -n    |                                               | number  | 100     |
 
 ## **setup**
 
