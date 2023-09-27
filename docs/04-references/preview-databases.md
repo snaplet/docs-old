@@ -87,6 +87,17 @@ This command retrieves the connection URL for a specified preview database. The 
 snaplet preview-database url preview_db_tutorial
 ```
 
+## `reset [name]`
+
+This command reset the state of a specified preview database.
+
+**Examples**
+
+```bash
+# To reset the state of a specific preview database, run:
+snaplet preview-database reset preview_db_tutorial
+```
+
 ## `list [snapshot]`
 
 The list subcommand shows all preview databases created from a specific snapshot:
