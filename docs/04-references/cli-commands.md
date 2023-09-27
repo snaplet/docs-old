@@ -42,10 +42,11 @@ snaplet config generate
 
 **Command Flags**
 
-| Name      | Alias | Type    | Choices                      | Default  |
-| --------- | ----- | ------- | ---------------------------- | -------- |
-| --type    | -t    | string  | typedefs,transform,keys | typedefs |
-| --dry-run |       | boolean |                              | false    |
+| Name                | Alias | Description                                                 | Type    | Choices                 | Default  |
+| ------------------- | ----- | ----------------------------------------------------------- | ------- | ----------------------- | -------- |
+| --type              | -t    |                                                             | string  | typedefs,transform,keys | typedefs |
+| --dry-run           |       |                                                             | boolean |                         | false    |
+| --connection-string |       | The connection string to use for introspecting the database | string  |                         |          |
 
 ### **list**
 
@@ -106,152 +107,21 @@ snaplet config setup [targetDatabaseUrl]
 | --generate | boolean | true    |
 | --yes      | boolean | false   |
 
-## **database**
+## **dev**
 
-The `snaplet database` command is used to manage preview databases.
-
-**Usage**
-
-```bash
-snaplet database [action]
-```
-
-### **cache**
-
-The `snaplet database cache` command is used to cache a snapshot into the preview database server.
+The `snaplet dev` command is used to keeps your dev database and its data in sync with your git branch so you don't have to, powered by Neon.
 
 **Usage**
 
 ```bash
-snaplet database cache [snapshot]
-```
-
-**Command Args**
-
-| Name     | Description | Type   |
-| -------- | ----------- | ------ |
-| snapshot |             | string |
-
-**Command Flags**
-
-| Name     | Description                                                                 | Type    |
-| -------- | --------------------------------------------------------------------------- | ------- |
-| --tags   | Filter snapshots by tags                                                    | array   |
-| --latest | Select the latest snapshot captured to cache in the preview database server | boolean |
-| --clear  | Remove the snapshot from the preview database server cache                  | boolean |
-
-### **create**
-
-The `snaplet database create` command is used to create a preview database from a snapshot.
-
-**Usage**
-
-```bash
-snaplet database create [database-name] [snapshot]
-```
-
-**Command Args**
-
-| Name          | Description | Type   |
-| ------------- | ----------- | ------ |
-| database-name |             | string |
-| snapshot      |             | string |
-
-**Command Flags**
-
-| Name          | Description                                                                             | Type    |
-| ------------- | --------------------------------------------------------------------------------------- | ------- |
-| --tags        | Filter snapshots by tags                                                                | array   |
-| --latest      | Restore the latest snapshot                                                             | boolean |
-| --no-snapshot | Create an empty database not based on a snapshot                                        | boolean |
-| --git         | Infer the database name from the current git branch                                     | boolean |
-| --force       | Force the database creation, it will drop and recreate the existing database if present | boolean |
-
-### **destroy**
-
-The `snaplet database destroy` command is used to destroy the database server.
-
-**Usage**
-
-```bash
-snaplet database destroy
+snaplet dev
 ```
 
 **Command Flags**
 
-| Name  | Alias | Description                                 | Type    | Default |
-| ----- | ----- | ------------------------------------------- | ------- | ------- |
-| --yes | -y    | Automatically answer "yes" to all questions | boolean | false   |
-
-### **drop**
-
-The `snaplet database drop` command is used to drop a preview database.
-
-**Usage**
-
-```bash
-snaplet database drop [database-name]
-```
-
-**Command Args**
-
-| Name         | Description | Type   |
-| ------------ | ----------- | ------ |
-| databaseName |             | string |
-
-**Command Flags**
-
-| Name  | Description                                         | Type    | Default |
-| ----- | --------------------------------------------------- | ------- | ------- |
-| --git | Infer the database name from the current git branch | boolean | false   |
-
-### **list**
-
-The `snaplet database list` command is used to list preview databases.
-
-**Usage**
-
-```bash
-snaplet database list
-```
-
-### **setup**
-
-The `snaplet database setup` command is used to create a preview database server.
-
-**Usage**
-
-```bash
-snaplet database setup
-```
-
-**Command Flags**
-
-| Name     | Description              | Type   | Choices                                                                                                 |
-| -------- | ------------------------ | ------ | ------------------------------------------------------------------------------------------------------- |
-| --region | Filter snapshots by tags | string | ams,cdg,den,dfw,ewr,fra,gru,hkg,iad,jnb,lax,lhr,maa,mad,mia,nrt,ord,otp,scl,sea,sin,sjc,syd,waw,yul,yyz |
-
-### **url**
-
-The `snaplet database url` command is used to show a preview database url.
-
-**Usage**
-
-```bash
-snaplet database url [database-name]
-```
-
-**Command Args**
-
-| Name         | Description | Type   |
-| ------------ | ----------- | ------ |
-| databaseName |             | string |
-
-**Command Flags**
-
-| Name  | Description                                         | Type    | Default |
-| ----- | --------------------------------------------------- | ------- | ------- |
-| --git | Infer the database name from the current git branch | boolean | false   |
+| Name   | Description                     | Type   | Default |
+| ------ | ------------------------------- | ------ | ------- |
+| --port | the port to expose the proxy on | number | 2345    |
 
 ## **discord**
 
@@ -272,6 +142,130 @@ The `snaplet documentation` command is used to opens the Snaplet Documentation i
 ```bash
 snaplet documentation
 ```
+
+## **preview-database**
+
+The `snaplet preview-database` command is used to manage preview databases.
+
+**Usage**
+
+```bash
+snaplet preview-database [action]
+```
+
+### **create**
+
+The `snaplet preview-database create` command is used to create a preview database from a snapshot.
+
+**Usage**
+
+```bash
+snaplet preview-database create [snapshot]
+```
+
+**Command Args**
+
+| Name     | Description                                                             | Type   |
+| -------- | ----------------------------------------------------------------------- | ------ |
+| snapshot | the identifier of the snapshot you want to base the preview database on | string |
+
+**Command Flags**
+
+| Name     | Description                                                  | Type    | Default |
+| -------- | ------------------------------------------------------------ | ------- | ------- |
+| --name   | assign a custom name to the preview database                 | string  |         |
+| --git    | derive the preview database name from the current git branch | boolean | false   |
+| --tags   | apply tag-based filters to the snapshots                     | array   |         |
+| --latest | use the most recent snapshot                                 | boolean | false   |
+
+### **url**
+
+The `snaplet preview-database url` command is used to get a connection URL for a specified preview database.
+
+**Usage**
+
+```bash
+snaplet preview-database url [name]
+```
+
+**Command Args**
+
+| Name | Description                                                                      | Type   |
+| ---- | -------------------------------------------------------------------------------- | ------ |
+| name | the identifier of the preview database whose connection URL you want to retrieve | string |
+
+**Command Flags**
+
+| Name  | Description                                                  | Type    | Default |
+| ----- | ------------------------------------------------------------ | ------- | ------- |
+| --git | derive the preview database name from the current git branch | boolean | false   |
+
+### **list**
+
+The `snaplet preview-database list` command is used to shows all preview databases created from a specific snapshot.
+
+**Usage**
+
+```bash
+snaplet preview-database list [snapshot]
+```
+
+**Command Args**
+
+| Name     | Description                                                             | Type   |
+| -------- | ----------------------------------------------------------------------- | ------ |
+| snapshot | the identifier of the snapshot whose preview databases you want to list | string |
+
+**Command Flags**
+
+| Name     | Description                              | Type    |
+| -------- | ---------------------------------------- | ------- |
+| --tags   | apply tag-based filters to the snapshots | array   |
+| --latest | use the most recent snapshot             | boolean |
+
+### **reset**
+
+The `snaplet preview-database reset` command is used to reset a specified preview database state.
+
+**Usage**
+
+```bash
+snaplet preview-database reset [name]
+```
+
+**Command Args**
+
+| Name | Description                                              | Type   |
+| ---- | -------------------------------------------------------- | ------ |
+| name | the identifier of the preview database you want to reset | string |
+
+**Command Flags**
+
+| Name  | Description                                                  | Type    | Default |
+| ----- | ------------------------------------------------------------ | ------- | ------- |
+| --git | derive the preview database name from the current git branch | boolean | false   |
+
+### **drop**
+
+The `snaplet preview-database drop` command is used to drops a specified preview database.
+
+**Usage**
+
+```bash
+snaplet preview-database drop [name]
+```
+
+**Command Args**
+
+| Name | Description                                               | Type   |
+| ---- | --------------------------------------------------------- | ------ |
+| name | the identifier of the preview database you want to delete | string |
+
+**Command Flags**
+
+| Name  | Description                                                  | Type    | Default |
+| ----- | ------------------------------------------------------------ | ------- | ------- |
+| --git | derive the preview database name from the current git branch | boolean | false   |
 
 ## **project**
 
@@ -321,10 +315,27 @@ snaplet project setup [project-id]
 
 **Command Args**
 
-| Name      | Description | Type   |
-| --------- | ----------- | ------ |
-| projectId |             | string |
+| Name      | Description    | Type   |
+| --------- | -------------- | ------ |
+| projectId | The project id | string |
 
+## **generate**
+
+The `snaplet generate` command is used to populates an empty database with generated data.
+
+**Usage**
+
+```bash
+snaplet generate
+```
+
+**Command Flags**
+
+| Name        | Description                                                        | Type    | Default |
+| ----------- | ------------------------------------------------------------------ | ------- | ------- |
+| --sql       | Send the sql statements to stdout instead of executing them        | boolean | false   |
+| --keep-data | Do not clear existing data in the db when inserting generated data | boolean | false   |
+| --yes       | Bypass interactive prompts                                         | boolean | false   |
 
 ## **setup**
 
@@ -358,13 +369,12 @@ snaplet snapshot capture [destination-path]
 
 **Command Flags**
 
-| Name             | Alias         | Description                                    | Type   | Choices            | Default |
-| ---------------- | ------------- | ---------------------------------------------- | ------ | ------------------ | ------- |
-| --env            | --environment | Environment to use when capturing the snapshot | string | cloud,local        | local   |
-| --message        | -m            | Attach a message to the snapshot               | string |                    |         |
-| --subset         | --subset-path | Path to a subset config file                   | string |                    |         |
-| --tags           |               | Attach tags to the snapshot                    | array  |                    |         |
-| --transform-mode | -t            | Transformation mode to apply to the snapshot   | string | strict,unsafe,auto |         |
+| Name             | Alias         | Description                                  | Type   | Choices            |
+| ---------------- | ------------- | -------------------------------------------- | ------ | ------------------ |
+| --message        | -m            | Attach a message to the snapshot             | string |                    |
+| --subset         | --subset-path | Path to a subset config file                 | string |                    |
+| --tags           |               | Attach tags to the snapshot                  | array  |                    |
+| --transform-mode | -t            | Transformation mode to apply to the snapshot | string | strict,unsafe,auto |
 
 ### **create**
 
@@ -410,22 +420,24 @@ snaplet snapshot restore [snapshot-name|snapshot-path]
 
 **Command Args**
 
-| Name          | Description   | Type |
-| ------------- | ------------- | ---- | ------ |
-| snapshot-name | snapshot-path |      | string |
+| Name                        | Description                             | Type   |
+| --------------------------- | --------------------------------------- | ------ |
+| snapshot-name|snapshot-path | the unique name or path of the snapshot | string |
 
 **Command Flags**
 
-| Name          | Alias | Description                                                               | Type    | Deprecated | Default |
-| ------------- | ----- | ------------------------------------------------------------------------- | ------- | :--------: | ------- |
-| --data        |       | Restore data on the database (skip with --no-data)                        | boolean |            | true    |
-| --schema      |       | Restore schema on the database (skip with --no-schema)                    | boolean |            | true    |
-| --reset       |       | Drop destination database before restoring schemas (skip with --no-reset) | boolean |            | true    |
-| --tags        |       | Filter snapshots by tags                                                  | array   |            |         |
-| --latest      |       | Restore the latest snapshot                                               | boolean |            | false   |
-| --yes         | -y    | Performs a restore without a confirmation message                         | boolean |            | false   |
-| --schema-only |       | Skip data, only restore schema                                            | boolean |     ✅     | false   |
-| --data-only   |       | Restore data only (keep the current schema and indexes)                   | boolean |     ✅     | false   |
+| Name             | Alias | Description                                                               | Type    | Deprecated | Default |
+| ---------------- | ----- | ------------------------------------------------------------------------- | ------- | :--------: | ------- |
+| --data           |       | Restore data on the database (skip with --no-data)                        | boolean |            | true    |
+| --schema         |       | Restore schema on the database (skip with --no-schema)                    | boolean |            | true    |
+| --reset          |       | Drop destination database before restoring schemas (skip with --no-reset) | boolean |            | true    |
+| --tags           |       | Filter snapshots by tags                                                  | array   |            |         |
+| --latest         |       | Restore the latest snapshot                                               | boolean |            | false   |
+| --yes            | -y    | Performs a restore without a confirmation message                         | boolean |            | false   |
+| --schema-only    |       | Skip data, only restore schema                                            | boolean |      ✅     | false   |
+| --data-only      |       | Restore data only (keep the current schema and indexes)                   | boolean |      ✅     | false   |
+| --tables         |       | Restore only the specified tables to the target database                  | array   |            |         |
+| --exclude-tables |       | Exclude the specified tables from being restored to the target database   | array   |            |         |
 
 ### **share**
 
@@ -439,9 +451,9 @@ snaplet snapshot share [snapshot-name|snapshot-path]
 
 **Command Args**
 
-| Name          | Description   | Type |
-| ------------- | ------------- | ---- | ------ |
-| snapshot-name | snapshot-path |      | string |
+| Name                        | Description                             | Type   |
+| --------------------------- | --------------------------------------- | ------ |
+| snapshot-name|snapshot-path | the unique name or path of the snapshot | string |
 
 **Command Flags**
 
@@ -450,6 +462,24 @@ snaplet snapshot share [snapshot-name|snapshot-path]
 | --no-encrypt | Disable encryption        | boolean | false   |
 | --tags       | Filter snapshots by tags  | array   |         |
 | --latest     | Share the latest snapshot | boolean | false   |
+
+### **subset**
+
+The `snaplet snapshot subset` command is used to create a subset of a database.
+
+**Usage**
+
+```bash
+snaplet snapshot subset [destination-path]
+```
+
+**Command Flags**
+
+| Name          | Alias                | Description                                 | Type    | Choices     | Default |
+| ------------- | -------------------- | ------------------------------------------- | ------- | ----------- | ------- |
+| --env         | --environment        | Environment to use when slicing the databse | string  | cloud,local | local   |
+| --subset-path | --subset-config-path | Path to a subset config file                | string  |             |         |
+| --force       | -f                   | Force overwrite of existing subset file     | boolean |             | false   |
 
 ## **subset**
 
